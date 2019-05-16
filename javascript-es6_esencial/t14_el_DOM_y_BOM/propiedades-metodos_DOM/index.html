@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1 class="title">Lorem ipsum</h1>
+    <button id="boton">¡Púlsame!</button>
+    <div id="container">
+        <p class="principal">
+            Parrafo 1 <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sapien nulla, tincidunt nec ante
+            ut, porta tempus dui. Integer consequat rhoncus tempus. Etiam nulla nisl, mattis a nisl pulvinar, tempor elementum
+            lectus. Morbi sed tortor luctus, faucibus dolor eu, ullamcorper arcu. Aenean condimentum quis nisi et malesuada.
+            Morbi nec mi et turpis condimentum suscipit quis vel arcu. Vestibulum at mi vitae urna gravida consectetur. Nam
+            suscipit ac purus a bibendum.
+        </p>
+        <p>
+            Parrafo 2 <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sapien nulla, tincidunt nec ante
+            ut, porta tempus dui. Integer consequat rhoncus tempus. Etiam nulla nisl, mattis a nisl pulvinar, tempor elementum
+            lectus. Morbi sed tortor luctus, faucibus dolor eu, ullamcorper arcu. Aenean condimentum quis nisi et malesuada.
+            Morbi nec mi et turpis condimentum suscipit quis vel arcu. Vestibulum at mi vitae urna gravida consectetur. Nam
+            suscipit ac purus a bibendum.
+        </p>
+        <p>
+            Parrafo 3 <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sapien nulla, tincidunt nec ante
+            ut, porta tempus dui. Integer consequat rhoncus tempus. Etiam nulla nisl, mattis a nisl pulvinar, tempor elementum
+            lectus. Morbi sed tortor luctus, faucibus dolor eu, ullamcorper arcu. Aenean condimentum quis nisi et malesuada.
+            Morbi nec mi et turpis condimentum suscipit quis vel arcu. Vestibulum at mi vitae urna gravida consectetur. Nam
+            suscipit ac purus a bibendum.
+        </p>
+    </div>
+
+    <script>
+        //********************************
+        //*** Propiedades y métodos del DOM
+
+        var boton = document.getElementById("boton");
+
+        var todosLosParrafos = document.getElementsByTagName('p');
+        var parrafoPorClase = document.getElementsByClassName('principal')[0].textContent;
+
+        var foto = document.createElement('img');
+        foto.src = "foto1.jpg";
+        foto.name = "foto1";
+        foto.width = 400;
+        document.body.appendChild(foto);
+
+        foto.addEventListener('click', function () {
+
+            if (this.name === 'foto1') {
+                this.src = 'foto2.jpg';
+                this.name = 'foto2';
+            } else {
+                this.src = 'foto1.jpg';
+                this.name = 'foto1';
+            }
+
+        })
+
+
+
+        boton.addEventListener('click', function () {
+            boton.style.backgroundColor = "green";
+            boton.style.color = "white";
+            boton.style.width = "200px";
+        })
+    </script>
+
+</body>
+
+</html>

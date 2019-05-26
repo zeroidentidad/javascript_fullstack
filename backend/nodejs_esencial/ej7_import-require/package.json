@@ -1,0 +1,19 @@
+{
+  "name": "prueba1",
+  "version": "1.0.0",
+  "description": "Proyecto de prueba inicial",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "auditar": "npm audit && node app.js"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "Jesus Ferrer",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}

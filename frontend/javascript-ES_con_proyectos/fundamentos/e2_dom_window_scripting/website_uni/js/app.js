@@ -1,22 +1,22 @@
-//Traversing inverso
-const enlaces = document.querySelectorAll('.enlace');
+//Crear elementos
 
-//console.log(enlaces[0].parentNode);
-/* console.log(enlaces[0].parentElement);
-console.log(enlaces[0].parentElement.parentElement);
-console.log(enlaces[0].parentElement.parentElement.parentElement); */
+const enlace = document.createElement('a');
 
-const cursos = document.querySelectorAll('.card');
-/* console.log(cursos[0]);
-console.log(cursos[0].parentElement);
-console.log(cursos[0].parentElement.parentElement); */
-console.log(cursos[0].parentElement.parentElement.parentElement);
-console.log(cursos[0].parentElement.parentElement.parentElement.children[0].textContent='hola ese');
+//agregamos una clase
+enlace.className='enlace';
 
-const enlacesibling = document.querySelectorAll('.enlace');
+//añadir id
+enlace.id = 'nuevo-id';
 
-console.log(enlacesibling[4].previousElementSibling.previousElementSibling);
+//atributo href
+enlace.setAttribute('href', '#');
 
-console.log(enlacesibling[0].nextElementSibling);
+//añadir texto
+//enlace.innerText='Texto';
+//enlace.textContent='Texto';
+enlace.appendChild(document.createTextNode('Texto x'));
 
-console.log(enlacesibling[0].nextElementSibling.nextElementSibling.parentElement.children[4]);
+//agregar al html
+document.querySelector('#secundaria').appendChild(enlace);
+
+console.log(enlace);

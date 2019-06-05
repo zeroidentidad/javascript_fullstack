@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Bienvenido a Express
+
+  if datos
+    h1 Libro
+      p #{datos.libro}
+
+    h1 Autor
+      p #{datos.autor}  
+
+  p
+    a(href="http://google.com") Ir a Google

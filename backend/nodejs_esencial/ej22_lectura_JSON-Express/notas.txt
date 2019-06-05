@@ -1,0 +1,13 @@
+
+Instalación global: sudo npm install express-generator -g
+
+Comando uso con Pug templates: express --view=pug nombreproyecto
+
+   change directory:
+     $ cd test_base
+
+   install dependencies:
+     $ npm install
+
+   run the app:
+     $ DEBUG=test-base:* npm start

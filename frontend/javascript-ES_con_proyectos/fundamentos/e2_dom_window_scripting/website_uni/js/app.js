@@ -1,32 +1,25 @@
-//Agregar - quitar clases o atributos
+//Event listener click en buscador
 
-const enlaces = document.querySelectorAll('.enlace');
+//alert();
 
-const navegacion = document.querySelector('#principal');
+/*  document.querySelector('#submit-buscador').addEventListener('click', function(e) {
+     e.preventDefault();
+     alert("Buscando cursos");
+ });
+ */
 
-//enlaces[0].remove();
-//navegacion.removeChild(enlaces[0]);
+ document.querySelector('#submit-buscador').addEventListener('click', ejecutarBoton);
 
-//console.log(navegacion);
+ function ejecutarBoton(e) {
+    e.preventDefault();
+    let elemento
 
-const primerLi = document.querySelector('.enlace');
+    elemento=e;
+    elemento=e.target;
 
-let elemento;
+    console.log(elemento);
+ }
 
-// obtener una clase de CSS
-elemento = primerLi.className;
-elemento = primerLi.classList.add('nueva-clase');
-elemento = primerLi.classList.remove('nueva-clase');
-elemento = primerLi.classList;
-
-//leer atributos
-elemento = primerLi.getAttribute('href');
-primerLi.setAttribute('href', 'http://facebook.com');
-elemento = primerLi;
-primerLi.setAttribute('data-id', 26);
-elemento = primerLi.hasAttribute('data-id');
-
-primerLi.removeAttribute('data-id');
-elemento = primerLi;
-
-console.log(elemento);
+ document.querySelector("#encabezado").addEventListener('click', function(e) {
+     e.target.innerText = 'Encabezado modificado';
+ })

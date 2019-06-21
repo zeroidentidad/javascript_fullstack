@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 50,
         backgroundColor: "#d7dde5",
-        marginLeft: 16
+        marginLeft: 16,
+        fontSize: 20,
     }
 });
 

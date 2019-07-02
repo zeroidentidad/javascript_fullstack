@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, ScrollView, ListView } from 'react-native';
+import { StyleSheet, ScrollView, ListView, TouchableOpacity } from 'react-native';
 import ArtistBox from './artistbox';
+import { Actions } from 'react-native-router-flux';
 
 export default class ArtistList extends Component {
     constructor(props) {
@@ -25,13 +26,24 @@ export default class ArtistList extends Component {
         })        
     }
 
+    handlePress(artista){
+        Actions.detalle({ artista });
+    }   
+
     render() {
 
         return (
             <ListView
                 enableEmptySections
                 dataSource={this.state.dataSource}
-                renderRow={(artista) => <ArtistBox artista={artista}></ArtistBox>}
+                renderRow={(artista) => { 
+                    return (
+                    <TouchableOpacity onPress={()=>this.handlePress(artista)}>
+                    <ArtistBox artista={artista}></ArtistBox>
+                    </TouchableOpacity>
+                    )
+                    }
+                }
             />
             /*<ScrollView style={styles.container}>
               {
@@ -49,6 +61,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'lightgray',
-        paddingTop: 30
+        paddingTop: 10
     }
 });

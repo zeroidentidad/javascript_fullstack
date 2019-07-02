@@ -7,47 +7,26 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, View} from 'react-native';
-import ArtistList from './app/componentes/artistlist';
-//import getArtistas from './app/api/cliente';
-import {getArtistas} from './app/api/cliente';
+import Platform from 'react-native';
+import {Scene, Router, Stack} from 'react-native-router-flux';
+import Home from './app/vistas/home';
+import Detalle from './app/vistas/detalle';
 
 type Props = {};
 export default class App extends Component<Props> {
 
-  state = {
-    artistas: []
-  }
-
-  componentDidMount(){
-    getArtistas().then(datos => this.setState({artistas: datos}));
-  }
-
   render() {
-    
-    const artistas = this.state.artistas
+
+    const isAndroid = Platform.OS === 'android';
 
     return (
-      <View style={styles.container}>
-        <ArtistList artistas={artistas}/>
-      </View>
-      
-      /*<ScrollView style={styles.container}>
-        {
-          Array(500).fill(artista).map(artista=>{
-            return <ArtistBox artista={artista}></ArtistBox>
-          })
-        }
-      </ScrollView>*/
+      <Router>
+        <Stack key="root">
+          <Scene key="home" component={Home} hideNavBar />
+          <Scene key="detalle" component={Detalle} />
+        </Stack>
+      </Router>
     );
   }
   
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'lightgray',
-    paddingTop: 30
-  }
-});

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+
+    <div id="contenido">
+        <div class="container">
+
+            <h2>Local Storage</h2>
+            <div class="row">
+                <div class="six columns">
+                    <label for="nota"><h4>Notas:</h4></label>
+                    <form action="#" id="formulario">
+                            <label for="nota"></label>
+                            <textarea id="nota" class="u-full-width"></textarea>
+                            <input type="submit" class="button u-full-width button-primary" value="Agregar">
+                    </form>
+                </div>
+                <div class="six columns">
+                    <h2>Mis Notas</h2>
+                    <div id="lista-notas"></div>
+                    <button type="button" class="button u-full-width" onclick="javascript:location.href='./index.html'">Recargar ventana</button>
+                </div>
+            </div>
+
+        </div>
+    </div> <!--#contenido-->
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

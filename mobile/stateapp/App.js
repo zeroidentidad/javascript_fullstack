@@ -15,9 +15,9 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      saludo: 'Hola prros del mal',
+      saludo: 'Hola hola',
       user: 256,
-      userName: 'x',
+      userName: 'N/A',
       password: '1234'
     }
   }
@@ -44,7 +44,7 @@ export default class App extends Component {
         >{userName}</TextInput>
         <Button style={{ padding: 10 }} title="Sumar usuario" onPress={this.sumarUsuario}></Button>
         <AppLayout 
-        saludo="Que pedo" 
+        saludo="Hola fb" 
         userName={this.state.userName}
         password={this.state.password}
         />

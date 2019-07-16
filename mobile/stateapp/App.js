@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Button, TextInput} from 'react-native';
+import AppLayout from './app/appLayout';
 
 export default class App extends Component {
 
@@ -16,7 +17,8 @@ export default class App extends Component {
     this.state = {
       saludo: 'Hola prros del mal',
       user: 256,
-      userName: 'x'
+      userName: 'x',
+      password: '1234'
     }
   }
 
@@ -41,6 +43,11 @@ export default class App extends Component {
           onChangeText={(userName) => this.setState({ userName })}
         >{userName}</TextInput>
         <Button style={{ padding: 10 }} title="Sumar usuario" onPress={this.sumarUsuario}></Button>
+        <AppLayout 
+        saludo="Que pedo" 
+        userName={this.state.userName}
+        password={this.state.password}
+        />
       </View>
     );
   }

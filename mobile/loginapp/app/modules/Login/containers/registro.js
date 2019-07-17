@@ -4,18 +4,26 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body, Button, Icon, Item, Label, Input } from "native-base";
 
 export default class Registro extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            titulo: this.props.navigation.getParam('titulo')
+        }
+    }
 
     render() {
         return (
             <Container>
                 <Content padder contentContainerStyle={styles.content}>
+                    <KeyboardAvoidingView behavior="padding" enabled>
                     <Card>
                         <CardItem header bordered>
-                            <Text style={styles.textCenter}>Nuevo usuario</Text>
+                            <Text style={styles.textCenter}>{this.state.titulo}</Text>
                         </CardItem>
                         <CardItem bordered>
                             <Body style={styles.body}>
@@ -42,6 +50,7 @@ export default class Registro extends Component {
                             </Button>
                         </CardItem>
                     </Card>
+                    </KeyboardAvoidingView>
                 </Content>
             </Container>
         );

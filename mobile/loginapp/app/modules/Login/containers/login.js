@@ -4,19 +4,20 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body, Button, Icon, Item, Label, Input } from "native-base";
 
 export default class Login extends Component {
 
     registro = ()=>{
-        this.props.navigation.navigate('Registro')
+        this.props.navigation.navigate('Registro', { titulo: 'Nuevo Usuario\n' + (new Date()).toDateString()})
     }
 
     render() {
         return (
             <Container>
                 <Content padder contentContainerStyle={styles.content}>
+                    <KeyboardAvoidingView behavior="padding" enabled>
                     <Card>
                         <CardItem header bordered>
                             <Text style={styles.textCenter}>Inicio sesión</Text>
@@ -44,6 +45,7 @@ export default class Login extends Component {
                             </Button>
                         </CardItem>
                     </Card>
+                    </KeyboardAvoidingView>
                 </Content>
             </Container>
         );

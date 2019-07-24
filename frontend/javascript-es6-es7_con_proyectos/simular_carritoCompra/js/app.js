@@ -8,7 +8,10 @@ cargarEventListeners();
 
 function cargarEventListeners() {
     //Cuando de presiona agregar carrito
-    cursos.addEventListener('click', comprarCurso)
+    cursos.addEventListener('click', comprarCurso);
+
+    //Cuando se presiona X en curso del carrito
+    carrito.addEventListener('click', eliminarCurso);
 }
 
 //Funciones
@@ -46,4 +49,14 @@ function insertarCarrito(infoCurso){
     `;
 
     listaCursos.appendChild(row);
+}
+
+//Eliminar curso del carrito en el DOM
+function eliminarCurso(e){
+    e.preventDefault();
+    
+    let curso;
+    if(e.target.classList.contains('borrar-curso')){
+        e.target.parentElement.parentElement.remove();
+    }
 }

@@ -16,6 +16,9 @@ function cargarEventListeners() {
 
     //Al presionar Vaciar carrito
     vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+
+    //Al cargar DOM mostrar localStorage
+    document.addEventListener('DOMContentLoaded', leerLocalStorage);
 }
 
 //Funciones
@@ -53,6 +56,7 @@ function insertarCarrito(infoCurso){
     `;
 
     listaCursos.appendChild(row);
+    guardarCursoLocalStorage(infoCurso);
 }
 
 //Eliminar curso del carrito en el DOM
@@ -73,4 +77,51 @@ function vaciarCarrito(){
     }
 
     return false;
+}
+
+//Almacenar curso del carrito en el localStorage
+
+function guardarCursoLocalStorage(curso){
+    let cursos;
+
+    cursos = obtenerCursosLocalStorage();
+
+    //curso seleccionado se agrega al arreglo vacio o al final de los elementos existentes
+    cursos.push(curso);
+    
+    localStorage.setItem('cursos', JSON.stringify(cursos))
+}
+
+//Comprobar elementos en localStorage
+function obtenerCursosLocalStorage() {
+    let cursosLS;
+
+    //comprobar si hay algo en localSotrage
+    if(localStorage.getItem('cursos')===null){
+        cursosLS = [];
+    }else{
+        cursosLS = JSON.parse(localStorage.getItem('cursos'));
+    }
+
+    return cursosLS;
+}
+
+//Imprimir cursos de localStorage
+function leerLocalStorage () {
+    let cursosLS;
+
+    cursosLS = obtenerCursosLocalStorage();
+
+    cursosLS.forEach(function (curso) {
+        //construir template
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td><img width="100" src="${curso.imagen}" /></td>
+        <td>${curso.titulo}</td>
+        <td>${curso.precio}</td>
+        <td><a href="#" class="borrar-curso" data-id="${curso.id}">X<a/></td>
+        `;
+
+        listaCursos.appendChild(row);
+    })
 }

@@ -7,6 +7,7 @@ function getArtistas(params) {
        .then(datos => datos.topartists.artist)
        .then(artistas => artistas.map(artist => ({
            //return {
+               id: artist.mbid,
                name: artist.name,
                image: `https://picsum.photos/id/${Math.floor(Math.random()*1000)}/200/200?blur=2`,
                likes: 10,

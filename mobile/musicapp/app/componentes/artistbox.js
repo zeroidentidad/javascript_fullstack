@@ -1,11 +1,55 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
+import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+import { fbdb, fbauth } from '../config/firebase';
 
 export default class ArtistBox extends Component {
+
+    state = {
+        liked: false
+    }
+
+    handlePress = () =>{
+        this.setState({liked: !this.state.liked})
+
+        this.toggleLike(!this.state.liked)
+    }
+
+    getArtistaRef= () =>{
+        const { id } = this.props.artista
+
+        return fbdb.ref(`artista/${id}`);      
+    }
+
+    toggleLike = (liked) =>{
+        const {uid} = fbauth.currentUser;
+        this.getArtistaRef().transaction(function (artista) {
+                if (artista) {
+                    if (artista.likes && artista.likes[uid]) {
+                        artista.likeCount--;
+                        artista.likes[uid] = null;
+                    } else {
+                        artista.likeCount++;
+                        if (!artista.likes) {
+                            artista.likes = {};
+                        }
+                        artista.likes[uid] = true;
+                    }
+                }
+            return artista || {
+                    likeCount: 1,
+                    likes:{
+                        [uid]: true
+                    }
+                };
+            });
+    }
+
     render() {
 
         const {image, name, likes, comentarios} = this.props.artista;
+
+        const likeIcon = this.state.liked ? <Icon name="star" size={30} color="orange" /> : <Icon name="star-outlined" size={30} color="lightgray" />
 
         return (
             <View style={styles.artistBox}>
@@ -14,11 +58,13 @@ export default class ArtistBox extends Component {
                     <Text style={styles.name}>{name}</Text>
                     <View style={styles.row}>
                         <View style={styles.iconContainer}>
-                            <Icon name="heart" size={30} color="lightgray" />
+                            <TouchableOpacity onPress={this.handlePress}>
+                                {likeIcon}
+                            </TouchableOpacity>
                             <Text style={styles.count}>{likes}</Text>
                         </View>
                         <View style={styles.iconContainer}>
-                            <Icon name="comment" size={30} color="lightgray" />
+                            <Icon name="new-message" size={30} color="lightgray" />
                             <Text style={styles.count}>{comentarios}</Text>
                         </View>
                     </View>

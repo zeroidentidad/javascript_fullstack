@@ -33,7 +33,7 @@ export default class CommentList extends Component {
                 dataSource={this.state.dataSource}
                 renderRow={(comentario) => {
                     return (
-                        <Comments text={comentario.text}></Comments>
+                        <Comments text={comentario.text} avatar={comentario.userPhoto}></Comments>
                     )
                 }
                 }

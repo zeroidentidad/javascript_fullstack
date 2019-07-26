@@ -29,12 +29,13 @@ export default class Detalle extends Component {
 
     handleSend = () =>{
         const {text}=this.state
+        const { photoURL } = fbauth.currentUser;
         const artistaCommnetsRef = this.getArtistaCommnetsRef()
 
         const commentsCountRef = this.getArtistaCommentsCountRef()
 
         var newCommnetRef = artistaCommnetsRef.push();
-        newCommnetRef.set({ text });
+        newCommnetRef.set({ text, userPhoto: photoURL });
         this.setState({ text: '' })
         
         commentsCountRef.transaction(function (totalComments) {

@@ -10,8 +10,8 @@ function getArtistas(params) {
                id: artist.mbid,
                name: artist.name,
                image: `https://picsum.photos/id/${Math.floor(Math.random()*1000)}/200/200?blur=2`,
-               likes: 10,
-               comentarios: 5,
+               likes: 0,
+               comentarios: 0,
            //}
        })))
 }

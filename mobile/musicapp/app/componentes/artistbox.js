@@ -7,7 +7,8 @@ export default class ArtistBox extends Component {
 
     state = {
         liked: false,
-        likeCount: 0
+        likeCount: 0,
+        commentCount: 0
     }
 
     componentWillMount(){
@@ -21,6 +22,17 @@ export default class ArtistBox extends Component {
                 })
             }
         })
+
+        // para los comentarios
+        this.getArtistaCommentsCountRef().on('value', snapshot => {
+            const totalComments = snapshot.val()
+            if (totalComments) {
+                this.setState({
+                    commentCount: totalComments.commentCount
+                })
+            }
+        })       
+
     }
 
     handlePress = () =>{
@@ -34,6 +46,11 @@ export default class ArtistBox extends Component {
 
         return fbdb.ref(`artista/${id}`);      
     }
+
+    getArtistaCommentsCountRef = () => {
+        const { id } = this.props.artista
+        return fbdb.ref(`artistaCommentsCount/${id}`)
+    }      
 
     toggleLike = (liked) =>{
         const {uid} = fbauth.currentUser;
@@ -66,6 +83,7 @@ export default class ArtistBox extends Component {
         const likeIcon = this.state.liked ? <Icon name="star" size={30} color="orange" /> : <Icon name="star-outlined" size={30} color="lightgray" />
 
         const {likeCount} = this.state
+        const {commentCount} = this.state
 
         return (
             <View style={styles.artistBox}>
@@ -81,7 +99,7 @@ export default class ArtistBox extends Component {
                         </View>
                         <View style={styles.iconContainer}>
                             <Icon name="new-message" size={30} color="lightgray" />
-                            <Text style={styles.count}>{comentarios}</Text>
+                            <Text style={styles.count}>{commentCount}</Text>
                         </View>
                     </View>
                 </View>
@@ -124,6 +142,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     count: {
-        color: 'gray'
+        color: 'gray',
+        fontSize: 20
     }
 });

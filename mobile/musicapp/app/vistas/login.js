@@ -2,21 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import FBSDK, { LoginButton, AccessToken } from 'react-native-fbsdk';
 import { Actions } from 'react-native-router-flux';
-import * as firebase from 'firebase';
-
-const firebaseConfig = {
-    apiKey: "AIzaSyA5nB2538FHQnOmzE4mQp6l3y_4w6KKTuU",
-    authDomain: "musicapp-rn.firebaseapp.com",
-    databaseURL: "https://musicapp-rn.firebaseio.com",
-    projectId: "musicapp-rn",
-    storageBucket: "",
-    messagingSenderId: "430730420840",
-    appId: "1:430730420840:web:b08f2d01269cf03c"
-};
-firebase.initializeApp(firebaseConfig);
+import firebase, { fbauth } from '../config/firebase.js';
 
 const { FacebookAuthProvider } = firebase.auth;
-const fbauth = firebase.auth();
 
 export default class Login extends Component {
 

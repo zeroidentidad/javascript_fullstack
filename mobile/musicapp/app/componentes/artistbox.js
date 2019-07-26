@@ -6,11 +6,25 @@ import { fbdb, fbauth } from '../config/firebase';
 export default class ArtistBox extends Component {
 
     state = {
-        liked: false
+        liked: false,
+        likeCount: 0
+    }
+
+    componentWillMount(){
+        const {uid} = fbauth.currentUser;
+        this.getArtistaRef().on('value', snapshot =>{
+            const artista = snapshot.val()
+            if (artista){
+                this.setState({
+                    likeCount: artista.likeCount,
+                    liked: artista.likes && artista.likes[uid]
+                })
+            }
+        })
     }
 
     handlePress = () =>{
-        this.setState({liked: !this.state.liked})
+        //this.setState({liked: !this.state.liked}) //set local
 
         this.toggleLike(!this.state.liked)
     }
@@ -51,6 +65,8 @@ export default class ArtistBox extends Component {
 
         const likeIcon = this.state.liked ? <Icon name="star" size={30} color="orange" /> : <Icon name="star-outlined" size={30} color="lightgray" />
 
+        const {likeCount} = this.state
+
         return (
             <View style={styles.artistBox}>
                 <Image style={styles.image} source={{ uri: image }}></Image>
@@ -61,7 +77,7 @@ export default class ArtistBox extends Component {
                             <TouchableOpacity onPress={this.handlePress}>
                                 {likeIcon}
                             </TouchableOpacity>
-                            <Text style={styles.count}>{likes}</Text>
+                            <Text style={styles.count}>{likeCount}</Text>
                         </View>
                         <View style={styles.iconContainer}>
                             <Icon name="new-message" size={30} color="lightgray" />

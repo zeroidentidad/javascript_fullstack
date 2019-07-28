@@ -1,0 +1,41 @@
+body {
+    background: #052219;
+    background: -webkit-linear-gradient(to right, #185a9d, #052219);
+    background: linear-gradient(to right, #185a9d, #052219); 
+}
+#contenido {
+    background-color: white;
+    margin-top: 40px;
+    -webkit-box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+}
+#contenido::after {
+    clear: both;
+    display: block;
+    content: '';
+}
+header {
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+}
+form {
+    margin: 30px 0;
+}
+#loaders {
+    text-align: center;
+}
+#loaders img {
+    width: 150px;
+    margin: 0 auto;
+}
+#resetBtn {
+    float: right;
+}
+
+#spinner {
+    display: none;
+}

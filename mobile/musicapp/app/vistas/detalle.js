@@ -69,7 +69,6 @@ export default class Detalle extends Component {
         return (
             <View style={styles.container}>
                 <ArtistBox artista={artista} />
-                <Text style={styles.hcomentario}>Comentarios:</Text>
                 <CommentList comentarios={comentarios}/>
                 <View style={styles.inputContainer}>
                     <TextInput

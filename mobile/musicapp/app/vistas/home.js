@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import ArtistList from '../componentes/artistlist';
 //import getArtistas from './app/api/cliente';
 import { getArtistas } from '../api/cliente';
@@ -7,7 +7,7 @@ import { getArtistas } from '../api/cliente';
 export default class Home extends Component {
 
     state = {
-        artistas: []
+        artistas: null
     }
 
     componentDidMount() {
@@ -20,7 +20,8 @@ export default class Home extends Component {
 
         return (
             <View style={styles.container}>
-                <ArtistList artistas={artistas} />
+                {!artistas && <ActivityIndicator size="large" />}
+                {artistas && <ArtistList artistas={artistas} />}
             </View>
 
             /*<ScrollView style={styles.container}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, ImageBackground, Image, View, Text, Button } from 'react-native';
 import FBSDK, { LoginButton, AccessToken } from 'react-native-fbsdk';
 import { Actions } from 'react-native-router-flux';
 import firebase, { fbauth } from '../config/firebase.js';
@@ -65,7 +65,8 @@ export default class Login extends Component {
         )        
 
         return (
-            <View style={styles.container}>
+            <ImageBackground style={styles.container} source={require('../img/login_back.jpg')}>
+                <Image style={styles.icono} source={require('../img/rn_icon.png')}/>
                 <Text style={styles.texto}>DemoApp</Text>
                 <Text style={styles.texto}>{this.state.user && this.state.user.displayName}</Text>
                 {this.state.user ? continuarButton : <Text></Text>}
@@ -74,7 +75,7 @@ export default class Login extends Component {
                     readPermissions={["public_profile", "email"]}
                     onLoginFinished={this.handleLogin}
                     onLogoutFinished={() => alert("Saliste.")} />                
-            </View>
+            </ImageBackground>
         );
     }
 
@@ -86,12 +87,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'lightgray',
         paddingTop: 10,
         justifyContent: 'center',
-        alignItems: 'center'
-
+        alignItems: 'center',
+        width: null,
+        height: null
     },
     texto: {
         fontSize: 24,
         fontWeight: '600',
-        marginBottom: 20
+        marginBottom: 20,
+        backgroundColor: 'transparent',
+        color: 'red'
+    },
+    icono: {
+        width: 150,
+        height: 150,
+        marginBottom: 10
     }
 });

@@ -26,7 +26,7 @@ export default class App extends Component<Props> {
         <Stack key="root">
           <Scene key="login" component={Login} hideNavBar />
           <Scene key="home" component={Home} hideNavBar />
-          <Scene key="detalle" component={Detalle} />
+          <Scene key="detalle" component={Detalle} title="Comentarios" hideNavBar={false}/>
         </Stack>
       </Router>
     );

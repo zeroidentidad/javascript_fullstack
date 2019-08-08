@@ -9,9 +9,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import firebase from 'firebase';
+import Login from "./Login";
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
 
   componentWillMount(){
     firebase.initializeApp({
@@ -28,7 +28,8 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.bienvenida}>Bienvenid@ a CRMApp</Text>
+        <Login />
       </View>
     );
   }
@@ -40,5 +41,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  bienvenida: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   }
 });

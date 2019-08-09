@@ -19,7 +19,7 @@ export default class App extends Component {
       authDomain: "crmapp-rn.firebaseapp.com",
       databaseURL: "https://crmapp-rn.firebaseio.com",
       projectId: "crmapp-rn",
-      storageBucket: "",
+      storageBucket: "crmapp-rn.appspot.com",
       messagingSenderId: "877801036363",
       appId: "1:877801036363:web:7ab325e40334a766"
     });

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { MKTextField, MKColor, MKButton } from "react-native-material-kit";
 import Loader from './Loader';
+import firebase from 'firebase';
 
 const LoginButton = MKButton.coloredButton().withText('Acceder').build();
 
@@ -9,12 +10,39 @@ export default class Login extends Component {
     state = {
         email:'',
         password:'',
+        error: '',
         loading: false
     }
 
     onButtonPress(){
-        console.log('Click btn!')
+        const {email, password} = this.state;
+        this.setState({error: '', loading: true});
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(this.onAuthSuccess.bind(this))
+        .catch(()=>{
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(this.onAuthSuccess.bind(this))
+            .catch(this.onAuthFailed.bind(this))
+        })
+        console.warn('Click btn!')
     }
+
+    onAuthSuccess(){
+        this.setState({
+        email:'',
+        password:'',
+        error: '',
+        loading: false            
+        })
+    }
+
+    onAuthFailed(){
+        this.setState({
+        error: 'Fallo autenticación',
+        loading: false            
+        })
+    }    
 
     renderLoader(){
         if(this.state.loading){
@@ -27,7 +55,7 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.bienvenida}>Login:</Text>
+                <Text style={styles.bienvenida}>Login (autoReg):</Text>
                 <MKTextField
                 text={this.state.email}
                 onTextChange={email => this.setState({email})}
@@ -77,6 +105,9 @@ const styles = StyleSheet.create({
       marginTop: 20
   },
   errorMessage: {
-
+      marginTop: 15,
+      fontSize: 16,
+      color: 'red',
+      alignSelf: 'center'
   }
 });

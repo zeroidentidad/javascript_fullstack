@@ -10,8 +10,12 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import firebase from 'firebase';
 import Login from "./Login";
+import Loader from './Loader';
+import PeopleList from './PeopleList';
 
 export default class App extends Component {
+
+  state = {loggedIn: null};
 
   componentWillMount(){
     firebase.initializeApp({
@@ -23,13 +27,32 @@ export default class App extends Component {
       messagingSenderId: "877801036363",
       appId: "1:877801036363:web:7ab325e40334a766"
     });
+
+    firebase.auth().onAuthStateChanged((user)=>{
+      if(user){
+        this.setState({loggedIn: true})
+      }else{
+        this.setState({loggedIn: false})
+      }
+    })
+  }
+
+  renderInitView(){
+    switch (this.state.loggedIn) {
+      case true:
+        return <PeopleList />
+      case false:
+        return <Login />
+      default:
+        return <Loader/>
+    }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.bienvenida}>Bienvenid@ a CRMApp</Text>
-        <Login />
+        <Text style={styles.bienvenida}>CRM App</Text>
+        {this.renderInitView()}
       </View>
     );
   }

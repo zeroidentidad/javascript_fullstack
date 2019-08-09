@@ -24,8 +24,8 @@ export default class Login extends Component {
             firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(this.onAuthSuccess.bind(this))
             .catch(this.onAuthFailed.bind(this))
+            console.warn('Autoregistro')
         })
-        console.warn('Click btn!')
     }
 
     onAuthSuccess(){

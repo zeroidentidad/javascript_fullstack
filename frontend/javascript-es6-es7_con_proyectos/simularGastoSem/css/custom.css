@@ -1,7 +1,7 @@
 body {
-    background: #000428;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #004e92, #000428);  
-    background: linear-gradient(to right, #004e92, #000428); 
+    background: #202eaa;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #004e92, #202eaa);  
+    background: linear-gradient(to right, #004e92, #202eaa); 
 }
 header {
     margin: 30px 0;

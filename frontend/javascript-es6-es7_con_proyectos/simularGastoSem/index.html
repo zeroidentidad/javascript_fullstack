@@ -13,13 +13,15 @@
   <body>
     <div class="container">
         <header>
-                <h1 class="text-center">Despilfarre Semanal</h1>
+                <h1 class="text-center"><b>Despilfarre Semanal</b></h1>
+                <label for="presupuestoInicial"><h3 class="text-center"><b>Presupuesto inicial:</b></h3></label>
+                <input class="form-control" type="number" id="presupuestoInicial"/>
         </header>
         <section class="contenido-principal">
             <div class="row">
                 <div class="col ">
                     <div class="contenido primario">
-                        <h2 class="text-center">Añade tus gastos aqui</h2>
+                        <h2 class="text-center"><b><u>Añade tus gastos aqui</u></b></h2>
                             <form id="agregar-gasto" action="#">
                                 <div class="form-group">
                                     <label for="gasto">Gasto:</label>
@@ -30,7 +32,7 @@
                                     <input type="text" class="form-control" id="cantidad" placeholder="Cantidad en $">
                                 </div>
                                 
-                                <button type="submit" class="btn btn-primary">Agregar</button>
+                                <button type="submit" class="btn btn-primary"><b>Agregar</b></button>
                             </form>
                         
                     </div> <!--.contenido-->
@@ -39,7 +41,7 @@
                 <div class="col">
                     <div class="contenido secundario">
                         
-                        <h2 class="text-center">Listado</h2>
+                        <h2 class="text-center"><b><u>Listado</u></b></h2>
 
                         <div id="gastos">
                             <ul class="list-group"></ul>

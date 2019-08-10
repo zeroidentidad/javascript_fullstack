@@ -44,6 +44,20 @@ class Interfaz {
             formulario.reset()
         }, 2500);
     }
+
+    agregarGastoListado(nombreGasto, cantidadGasto){
+        const gastosListado = document.querySelector('#gastos ul');
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        
+        //insertar gasto
+        li.innerHTML = `
+        ${nombreGasto} <span class='badge badge-primary badge-pill'> $ ${cantidadGasto}</span>
+        `;
+
+        //a html:
+        gastosListado.appendChild(li);
+    }
 }
 
 //Event Listeners
@@ -71,6 +85,7 @@ formulario.addEventListener('submit', function (e){
         // mensaje y tipo:
         ui.imprimirMsje('Ocurrio un error', 'error')
     } else {
-    ui.insertarPresupuesto(cantidadPresupuesto.presupuesto);
+        ui.imprimirMsje('Agregado :)', 'correcto')
+        ui.agregarGastoListado(nombreGasto, cantidadGasto);
     }
 })

@@ -58,6 +58,33 @@ class Interfaz {
         //a html:
         gastosListado.appendChild(li);
     }
+
+    //comprobar presupuesto restante
+    presupuestoRestante(cantidadGasto){
+        const restanteSpan = document.querySelector('span#restante');
+        const presupuestoRestanteUsr = cantidadPresupuesto.presupuestoRestante(cantidadGasto) // de la clase Presupuesto
+        restante.innerHTML = `${presupuestoRestanteUsr}`;
+
+        this.comprobarPresupuesto();
+    }
+
+    //cambiar de color el presupuesto restante:
+    comprobarPresupuesto(){
+        const presupuestoTotal = cantidadPresupuesto.presupuesto;
+        const presupuestoRestante = cantidadPresupuesto.restante;
+
+        // verif 25% gasto:
+        if ((presupuestoTotal / 4) > presupuestoRestante){
+            const restante = document.querySelector('.restante');
+            restante.classList.remove('alert-success', 'alert-warning');
+            restante.classList.add('alert-danger');
+        } else if ((presupuestoTotal / 2) > presupuestoRestante){
+            const restante = document.querySelector('.restante');
+            restante.classList.remove('alert-success');
+            restante.classList.add('alert-warning');
+        }
+
+    }
 }
 
 //Event Listeners
@@ -87,5 +114,6 @@ formulario.addEventListener('submit', function (e){
     } else {
         ui.imprimirMsje('Agregado :)', 'correcto')
         ui.agregarGastoListado(nombreGasto, cantidadGasto);
+        ui.presupuestoRestante(cantidadGasto)
     }
 })

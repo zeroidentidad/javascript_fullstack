@@ -1,0 +1,30 @@
+[{
+    "id": 1,
+    "first_name": "Jesus",
+    "last_name": "Ferrer",
+    "phone": "555-555-2342",
+    "email": "hello@hello.com",
+    "company": "Hello World",
+    "project": "CRM Project",
+    "notes": "Lorem ipsum dolor sit amet, duo ne sumo coti."
+},
+{
+    "id": 2,
+    "first_name": "Ana",
+    "last_name": "Gonzalez",
+    "phone": "555-555-5489",
+    "email": "hello@hello.com",
+    "company": "Hello World",
+    "project": "CRM Project",
+    "notes": "Lorem ipsum dolor sit amet, duo ne sumo coti."
+},
+{
+    "id": 3,
+    "first_name": "Vero",
+    "last_name": "Avalos",
+    "phone": "555-555-0989",
+    "email": "hello@hello.com",
+    "company": "Hello World",
+    "project": "CRM Project",
+    "notes": "Lorem ipsum dolor sit amet, duo ne sumo coti."
+}]

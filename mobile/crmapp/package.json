@@ -11,7 +11,10 @@
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-material-kit": "^0.5.1",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-vector-icons": "^6.6.0",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

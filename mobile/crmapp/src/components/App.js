@@ -9,9 +9,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import firebase from 'firebase';
+import { Provider } from 'react-redux';
+import { createStore} from 'redux';
 import Login from "./Login";
 import Loader from './Loader';
 import PeopleList from './PeopleList';
+import reducers from '../reducers/PeopleReducer';
+
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default class App extends Component {
 
@@ -50,10 +55,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.bienvenida}>CRM App</Text>
-        {this.renderInitView()}
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Text style={styles.bienvenida}>CRM App</Text>
+          {this.renderInitView()}
+        </View>
+      </Provider>
     );
   }
 }

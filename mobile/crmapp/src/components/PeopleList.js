@@ -1,12 +1,28 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ListView} from 'react-native';
+import { connect } from "react-redux";
+import PersonaItem from "./PersonaItem";
 
-export default class PeopleList extends Component {
+class PeopleList extends Component {
+
+  componentWillMount(){
+    const datasrc = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2,
+    })
+    this.dataSource = datasrc.cloneWithRows(this.props.personas)
+  }
 
   render() {
+    console.disableYellowBox = true;
+
     return (
       <View style={styles.container}>
-        <Text style={styles.bienvenida}>Haz ingresado para ver la info</Text>
+        <ListView
+        enableEmptySections={true}
+        dataSource = {this.dataSource}
+        renderRow = {(rowData) => <PersonaItem personas={rowData} />}
+        >
+        </ListView>
       </View>
     );
   }
@@ -15,14 +31,15 @@ export default class PeopleList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black'
-  },
-  bienvenida: {
-    fontSize: 24,
-    textAlign: 'center',
-    margin: 10,
-    color: 'white'
+    flexWrap: 'wrap',
+    paddingTop: 15,
+    paddingLeft: 15,
+    width: 400
   }
 });
+
+const mapStateToProps = state => {
+  return { personas: state.personas }
+}
+
+export default connect(mapStateToProps)(PeopleList)

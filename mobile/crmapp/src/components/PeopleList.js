@@ -2,8 +2,16 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, ListView} from 'react-native';
 import { connect } from "react-redux";
 import PersonaItem from "./PersonaItem";
+import Icon from 'react-native-vector-icons/AntDesign';
 
 class PeopleList extends Component {
+
+  static navigationOptions = {
+          tabBarLabel: 'Personas',
+          tabBarIcon: ({tintColor}) => (
+            <Icon name={'user'} size={45} style={[{color:tintColor}, styles.icon]} />
+          )
+  }  
 
   componentWillMount(){
     const datasrc = new ListView.DataSource({
@@ -34,7 +42,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     paddingTop: 15,
     paddingLeft: 15,
-    width: 400
+    width: 353
   }
 });
 

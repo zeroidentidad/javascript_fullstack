@@ -10,6 +10,7 @@ const Navigation = createBottomTabNavigator({
     CompanyList: { screen: CompanyList }
 },
 {
+    initialRouteName: 'PeopleList',
     tabBarOptions: {
         showLabel: false,
         showIcon: true,

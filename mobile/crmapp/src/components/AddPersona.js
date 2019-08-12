@@ -5,10 +5,11 @@ import Icon from 'react-native-vector-icons/AntDesign';
 export default class AddPersona extends Component {
 
   static navigationOptions = {
-          tabBarLabel: 'Agregar',
-          tabBarIcon: ({ tintColor }) => (
-            <Icon name={'plussquareo'} size={55} style={[{color:tintColor}, styles.icon]} />
-          )
+    tabBarVisible: true,
+    tabBarLabel: 'Agregar',
+    tabBarIcon: ({ tintColor }) => (
+    <Icon name={'plussquareo'} size={55} style={{color:tintColor}} />
+    )
   }  
 
   render(){

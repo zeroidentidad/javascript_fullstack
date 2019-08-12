@@ -7,10 +7,11 @@ import Icon from 'react-native-vector-icons/AntDesign';
 class PeopleList extends Component {
 
   static navigationOptions = {
-          tabBarLabel: 'Personas',
-          tabBarIcon: ({tintColor}) => (
-            <Icon name={'user'} size={45} style={[{color:tintColor}, styles.icon]} />
-          )
+    tabBarVisible:  true,
+    tabBarLabel: 'Personas',
+    tabBarIcon: ({tintColor}) => (
+    <Icon name={'user'} size={45} style={{color:tintColor}} />
+    )
   }  
 
   componentWillMount(){

@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import PeopleList from './PeopleList';
 import AddPersona from './AddPersona';
 import CompanyList from './CompanyList';
 
-const Navigator = createBottomTabNavigator({
-    Personas: { screen: PeopleList },
-    Agregar: { screen: AddPersona },
-    Empresas: { screen: CompanyList }
+const Navigation = createBottomTabNavigator({
+    PeopleList: { screen: PeopleList },
+    AddPersona: { screen: AddPersona },
+    CompanyList: { screen: CompanyList }
 },
 {
     tabBarOptions: {
-        tabBarLabel: 'Personas',
+        showLabel: false,
         showIcon: true,
-        swipeEnable: false,
-        activeTintColor: 'gray',
+        swipeEnable: true,
+        tintColor: 'gray',
         inactiveTintColor: '#80cbc4',
-        activeBackgroundColor: '#FF5722',
-        inactiveBackgroundColor: '#FF7043',
+        style: {
+            backgroundColor: '#26a69a',
+        },
     }
 }
 )
 
-const NavigationContainer = createAppContainer(Navigator);
+//const NavigationContainer = createAppContainer(Navigator);
 
-export default class Navigation extends Component {
-    render() {
-        return <NavigationContainer></NavigationContainer>
-    }
-}
-
-//export default NavigationContainer;
+export default Navigation;
 
 /*const Stack = createStackNavigator({
     Personas: PeopleList,

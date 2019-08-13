@@ -7,11 +7,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 class PeopleList extends Component {
 
   static navigationOptions = {
-    tabBarVisible:  true,
-    tabBarLabel: 'Personas',
-    tabBarIcon: ({tintColor}) => (
-    <Icon name={'user'} size={45} style={{color:tintColor}} />
-    )
+      tabBarLabel: 'Personas',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name={'user'} size={45} style={{ color: tintColor }} />
+      )
   }  
 
   componentWillMount(){
@@ -41,8 +40,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexWrap: 'wrap',
-    paddingTop: 15,
-    paddingLeft: 15,
+    paddingTop: 20,
+    paddingLeft: 20,
     width: 353
   }
 });
@@ -51,4 +50,4 @@ const mapStateToProps = state => {
   return { personas: state.personas }
 }
 
-export default connect(mapStateToProps)(PeopleList)
+export default connect(mapStateToProps)(PeopleList);

@@ -5,11 +5,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 export default class CompanyList extends Component {
 
   static navigationOptions = {
-    tabBarVisible: true,
-    tabBarLabel: 'Empresas',
-    tabBarIcon: ({tintColor}) => (
-    <Icon name={'isv'} size={45} style={{color:tintColor}} />
-    )
+      tabBarLabel: 'Empresas',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name={'isv'} size={45} style={{ color: tintColor }} />
+      )
   } 
 
   render(){
@@ -31,4 +30,10 @@ const styles = StyleSheet.create({
   icon: {
     paddingBottom: 2,
   },
+  bienvenida: {
+    fontSize: 20,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    margin: 10,
+  }
 });

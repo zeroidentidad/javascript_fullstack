@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import PeopleList from './PeopleList';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+//import * as PeopleList from './PeopleList';
 import AddPersona from './AddPersona';
 import CompanyList from './CompanyList';
 
-const Navigation = createBottomTabNavigator({
-    PeopleList: { screen: PeopleList },
+const Navigation = TabNavigator({
+    //PeopleList: { screen: PeopleList },
     AddPersona: { screen: AddPersona },
     CompanyList: { screen: CompanyList }
 },
+TabNavigator.Presets.AndroidTopTabs,
 {
-    initialRouteName: 'PeopleList',
     tabBarOptions: {
+        lazy: false,
         showLabel: false,
-        showIcon: true,
-        swipeEnable: true,
-        tintColor: 'gray',
+        tabBarPosition: 'top',
+        animationEnabled: false,
+        swipeEnabled: false,
+        activeTintColor: 'white',
         inactiveTintColor: '#80cbc4',
         style: {
-            backgroundColor: '#26a69a',
-        },
+            backgroundColor: 'blue'
+        }
     }
-}
-)
-
-//const NavigationContainer = createAppContainer(Navigator);
+});
 
 export default Navigation;
 
-/*const Stack = createStackNavigator({
-    Personas: PeopleList,
-    Agregar: AddPersona,
-    Empresas: CompanyList
+//const NavigationContainer = createAppContainer(Navigator);
+
+/*const Stack = StackNavigator({
+    PeopleList: PeopleList,
+    AddPersona: AddPersona,
+    CompanyList: CompanyList
 },
     {
-        initialRouteName: "Personas"
+        initialRouteName: "PeopleList"
     }
 );*/

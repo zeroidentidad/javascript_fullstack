@@ -9,10 +9,9 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import firebase from 'firebase';
 import { Provider } from 'react-redux';
-import { createStore} from 'redux';
+import { createStore } from 'redux';
 import Login from "./Login";
 import Loader from './Loader';
-//import PeopleList from './PeopleList';
 import Navigation from './Navigation';
 import reducers from '../reducers/PeopleReducer';
 
@@ -75,6 +74,6 @@ const styles = StyleSheet.create({
   bienvenida: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 2,
+    margin: 10,
   }
 });

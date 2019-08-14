@@ -1,0 +1,53 @@
+<form novalidate
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+>
+  <div fxLayout="row" fxLayoutAlign="center" class="login-main">
+
+    <mat-card >
+
+    <mat-card-header>
+      <mat-card-title>{{ 'login.header' | translate }}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="column">
+
+      <div *ngIf="errorForm" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center">
+        <div><mat-icon aria-hidden="false" color="warn" >error</mat-icon></div>
+        <div>{{ 'error.form' | translate }}</div>
+      </div>
+
+      <mat-form-field>
+        <input [attr.disabled]="savedForm ? '' : null" [readonly]="savedForm" formControlName="username" matInput placeholder="{{ 'login.email_placeholder' | translate }}">
+        <mat-error *ngIf="usernameControl.dirty && usernameControl.hasError('required')">{{ 'error.required' | translate }}</mat-error>
+        <mat-error *ngIf="usernameControl.dirty && usernameControl.hasError('minlength')">{{ 'error.minlength' | translate }}</mat-error>
+        <mat-error *ngIf="usernameControl.dirty && usernameControl.hasError('maxlength')">{{ 'error.maxlength' | translate }}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field >
+        <input [type]="hidePassword ? 'password' : 'text'" [attr.disabled]="savedForm ? '' : null" formControlName="password" matInput placeholder="{{ 'login.password_placeholder' | translate }}">
+        <a mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </a>
+        <mat-error *ngIf="passwordControl.dirty && passwordControl.hasError('required')">{{ 'error.required' | translate }}</mat-error>
+        <mat-error *ngIf="passwordControl.dirty && passwordControl.hasError('minlength')">{{ 'error.minlength' | translate }}</mat-error>
+        <mat-error *ngIf="passwordControl.dirty && passwordControl.hasError('maxlength')">{{ 'error.maxlength' | translate }}</mat-error>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary"  [disabled]="loginForm.invalid || savedForm">
+        <fa-icon *ngIf="savedForm" [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+        {{ 'login.button' | translate }}
+      </button>
+    </mat-card-actions>
+
+    <mat-progress-bar color="accent" *ngIf="hideForm || savedForm" mode="indeterminate"></mat-progress-bar>
+
+  </mat-card>
+
+</div>
+</form>
+
+

@@ -45,7 +45,6 @@
     "@angular/compiler": "8.0.0",
     "@angular/compiler-cli": "8.0.0",
     "@angular/core": "8.0.0",
-    "@angular/forms": "8.0.0",
     "@angular/language-service": "8.0.0",
     "@angular/platform-browser": "8.0.0",
     "@angular/platform-browser-dynamic": "8.0.0",
@@ -83,5 +82,12 @@
   },
   "engines": {
     "node": ">=10.9.0"
+  },
+  "dependencies": {
+    "@angular/animations": "^8.0.0 || ^9.0.0-0",
+    "@angular/cdk": "~8.0.0",
+    "@angular/forms": "^8.0.0 || ^9.0.0-0",
+    "@angular/material": "^8.0.0",
+    "hammerjs": "^2.0.8"
   }
 }

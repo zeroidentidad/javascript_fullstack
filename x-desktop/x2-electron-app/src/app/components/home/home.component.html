@@ -1,0 +1,7 @@
+ <div class="m-8">
+   <div *ngIf="me">
+     <p>Connecté en tant que : <strong>{{ me.data.username }}</strong></p>
+     <p class="text-center"><a routerLink="/login" [queryParams]="{logout: 1}" class="color--white">Déconnexion</a></p>
+   </div>
+ </div>
+

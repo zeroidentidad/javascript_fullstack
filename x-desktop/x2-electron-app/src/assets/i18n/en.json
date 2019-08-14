@@ -1,0 +1,19 @@
+{
+
+    "HOME": {
+        "TITLE": "Welcome ",
+        "logout": "Déconnexion"
+    },
+    "login": {
+      "header": "Identification ",
+      "email_placeholder": "Votre identifiant",
+      "password_placeholder": "Votre mot de passe",
+      "button": "Se connecter"
+    },
+    "error": {
+      "form": "Erreurs constatées lors de la validation du formulaire",
+      "required": "Obligatoire",
+      "minlength": "Le nombre minimum de caractère non atteint",
+      "maxlength": "Le nombre maximum de caractère dépassé"
+    }
+}

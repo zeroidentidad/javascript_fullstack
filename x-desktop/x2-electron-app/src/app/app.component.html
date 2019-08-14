@@ -1,0 +1,24 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav class="app-sidenav">
+    <mat-toolbar color="primary">
+      <span class="toolbar-filler"></span>
+    </mat-toolbar>
+    <mat-nav-list>
+        <mat-list-item (click)="sidenav.toggle()" [routerLink]="item.route" *ngFor="let item of menu">
+            <mat-icon>{{item.icon}}</mat-icon>
+            {{item.name}}
+        </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar  *ngIf="currentUser" id="appToolbar"  color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
+      <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+    </button>
+    <h1 class="component-title">
+      <a class="title-link">{{title}}</a>
+    </h1>
+    <span class="toolbar-filler"></span>
+    <button id="button-logout" mat-button (click)="logout()">logout</button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

@@ -1,6 +1,38 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
+
+const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'Archivo',
+    submenu: [
+      { role: 'quit' }
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Sobre Electron',
+        click: async () => {
+          const { shell } = require('electron')
+          await shell.openExternal('https://electronjs.org')
+        }
+      }
+    ]
+  }
+]
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -17,11 +49,12 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./app/index.html')
+  //mainWindow.loadFile('./app/index.html')
+  mainWindow.loadURL('https://animeyt2.tv')
 
   // Open the DevTools.
   // descomentado
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

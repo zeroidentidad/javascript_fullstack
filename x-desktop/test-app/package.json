@@ -1,10 +1,13 @@
 {
-  "name": "electron-quick-start",
+  "name": "TestApp",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist-win": "electron-builder --windows portable:ia32 --dir app",
+    "dist-linux": "electron-builder --linux AppImage --dir app"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -18,6 +21,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^6.0.2",
+    "electron-builder": "^21.2.0",
     "electron-reload": "^1.5.0"
   }
 }

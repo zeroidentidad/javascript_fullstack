@@ -1,12 +1,12 @@
 {
-  "name": "TestApp",
+  "name": "anime-yt",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist-win": "electron-builder --windows portable:ia32 --dir app",
+    "dist-win": "electron-builder --windows portable --dir app",
     "dist-linux": "electron-builder --linux AppImage --dir app"
   },
   "repository": "https://github.com/electron/electron-quick-start",

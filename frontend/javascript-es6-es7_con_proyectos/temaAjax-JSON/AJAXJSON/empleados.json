@@ -1,20 +1,20 @@
 [
      {
           "id" : 1,
-          "nombre" : "Juan",
-          "empresa" : "EasyWebDev",
+          "nombre" : "Jesus",
+          "empresa" : "Ninguna",
           "trabajo" : "Desarrollador Web"
      },
      {
           "id" : 2,
-          "nombre" : "Alejandra",
-          "empresa" : "EasyWebDev",
+          "nombre" : "Ana",
+          "empresa" : "Ninguna",
           "trabajo" : "Diseñadora"
      },
      {
           "id" : 3,
-          "nombre" : "Pedro",
-          "empresa" : "EasyWebDev",
+          "nombre" : "Vero",
+          "empresa" : "Ninguna",
           "trabajo" : "Aplicaciones Móviles"
      }
 ]

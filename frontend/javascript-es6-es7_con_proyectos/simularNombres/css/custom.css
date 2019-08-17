@@ -1,7 +1,7 @@
 body {
-    background: #56CCF2; 
-    background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  
-    background: linear-gradient(to right, #2F80ED, #56CCF2); 
+    background: rgb(3, 71, 94); 
+    background: -webkit-linear-gradient(to right, rgb(1, 13, 27), rgb(7, 41, 53));  
+    background: linear-gradient(to right, rgb(1, 13, 27), rgb(7, 41, 53)); 
 }
 .contenido {
     margin-top: 40px;

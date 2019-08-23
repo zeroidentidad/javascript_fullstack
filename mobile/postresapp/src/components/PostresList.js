@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import PropTypes from 'prop-types';
+import PostreItem from "./PostreItem";
 
 export default class PostresList extends Component {
 
@@ -14,7 +15,7 @@ export default class PostresList extends Component {
                 {/*this.props.postres.map((postre) => <Text key={postre.key}> {postre.title} </Text>)*/}
                 <FlatList
                     data={this.props.postres}
-                    renderItem={({ item }) => <Text> {item.title} </Text> }
+                    renderItem={({ item }) => <PostreItem postre={item}/> }
                 />                
             </View>
         )

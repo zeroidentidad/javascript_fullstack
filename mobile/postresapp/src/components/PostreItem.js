@@ -23,8 +23,6 @@ export default class PostreItem extends Component {
                 <View style={styles.info}>
                     <Text style={styles.title}>{postre.title} </Text>
                     <View style={styles.footer}>
-                        <Text style={styles.ingredients}>Ingredientes: {postre.ingredients} </Text>
-                        <Text style={styles.link}>Fuente: {postre.href} </Text>
                     </View>
                 </View>
             </TouchableOpacity>

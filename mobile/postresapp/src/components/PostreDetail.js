@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import PropTypes from 'prop-types';
+import ajax from '../ajax';
 
 export default class PostreDetail extends Component {
 
@@ -9,8 +10,23 @@ export default class PostreDetail extends Component {
     };    
 
     state = {
-      postre: this.props.initialPostreData,
-    };    
+      postre: this.props.initialPostreData
+    };
+    
+    async componentDidMount(){
+      const str_ingredients = this.state.postre.ingredients
+      const res_ingredients = str_ingredients.replace(/, /g, "%2C");
+      const res_ingredients2 = res_ingredients.replace(/, /g, "%20");
+
+      const str_title = this.state.postre.title
+      const res_title = str_title.replace(/ /g, "%20");      
+
+      const fullPostre = await ajax.fetchPostreDetail('i='+res_ingredients2+'&q='+res_title);
+      console.log(fullPostre[0])
+      this.setState({
+        postre: fullPostre[0]
+      });
+    }
 
     render() {
 
@@ -25,7 +41,6 @@ export default class PostreDetail extends Component {
                         <Text style={styles.ingredients}>Ingredientes: {postre.ingredients} </Text>
                         <Text style={styles.link}>Fuente: {postre.href} </Text>
                     </View>
-                    <Text>...</Text>
                 </View>
             </View>
         )
@@ -34,38 +49,37 @@ export default class PostreDetail extends Component {
 
 const styles = StyleSheet.create({
 postre: {
-    marginHorizontal: 12,
-    marginTop: 30,
+  marginHorizontal: 12,
+  marginTop: 30,
+  borderColor: '#bbb',
+  borderWidth: 1
   },    
 image: {
-    width: '100%',
-    height: 150,
-    backgroundColor: '#ccc',
-    resizeMode: 'cover'
+  width: '100%',
+  height: 150,
+  backgroundColor: '#ccc'
   },
 info: {
-    padding: 10,
-    backgroundColor: '#fff',
-    borderColor: '#bbb',
-    borderWidth: 1,
-    borderTopWidth: 0,
+  alignItems: 'center',
   },
 title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    marginBottom: 5,
+  fontSize: 26,
+  fontWeight: 'bold',
+  backgroundColor: 'rgba(237, 149, 45, 0.4)',
+  marginTop: 15
   },
 footer: {
-    flexDirection: 'column',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  marginTop: 15,
   },
 ingredients: {
-    flex: 1,
-    fontSize: 20
+  fontSize: 20,
+  padding: 10,
   },
 link: {
-    flex: 1,
-    textAlign: 'left',
-    color: 'blue',
-    fontSize: 18
+  color: 'blue',
+  fontSize: 18,
+  padding: 10,  
   }    
 })

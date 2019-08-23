@@ -7,7 +7,7 @@ import PostreDetail from "./src/components/PostreDetail";
 export default class App extends Component {
 
   state = {
-    postres: {},
+    postres: [],
     currentPostreId: null
   }
 
@@ -24,7 +24,7 @@ export default class App extends Component {
   };  
 
   currentPostre = () => {
-    return this.state.postres.find((postre) => postre.href == this.state.currentPostreId); //href as key
+    return this.state.postres.find((postre) => postre.href === this.state.currentPostreId); //href as key
   };
 
   render() {

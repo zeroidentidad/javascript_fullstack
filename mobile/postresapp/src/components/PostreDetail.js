@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types';
 import ajax from '../ajax';
 
 export default class PostreDetail extends Component {
 
     static propTypes = {
-      initialPostreData: PropTypes.object.isRequired
+      initialPostreData: PropTypes.object.isRequired,
+      onBack: PropTypes.func.isRequired
     };    
 
     state = {
@@ -34,6 +35,9 @@ export default class PostreDetail extends Component {
 
         return (
             <View style={styles.postre} >
+            <TouchableOpacity onPress={this.props.onBack}>
+              <Text style={styles.backLink}>Regresar</Text>
+            </TouchableOpacity>
                 <Image source={{ uri: postre.thumbnail }} style={styles.image} />
                 <View style={styles.info}>
                     <Text style={styles.title}>{postre.title} </Text>
@@ -50,9 +54,7 @@ export default class PostreDetail extends Component {
 const styles = StyleSheet.create({
 postre: {
   marginHorizontal: 12,
-  marginTop: 30,
-  borderColor: '#bbb',
-  borderWidth: 1
+  marginTop: 30
   },    
 image: {
   width: '100%',
@@ -61,6 +63,8 @@ image: {
   },
 info: {
   alignItems: 'center',
+  borderColor: '#bbb',
+  borderWidth: 1  
   },
 title: {
   fontSize: 26,
@@ -81,5 +85,12 @@ link: {
   color: 'blue',
   fontSize: 18,
   padding: 10,  
-  }    
+  },
+backLink: {
+  marginBottom: 5,
+  color: 'darkgreen',
+  fontSize: 20,
+  fontStyle: 'italic',
+  textAlign: 'right'
+}     
 })

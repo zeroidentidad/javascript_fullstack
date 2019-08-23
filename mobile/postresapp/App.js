@@ -21,7 +21,13 @@ export default class App extends Component {
     this.setState({
       currentPostreId: postreId
     });
-  };  
+  };
+  
+  unsetCurrentPostre = () => {
+    this.setState({
+      currentPostreId: null
+    });
+  };   
 
   currentPostre = () => {
     return this.state.postres.find((postre) => postre.href === this.state.currentPostreId); //href as key
@@ -29,7 +35,7 @@ export default class App extends Component {
 
   render() {
     if(this.state.currentPostreId){
-      return <PostreDetail initialPostreData={this.currentPostre()} />
+      return <PostreDetail initialPostreData={this.currentPostre()} onBack={this.unsetCurrentPostre}/>
     }
     if (this.state.postres.length > 0){
       return (<PostresList postres={this.state.postres} onItemPress={this.setCurrentPostre} />);

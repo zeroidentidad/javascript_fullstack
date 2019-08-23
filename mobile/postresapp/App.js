@@ -1,11 +1,28 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import ajax from './src/ajax';
+import PostresList from "./src/components/PostresList";
 
 export default class App extends Component {
+
+  state = {
+    postres: {}
+  }
+
+  async componentDidMount(){
+    const postres = await ajax.fetchInicial();
+    console.log(postres);
+    this.setState( { postres } );
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        {
+          this.state.postres.length > 0 ? (
+          <PostresList postres={this.state.postres}/> ) : (
+          <Text style={styles.header}>Postres</Text> )
+        }
       </View>
     );
   }
@@ -18,9 +35,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  header: {
+    fontSize: 35,
+    textAlign: 'center'
   }
 });

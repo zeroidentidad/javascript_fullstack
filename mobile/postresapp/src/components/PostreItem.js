@@ -13,12 +13,14 @@ export default class PostreItem extends Component {
         const { postre } = this.props;
 
         return (
-            <View>
+            <View style={styles.postre} >
                 <Image source={{ uri: postre.thumbnail }} style={styles.image} />
-                <View>
-                    <Text>NOMBRE: {postre.title} </Text>
-                    <Text>INGREDIENTES: {postre.ingredients} </Text>
-                    <Text>ENLACE: {postre.href} </Text>
+                <View style={styles.info}>
+                    <Text style={styles.title}>{postre.title} </Text>
+                    <View style={styles.footer}>
+                        <Text style={styles.ingredients}>Ingredientes: {postre.ingredients} </Text>
+                        <Text style={styles.link}>Fuente: {postre.href} </Text>
+                    </View>
                 </View>
             </View>
         )
@@ -26,11 +28,39 @@ export default class PostreItem extends Component {
 }
 
 const styles = StyleSheet.create({
+postre: {
+    marginHorizontal: 12,
+    marginTop: 12,
+  },    
 image: {
-    left: '10%',
-    width: '80%',
+    width: '100%',
     height: 150,
     backgroundColor: '#ccc',
     resizeMode: 'cover'
+  },
+info: {
+    padding: 10,
+    backgroundColor: '#fff',
+    borderColor: '#bbb',
+    borderWidth: 1,
+    borderTopWidth: 0,
+  },
+title: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+footer: {
+    flexDirection: 'column',
+  },
+ingredients: {
+    flex: 1,
+    fontSize: 20
+  },
+link: {
+    flex: 1,
+    textAlign: 'left',
+    color: 'blue',
+    fontSize: 18
   }    
 })

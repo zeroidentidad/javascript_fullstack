@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import PropTypes from 'prop-types';
 
-export default class PostreItem extends Component {
+export default class PostreDetail extends Component {
 
     static propTypes = {
-        postre: PropTypes.object.isRequired,
-        onPress: PropTypes.func.isRequired
-    };   
-    
-    handlePress = () => {
-        this.props.onPress(this.props.postre.href); //as key
-    };      
+      initialPostreData: PropTypes.object.isRequired
+    };    
+
+    state = {
+      postre: this.props.initialPostreData,
+    };    
 
     render() {
 
-        const { postre } = this.props;
+        const { postre } = this.state;
 
         return (
-            <TouchableOpacity style={styles.postre} onPress={this.handlePress}>
+            <View style={styles.postre} >
                 <Image source={{ uri: postre.thumbnail }} style={styles.image} />
                 <View style={styles.info}>
                     <Text style={styles.title}>{postre.title} </Text>
@@ -26,8 +25,9 @@ export default class PostreItem extends Component {
                         <Text style={styles.ingredients}>Ingredientes: {postre.ingredients} </Text>
                         <Text style={styles.link}>Fuente: {postre.href} </Text>
                     </View>
+                    <Text>...</Text>
                 </View>
-            </TouchableOpacity>
+            </View>
         )
     }
 }
@@ -35,7 +35,7 @@ export default class PostreItem extends Component {
 const styles = StyleSheet.create({
 postre: {
     marginHorizontal: 12,
-    marginTop: 12,
+    marginTop: 30,
   },    
 image: {
     width: '100%',

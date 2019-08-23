@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import ajax from './src/ajax';
 import PostresList from "./src/components/PostresList";
+import PostreDetail from "./src/components/PostreDetail";
 
 export default class App extends Component {
 
   state = {
-    postres: {}
+    postres: {},
+    currentPostreId: null
   }
 
   async componentDidMount(){
@@ -15,14 +17,26 @@ export default class App extends Component {
     this.setState( { postres } );
   }
 
+  setCurrentPostre = (postreId) => {
+    this.setState({
+      currentPostreId: postreId
+    });
+  };  
+
+  currentPostre = () => {
+    return this.state.postres.find((postre) => postre.href == this.state.currentPostreId); //href as key
+  };
+
   render() {
+    if(this.state.currentPostreId){
+      return <PostreDetail initialPostreData={this.currentPostre()} />
+    }
+    if (this.state.postres.length > 0){
+      return (<PostresList postres={this.state.postres} onItemPress={this.setCurrentPostre} />);
+    }
     return (
       <View style={styles.container}>
-        {
-          this.state.postres.length > 0 ? (
-          <PostresList postres={this.state.postres}/> ) : (
-          <Text style={styles.header}>Postres</Text> )
-        }
+          <Text style={styles.header}>Postres</Text>
       </View>
     );
   }

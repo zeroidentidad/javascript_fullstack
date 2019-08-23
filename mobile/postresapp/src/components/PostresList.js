@@ -6,16 +6,17 @@ import PostreItem from "./PostreItem";
 export default class PostresList extends Component {
 
     static propTypes = {
-        postres: PropTypes.array.isRequired
+        postres: PropTypes.array.isRequired,
+        onItemPress: PropTypes.func.isRequired
     }
 
     render() {
         return (
             <View style={styles.list}>
-                {/*this.props.postres.map((postre) => <Text key={postre.key}> {postre.title} </Text>)*/}
+                {/*this.props.postres.map((postre) => <Text key={0}> {postre.title} </Text>)*/}
                 <FlatList
                     data={this.props.postres}
-                    renderItem={({ item }) => <PostreItem postre={item}/> }
+                    renderItem={({ item }) => (<PostreItem postre={item} onPress={this.props.onItemPress}/>) }
                 />                
             </View>
         )

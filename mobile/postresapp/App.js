@@ -45,6 +45,7 @@ export default class App extends Component {
   }; 
 
   render() {
+    console.disableYellowBox = true;
     if(this.state.currentPostreId){
       return (
         <View style={styles.main}>

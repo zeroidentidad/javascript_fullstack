@@ -3,11 +3,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import ajax from './src/ajax';
 import PostresList from "./src/components/PostresList";
 import PostreDetail from "./src/components/PostreDetail";
+import SearchBar from './src/components/SearchBar';
 
 export default class App extends Component {
 
   state = {
     postres: [],
+    postresFromSearch: [],    
     currentPostreId: null
   }
 
@@ -15,7 +17,7 @@ export default class App extends Component {
     const postres = await ajax.fetchInicial();
     console.log(postres);
     this.setState( { postres } );
-  }
+  }  
 
   setCurrentPostre = (postreId) => {
     this.setState({
@@ -33,12 +35,31 @@ export default class App extends Component {
     return this.state.postres.find((postre) => postre.href === this.state.currentPostreId); //href as key
   };
 
+  searchPostres = async (searchTerm) => {
+    let postresFromSearch = [];
+    const query = searchTerm.replace(/ /g, "%20");     
+    if (searchTerm) {
+      postresFromSearch = await ajax.fetchPostreSearch(query);
+    }
+    this.setState({ postresFromSearch });
+  }; 
+
   render() {
     if(this.state.currentPostreId){
-      return <PostreDetail initialPostreData={this.currentPostre()} onBack={this.unsetCurrentPostre}/>
+      return (
+        <View style={styles.main}>
+        <PostreDetail initialPostreData={this.currentPostre()} onBack={this.unsetCurrentPostre}/>
+        </View>
+      )
     }
-    if (this.state.postres.length > 0){
-      return (<PostresList postres={this.state.postres} onItemPress={this.setCurrentPostre} />);
+    const postresToDisplay = this.state.postresFromSearch.length > 0 ? this.state.postresFromSearch : this.state.postres;
+    if (postresToDisplay.length > 0){
+      return (
+        <View style={styles.main}>
+          <SearchBar searchPostres={this.searchPostres}/>
+          <PostresList postres={postresToDisplay} onItemPress={this.setCurrentPostre} />
+        </View>
+      );
     }
     return (
       <View style={styles.container}>
@@ -58,5 +79,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 35,
     textAlign: 'center'
+  },
+  main: {
+    marginTop: 5
   }
 });

@@ -38,7 +38,8 @@ export default class PostreDetail extends Component {
             <TouchableOpacity onPress={this.props.onBack}>
               <Text style={styles.backLink}>Regresar</Text>
             </TouchableOpacity>
-                <Image source={{ uri: postre.thumbnail }} style={styles.image} />
+            <Image source={{uri: postre.thumbnail}} style={styles.image} />
+            {/*<Image source={postre.thumbnail.length ? {uri: postre.thumbnail} : require('./notimg.jpg')} style={styles.image} />*/}
                 <View style={styles.info}>
                     <Text style={styles.title}>{postre.title} </Text>
                     <View style={styles.footer}>
@@ -54,7 +55,7 @@ export default class PostreDetail extends Component {
 const styles = StyleSheet.create({
 postre: {
   marginHorizontal: 12,
-  marginTop: 30
+  marginTop: 10
   },    
 image: {
   width: '100%',

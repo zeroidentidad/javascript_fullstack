@@ -18,12 +18,25 @@ export default {
         }
     },
     async fetchPostreDetail(postreId) {
-        console.log(apiDev + '?' + postreId)
+        //console.log(apiDev + '?' + postreId)
         try {
             const response = await fetch(apiDev + '?' + postreId, {
                 "method": "GET",
                 "headers": header
             });            
+            const responseJson = await response.json();
+            return responseJson.results;
+        } catch (error) {
+            console.error(error);
+        }
+    },
+    async fetchPostreSearch(searchTerm) {
+        //console.log(apiDev + '?q=' + searchTerm)
+        try {
+            const response = await fetch(apiDev + '?q=' + searchTerm, {
+                "method": "GET",
+                "headers": header
+            });
             const responseJson = await response.json();
             return responseJson.results;
         } catch (error) {

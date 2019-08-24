@@ -25,10 +25,10 @@ export default class PostresList extends Component {
 
 const styles = StyleSheet.create({
     list: {
-        flex: 1,
+        //flex: 1,
         backgroundColor: '#eee',
         width: '100%',
-        paddingTop: 45
+        //paddingTop: 45
     }
 });
 

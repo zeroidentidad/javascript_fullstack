@@ -58,24 +58,13 @@ export default class App extends Component {
                 complete: false
             }
         ];
-        //this.setSource(newItems, newItems, { value: "" });
         this.setSource(newItems, filterItems(this.state.filter, newItems), { value: "" });
-        /*this.setState({
-            items: newItems,
-            value: ""
-        })*/
     }
 
     handleToggleAllComplete(){
         const complete = !this.state.allComplete;
         const newItems = this.state.items.map((item)=>({ ... item, complete }));
-        //console.table(newItems);
-        //this.setSource(newItems, newItems, {allComplete: complete});
         this.setSource(newItems, filterItems(this.state.filter, newItems), {allComplete: complete});
-        /*this.setState({
-            items: newItems,
-            allComplete: complete          
-        })*/
     }
 
     setSource(items, itemsDatasource, otherState={}){
@@ -103,7 +92,6 @@ export default class App extends Component {
         const newItems = this.state.items.filter((item)=>{
             return item.key !== key
         })
-        //this.setSource(newItems, newItems);
         this.setSource(newItems, filterItems(this.state.filter, newItems));
     }
 

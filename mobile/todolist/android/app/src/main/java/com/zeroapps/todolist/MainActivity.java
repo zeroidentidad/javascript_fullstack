@@ -1,4 +1,4 @@
-package com.todolist;
+package com.zeroapps.todolist;
 
 import com.facebook.react.ReactActivity;
 

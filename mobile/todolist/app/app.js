@@ -1,5 +1,6 @@
 import React, { Component } from  'react';
-import { View, Text, StyleSheet, Platform, ListView, Keyboard, AsyncStorage, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Platform, ListView, Keyboard, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Header from './header';
 import Footer from './footer';
 import Row from './row';
@@ -35,13 +36,14 @@ export default class App extends Component {
         this.handleUpdateText = this.handleUpdateText.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         AsyncStorage.getItem("items").then((json)=>{
             try {
                 const items = JSON.parse(json);
                 this.setSource(items, items, { loading: false });
             } catch (error) {
-                this.setSource({ loading: false });
+                console.log(json)
+                this.setSource([],[], {loading: false });
             }
         })
     }

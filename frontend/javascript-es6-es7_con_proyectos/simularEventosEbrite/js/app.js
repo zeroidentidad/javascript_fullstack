@@ -12,7 +12,12 @@ buscarBtn.addEventListener('click', (e)=>{
     if (evento.value !== ''){
         evenbrite.obtenerEventos(evento.value, categoriaSeleccionada)
         .then(datos => {
-            console.log(datos);
+            if(datos.eventos.events.length > 0){
+                interfaz.limpiarResultados();
+                interfaz.mostrarEventos(datos.eventos)
+            } else {
+                interfaz.mostrarMsg('Sin resultados', 'alert alert-warning mt-4 text-center');
+            }
         })
     }else{
         interfaz.mostrarMsg('Ingresa un valor de búsqueda', 'alert alert-danger mt-4 text-center');

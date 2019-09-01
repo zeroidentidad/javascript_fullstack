@@ -1,3 +1,4 @@
+const token = new Token();
 const evenbrite = new EventBrite();
 const interfaz = new Interfaz();
 

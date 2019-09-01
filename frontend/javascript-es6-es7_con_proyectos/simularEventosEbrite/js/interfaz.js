@@ -24,4 +24,24 @@ class Interfaz {
             })
         })
     }
+
+    //imprimir mensajes ui
+    mostrarMsg(mensaje, clase){
+        const div = document.createElement('div');
+        div.classList = clase
+        div.appendChild(document.createTextNode(mensaje));
+
+        buscador.appendChild(div);
+
+        setTimeout(() => {
+            this.limpiarMsg()
+        }, 2900);
+    }
+
+    limpiarMsg(){
+        const alert = document.querySelector('.alert');
+        if (alert) {
+            alert.remove();
+        }
+    }
 }

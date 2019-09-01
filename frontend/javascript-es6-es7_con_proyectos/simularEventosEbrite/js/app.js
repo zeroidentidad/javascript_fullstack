@@ -12,6 +12,6 @@ buscarBtn.addEventListener('click', (e)=>{
     if (evento.value !== ''){
         console.log('Buscando...')
     }else{
-        console.log('Nada...')
+        interfaz.mostrarMsg('Ingresa un valor de búsqueda', 'alert alert-danger mt-4 text-center');
     }
 })

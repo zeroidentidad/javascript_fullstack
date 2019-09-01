@@ -10,7 +10,10 @@ buscarBtn.addEventListener('click', (e)=>{
 
     //revisar valor en campo de texto del buscador:
     if (evento.value !== ''){
-        console.log('Buscando...')
+        evenbrite.obtenerEventos(evento.value, categoriaSeleccionada)
+        .then(datos => {
+            console.log(datos);
+        })
     }else{
         interfaz.mostrarMsg('Ingresa un valor de búsqueda', 'alert alert-danger mt-4 text-center');
     }

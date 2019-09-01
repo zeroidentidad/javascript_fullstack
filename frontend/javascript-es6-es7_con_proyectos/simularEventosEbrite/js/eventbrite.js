@@ -14,4 +14,13 @@ class EventBrite {
 
         return { categorias }
     }
+
+    //consultar eventos con datos de busqueda
+    async obtenerEventos(evento, categoria){
+        const resEventos = await fetch(`https://www.eventbriteapi.com/v3/events/search/?q=${evento}&sort_by=${this.orden}&categories=${categoria}&token=${this.token_auth}`);
+
+        const eventos = await resEventos.json();
+
+        return { eventos }
+    }
 }

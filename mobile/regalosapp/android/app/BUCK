@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.regalosapp",
+    package = "com.zeroapps.regalosapp",
 )
 
 android_resource(
     name = "res",
-    package = "com.regalosapp",
+    package = "com.zeroapps.regalosapp",
     res = "src/main/res",
 )
 

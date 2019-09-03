@@ -1,4 +1,4 @@
-package com.regalosapp;
+package com.zeroapps.regalosapp;
 
 import android.app.Application;
 

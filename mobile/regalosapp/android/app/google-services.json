@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "256315275400",
+    "firebase_url": "https://regalosapp-rn.firebaseio.com",
+    "project_id": "regalosapp-rn",
+    "storage_bucket": "regalosapp-rn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256315275400:android:fd0e43e179ff4671",
+        "android_client_info": {
+          "package_name": "com.zeroapps.regalosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256315275400-54fq14k474ts2v3ubt4tnb058adfc0gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvl-MZBLiskTVPpdKQhk0vAjra-PQTUFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256315275400-54fq14k474ts2v3ubt4tnb058adfc0gm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

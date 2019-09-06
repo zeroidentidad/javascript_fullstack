@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import SignUp from '../components/SignUp'
+import SignUp from '../components/SignUp';
+import auth from '@react-native-firebase/auth';
 
 export default class SignUpScreen extends Component {
     constructor(props){
@@ -24,7 +25,11 @@ export default class SignUpScreen extends Component {
     }
 
     createUser = () => {
-        console.warn(this.state)
+        auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(res => {
+            let user = res.user;
+            console.warn(user);
+        })
     }
 
     render() {

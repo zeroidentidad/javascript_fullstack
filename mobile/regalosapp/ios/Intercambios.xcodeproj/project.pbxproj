@@ -39,8 +39,8 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		12F08DC99F17407D9B45A10E /* libRNFBAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4A142C18CD497C9135A4BE /* libRNFBAuth.a */; };
-		E038DA08346E4D0F98E5650C /* libRNFBApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85337ADA0AC4435A9941F01B /* libRNFBApp.a */; };
+		7929B6C496E044E498BF2D76 /* libRNFBApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3D0B538E554583BCB3274D /* libRNFBApp.a */; };
+		2024F1795B244DE797B644F9 /* libRNFBAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D70EB827FA43D194D87256 /* libRNFBAuth.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,10 +348,10 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		3F89E659F0DA41BE8BFC8C09 /* RNFBAuth.xcodeproj */ = {isa = PBXFileReference; name = "RNFBAuth.xcodeproj"; path = "../node_modules/@react-native-firebase/auth/ios/RNFBAuth.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		CD4A142C18CD497C9135A4BE /* libRNFBAuth.a */ = {isa = PBXFileReference; name = "libRNFBAuth.a"; path = "libRNFBAuth.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		3F29919B8E0040B983C4C9D4 /* RNFBApp.xcodeproj */ = {isa = PBXFileReference; name = "RNFBApp.xcodeproj"; path = "../node_modules/@react-native-firebase/app/ios/RNFBApp.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		85337ADA0AC4435A9941F01B /* libRNFBApp.a */ = {isa = PBXFileReference; name = "libRNFBApp.a"; path = "libRNFBApp.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		9C34E37DC01546859D858149 /* RNFBApp.xcodeproj */ = {isa = PBXFileReference; name = "RNFBApp.xcodeproj"; path = "../node_modules/@react-native-firebase/app/ios/RNFBApp.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		CB3D0B538E554583BCB3274D /* libRNFBApp.a */ = {isa = PBXFileReference; name = "libRNFBApp.a"; path = "libRNFBApp.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		7866961E70CE43739A7FCF41 /* RNFBAuth.xcodeproj */ = {isa = PBXFileReference; name = "RNFBAuth.xcodeproj"; path = "../node_modules/@react-native-firebase/auth/ios/RNFBAuth.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		47D70EB827FA43D194D87256 /* libRNFBAuth.a */ = {isa = PBXFileReference; name = "libRNFBAuth.a"; path = "libRNFBAuth.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,8 +380,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				12F08DC99F17407D9B45A10E /* libRNFBAuth.a in Frameworks */,
-				E038DA08346E4D0F98E5650C /* libRNFBApp.a in Frameworks */,
+				7929B6C496E044E498BF2D76 /* libRNFBApp.a in Frameworks */,
+				2024F1795B244DE797B644F9 /* libRNFBAuth.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,8 +571,8 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				3F89E659F0DA41BE8BFC8C09 /* RNFBAuth.xcodeproj */,
-				3F29919B8E0040B983C4C9D4 /* RNFBApp.xcodeproj */,
+				9C34E37DC01546859D858149 /* RNFBApp.xcodeproj */,
+				7866961E70CE43739A7FCF41 /* RNFBAuth.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1205,8 +1205,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Debug;
@@ -1233,8 +1233,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Release;
@@ -1257,8 +1257,8 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Debug;
@@ -1280,8 +1280,8 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Release;
@@ -1316,8 +1316,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Debug;
@@ -1352,8 +1352,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Release;
@@ -1387,8 +1387,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Debug;
@@ -1422,8 +1422,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
+					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
 				);
 			};
 			name = Release;

@@ -41,6 +41,8 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		7929B6C496E044E498BF2D76 /* libRNFBApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3D0B538E554583BCB3274D /* libRNFBApp.a */; };
 		2024F1795B244DE797B644F9 /* libRNFBAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D70EB827FA43D194D87256 /* libRNFBAuth.a */; };
+		BA9DDBBD11A74E23AA21999B /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7B3BF3635B54D7A8AC58D4C /* libRNGestureHandler.a */; };
+		A97EEE06360B4C4895F25EA0 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4919500CCF3E463A8E761C74 /* libRNGestureHandler-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +354,9 @@
 		CB3D0B538E554583BCB3274D /* libRNFBApp.a */ = {isa = PBXFileReference; name = "libRNFBApp.a"; path = "libRNFBApp.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		7866961E70CE43739A7FCF41 /* RNFBAuth.xcodeproj */ = {isa = PBXFileReference; name = "RNFBAuth.xcodeproj"; path = "../node_modules/@react-native-firebase/auth/ios/RNFBAuth.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		47D70EB827FA43D194D87256 /* libRNFBAuth.a */ = {isa = PBXFileReference; name = "libRNFBAuth.a"; path = "libRNFBAuth.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		BAA888F46B9B4671B933EBCB /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B7B3BF3635B54D7A8AC58D4C /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		4919500CCF3E463A8E761C74 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +387,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				7929B6C496E044E498BF2D76 /* libRNFBApp.a in Frameworks */,
 				2024F1795B244DE797B644F9 /* libRNFBAuth.a in Frameworks */,
+				BA9DDBBD11A74E23AA21999B /* libRNGestureHandler.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +404,7 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
+				A97EEE06360B4C4895F25EA0 /* libRNGestureHandler-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +580,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				9C34E37DC01546859D858149 /* RNFBApp.xcodeproj */,
 				7866961E70CE43739A7FCF41 /* RNFBAuth.xcodeproj */,
+				BAA888F46B9B4671B933EBCB /* RNGestureHandler.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1202,11 +1210,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Debug;
@@ -1230,11 +1241,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Release;
@@ -1259,6 +1273,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Debug;
@@ -1282,6 +1297,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Release;
@@ -1313,11 +1329,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Debug;
@@ -1349,11 +1368,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Release;
@@ -1384,11 +1406,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Debug;
@@ -1419,11 +1444,14 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/app/ios/RNFBApp",
 					"$(SRCROOT)/../node_modules/@react-native-firebase/auth/ios/RNFBAuth",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 			};
 			name = Release;

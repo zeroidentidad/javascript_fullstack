@@ -845,6 +845,26 @@
     xcode "^2.0.0"
     xmldoc "^0.4.0"
 
+"@react-native-firebase/app-types@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app-types/-/app-types-0.3.0.tgz#311e0b5f604da0b34f9ccb845daf6a737764cece"
+  integrity sha512-38J35TVe0zaok4V35MgFGO+jLIJWdVVZbTji9xBfX4KSHBanKiLGHlG6Xb5JFcTkbive8gfRZXz4Mw7u/hWbKw==
+
+"@react-native-firebase/app@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-0.3.0.tgz#9e124b651dd4fbfdddb13243cef78a812e30f2e4"
+  integrity sha512-dbHeIC+fZ9SP1A+mf/hJ0HozO6Gwv6kY4t4/+JjYSJ19AhW9uU1r4nbLb5kkuaiu6sKUyHSUg4TUkDQZpEPXSA==
+  dependencies:
+    "@react-native-firebase/app-types" "0.3.0"
+    opencollective-postinstall "^2.0.1"
+
+"@react-native-firebase/auth@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-0.3.0.tgz#d7a1d2d4bf38c3f2e4041756d9ac024199b4c5a8"
+  integrity sha512-6B0IQEzUifgro06/OBTVs64bOjoSKnXYYMxoSWeapwQodbO/Exw4cGwObjihm34qRuzXrgVGCNyBOSDjVVeevA==
+  dependencies:
+    "@react-native-firebase/app-types" "0.3.0"
+
 "@types/babel__core@^7.1.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"
@@ -4453,6 +4473,11 @@ onetime@^2.0.0:
   integrity sha1-BnQoIw/WdEOyeUsiu6UotoZ5YtQ=
   dependencies:
     mimic-fn "^1.0.0"
+
+opencollective-postinstall@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.2.tgz#5657f1bede69b6e33a45939b061eb53d3c6c3a89"
+  integrity sha512-pVOEP16TrAO2/fjej1IdOyupJY8KDUM1CvsaScRbw6oddvpQoOfGk4ywha0HKKVAD6RkW4x6Q+tNBwhf3Bgpuw==
 
 opn@^3.0.2:
   version "3.0.3"

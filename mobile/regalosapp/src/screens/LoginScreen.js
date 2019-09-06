@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import AuthUI from '../components/AuthUI';
 import auth from '@react-native-firebase/auth';
 
-export default class SignUpScreen extends Component {
-    constructor(props){
+export default class LoginScreen extends Component {
+    constructor(props) {
         super(props);
-        
+
         this.state = {
             email: '',
             password: ''
@@ -24,9 +24,9 @@ export default class SignUpScreen extends Component {
         })
     }
 
-    createUser = async() => {
+    login = async() => {
        try {
-           let res = await auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
+           let res = await auth().signInWithEmailAndPassword(this.state.email, this.state.password);
            let { user } = res;
            console.warn(user);          
        } catch (err) {
@@ -39,8 +39,8 @@ export default class SignUpScreen extends Component {
             <AuthUI 
             setEmail={this.setEmail} 
             setPassword={this.setPassword} 
-            mainAction={this.createUser}
-            mainButtonTitle="Registrar usuario"
+            mainAction={this.login}
+            mainButtonTitle="Ingresar"
             />
         )
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import auth from '@react-native-firebase/auth';
 
 export default class AuthLoading extends Component {
@@ -13,9 +13,18 @@ export default class AuthLoading extends Component {
     }
     render() {
         return (
-            <View>
-                <Text> textInComponent </Text>
+            <View style={styles.container}>
+                <Text> CARGANDO... </Text>
             </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  }
+});

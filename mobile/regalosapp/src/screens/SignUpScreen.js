@@ -28,7 +28,7 @@ export default class SignUpScreen extends Component {
        try {
            let res = await auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
            let { user } = res;
-           console.warn(user);          
+           //console.warn(user);          
        } catch (err) {
            alert(err);
        }

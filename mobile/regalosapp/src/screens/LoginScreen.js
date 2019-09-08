@@ -28,7 +28,7 @@ export default class LoginScreen extends Component {
        try {
            let res = await auth().signInWithEmailAndPassword(this.state.email, this.state.password);
            let { user } = res;
-           console.warn(user);          
+           //console.warn(user);          
        } catch (err) {
            alert(err);
        }

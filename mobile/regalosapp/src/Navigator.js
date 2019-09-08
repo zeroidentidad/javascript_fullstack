@@ -13,6 +13,12 @@ const Authnavigator = createStackNavigator({
 
 const AppNavigator = createStackNavigator({
     Home: HomeScreen
+},{
+    defaultNavigationOptions: ({navigation}) => {
+        return {
+            title: 'Inicio 🎁'
+        }
+    }
 })
 
 export default createAppContainer(

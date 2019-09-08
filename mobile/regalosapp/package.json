@@ -12,6 +12,8 @@
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-gesture-handler": "^1.4.1",
+    "react-native-paper": "^2.16.0",
+    "react-native-vector-icons": "*",
     "react-navigation": "3.12.1"
   },
   "devDependencies": {

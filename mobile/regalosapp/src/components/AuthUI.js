@@ -32,8 +32,10 @@ class AuthUI extends Component {
             <View style={styles.container}>
                 <Title>Ingresar con tu cuenta:</Title>
                 <TextInput label="E-mail..." value={this.state.email}
+                textContentType="emailAddress" keyboardType="email-address"
                 style={styles.formControl} onChangeText={(text) => this.setEmail(text)} />
-                <TextInput label="Contraseña..." value={this.state.password}
+                <TextInput label="Contraseña..." value={this.state.password} 
+                textContentType="password" secureTextEntry={true} 
                 style={styles.formControl} onChangeText={(text) => this.setPassword(text)} />
                 <View style={[styles.botones, styles.formControl]}>
                     <TouchableHighlight style={styles.touchables}>

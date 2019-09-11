@@ -16,7 +16,7 @@ const AppNavigator = createStackNavigator({
 },{
     defaultNavigationOptions: ({navigation}) => {
         return {
-            title: 'Inicio 🎁'
+            title: 'Intercambios 🎁'
         }
     }
 })

@@ -8,7 +8,7 @@ export default class AuthLoading extends Component {
     }
     getUser(){
         auth().onUserChanged((user)=>{
-            this.props.navigation.navigate(user ? "App" : "Auth"); //user true
+            this.props.navigation.navigate(false ? "App" : "Auth"); //user true
         })
     }
     render() {

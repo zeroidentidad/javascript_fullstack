@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import AuthUI from '../components/AuthUI';
 import auth from '@react-native-firebase/auth';
+import {connect} from 'react-redux';
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
     constructor(props) {
         super(props);
 
@@ -47,3 +48,7 @@ export default class LoginScreen extends Component {
         )
     }
 }
+
+export default connect(
+    (state) => ({user: state.user})
+)(LoginScreen)

@@ -1,4 +1,4 @@
 import {createStore} from 'redux';
 import indexReducer from './reducers'
 
-createStore(indexReducer);
+export default createStore(indexReducer);

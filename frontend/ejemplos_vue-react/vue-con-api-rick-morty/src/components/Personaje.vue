@@ -7,7 +7,7 @@
           </div>
           <div class="card-content">
             <h3 class="title is-size-4">{{character.name}}</h3>
-            <button class="button is-success is-rounded is-small">Ver más...</button>
+            <button class="button is-success is-rounded is-small" @click="verMas(character.id)">Ver más...</button>
           </div>
         </div>          
 
@@ -16,6 +16,11 @@
 
 <script>
 export default {
-    props: ['character']
+    props: ['character'],
+    methods: {
+      verMas(id){
+        this.$emit('showModal', id);
+      }
+    }
 }
 </script>

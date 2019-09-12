@@ -31,9 +31,28 @@
       </nav>      
 
       <div class="columns is-desktop is-mobile is-tablet is-multiline is-centered">
-        <personaje v-for="character of characters" v-bind:key="character.id" v-bind:character="character"/>
+        <personaje @showModal="showModal" v-for="character of characters" v-bind:key="character.id" v-bind:character="character"/>
       </div>
 
+    </div>
+
+    <div class="modal" :class="{'is-active':modal}" v-if="modal">
+      <div class="modal-background" @click="modal=false;"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Detalles sobre <b>{{currentCharacter.name}}</b></p>
+        </header>
+        <div class="modal-card-body">
+          <p>Genero: <b>{{currentCharacter.gender}}</b></p>
+          <p>Estatus: <b>{{currentCharacter.status}}</b></p>
+          <p>Raza: <b>{{currentCharacter.species}}</b></p>
+          <p>Tipo: <b>{{currentCharacter.type}}</b></p>
+          <p>Fecha: <b>{{currentCharacter.created}}</b></p>
+        </div>
+        <footer class="modal-card-foot">
+          <button class="button" @click="modal=false;">Cerrar</button>
+        </footer>
+      </div>
     </div>
 
   </div>
@@ -53,7 +72,9 @@ export default {
       characters: [],
       page: 1,
       pages: 1,
-      search: ''
+      search: '',
+      modal: false,
+      currentCharacter: {}
     }
   },
   created(){
@@ -78,6 +99,14 @@ export default {
     searchData(search){
       this.page=1;
       this.fetch();
+    },
+    showModal(id){
+      this.fetchModal(id)
+    },
+    async fetchModal(id){
+      let result = await axios.get(`https://rickandmortyapi.com/api/character/${id}/`);
+      this.currentCharacter = result.data;
+      this.modal = true;
     }
   }
 }

@@ -5,18 +5,33 @@
       <div class="hero-body">
         <h1 class="title">
           <span class="has-text-success">Rick and Morty</span>
-          <span class="subtitle">Personajes</span>
+          <span class="subtitle"> (Personajes)</span>
         </h1>
-        <button class="button is-warning is-rounded" v-on:click="fetch">Consultar</button>
+        <div class="field has-addons is-pulled-left">
+          <div class="control">
+            <input v-model="search" type="text" class="input is-rounded" v-on:keyup.enter="searchData">
+          </div>
+          <div class="control">
+            <button class="button is-warning is-rounded" v-on:click="searchData">Buscar</button>
+          </div>          
+        </div>
       </div>
     </div>
 
     <div class="container">
 
+      <nav class="pagination" role="navigation" aria-label="pagination">
+        <a class="pagination-previous" v-on:click="changePage(page-1)">Anterior</a>
+        <ul class="pagination-list">
+          <li>
+            <a class="pagination-link is-current">{{page}}</a>
+          </li>
+        </ul>
+        <a class="pagination-next" v-on:click="changePage(page+1)">Siguiente</a>
+      </nav>      
+
       <div class="columns is-desktop is-mobile is-tablet is-multiline is-centered">
-
         <personaje v-for="character of characters" v-bind:key="character.id" v-bind:character="character"/>
-
       </div>
 
     </div>
@@ -35,7 +50,10 @@ export default {
   },
   data: function () {
     return {
-      characters: []
+      characters: [],
+      page: 1,
+      pages: 1,
+      search: ''
     }
   },
   created(){
@@ -43,13 +61,23 @@ export default {
   },  
   methods: {
     fetch(){
-      let result = axios.get("https://rickandmortyapi.com/api/character")
+      const params = {page: this.page, name: this.search}
+      let result = axios.get("https://rickandmortyapi.com/api/character/",{params})
       .then((res)=>{
         this.characters = res.data.results;
+        this.pages = res.data.info.pages
       })
       .catch((err)=>{
         console.log(err)
       })
+    },
+    changePage(page){
+      this.page = (page <= 0 || page > this.pages) ? this.page : page;
+      this.fetch();
+    },
+    searchData(search){
+      this.page=1;
+      this.fetch();
     }
   }
 }

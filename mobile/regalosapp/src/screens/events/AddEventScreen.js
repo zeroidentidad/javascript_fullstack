@@ -11,21 +11,21 @@ class AddEventScreen extends Component {
         this.db = firestore();
     }
 
-    add = ({title, date}) => {
-        //Guardar en firebase:
-
+    add = async({title, date}) => {
         //Crear slug del titulo:
         let slug = slugify(title);
-
-        console.warn(slug);
-        console.warn(this.props.user);
-
         //Guardar doc del user:
-        //this.db.collection('users').doc()
-
+        await this.db.collection('users').doc(this.props.user.uid).collection('events').doc(slug).set({
+            title,
+            date
+        })
         //Guardar coleccion eventos:
+        await this.db.collection('events').doc(slug).set({
+            title,
+            date
+        })
 
-        this.db
+        this.props.navigation.navigate('Home');
     }
     
     render() {

@@ -25,12 +25,14 @@ class AddEventUI extends Component {
                     label="Nombre del evento"
                     value={this.state.title}
                     onChangeText={(titulo) => this.setState({title: titulo})}
-            />
-                <Button
-                    mode='contained'
-                    color={this.props.theme.colors.accent}
-                    onPress={this.submit}
-                >Crear</Button>
+                />
+                <View style={{width: '90%', marginTop: 20, alignSelf:'center'}}>
+                    <Button
+                        mode='contained'
+                        color={this.props.theme.colors.accent}
+                        onPress={this.submit}
+                    >Crear</Button>
+                </View>
             </View>
         )
     }

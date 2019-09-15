@@ -14,7 +14,7 @@ class LoginScreen extends Component {
     }
 
     componentDidUpdate(){
-        console.warn(this.props.user)
+        //console.warn(this.props.user)
     }
 
     login = async({email, password}) => {

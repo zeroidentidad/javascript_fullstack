@@ -3,8 +3,10 @@ import { Text, View } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import HomeComponent from '../components/HomeComponent';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import {connect} from 'react-redux';
 
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
 
     static navigationOptions = ({navigation}) => {
         return {
@@ -39,6 +41,17 @@ export default class HomeScreen extends Component {
         this.props.navigation.navigate('AddEvent');
     }
 
+    componentDidMount(){
+        this.db = firestore();
+        this.readEvents();
+    }
+
+    readEvents = async()=>{
+        let ref = await this.db.collection('users').doc(this.props.user.uid).collection('events').get();
+        let events = ref.docs.map(docRef => docRef.data());
+        console.warn(events);
+    }
+
     render() {
         return (
             <HomeComponent 
@@ -48,3 +61,7 @@ export default class HomeScreen extends Component {
         )
     }
 }
+
+export default connect((state)=>{
+    return {user: state.user}
+})(HomeScreen)

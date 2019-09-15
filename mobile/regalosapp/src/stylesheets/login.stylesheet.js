@@ -25,5 +25,8 @@ export default StyleSheet.create({
         margin: 6,
         right: 0,
         bottom: 0
+    },
+    card: {
+        margin: 10
     }
 });

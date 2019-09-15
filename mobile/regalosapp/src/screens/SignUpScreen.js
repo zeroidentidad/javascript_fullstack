@@ -15,7 +15,6 @@ class SignUpScreen extends Component {
        try {
            let res = await auth().createUserWithEmailAndPassword(email, password);
            let { user } = res;
-           //console.warn(user);
            await this.db.collection('users').doc(user.uid).set({email: user.email});
            this.props.login(user);          
        } catch (err) {

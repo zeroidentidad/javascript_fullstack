@@ -21,7 +21,6 @@ class LoginScreen extends Component {
        try {
            let res = await auth().signInWithEmailAndPassword(email, password);
            let { user } = res;
-           //console.warn(user);
            this.props.login(user);         
        } catch (err) {
            alert(err);

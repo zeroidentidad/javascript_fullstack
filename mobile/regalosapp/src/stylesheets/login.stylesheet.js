@@ -18,5 +18,12 @@ export default StyleSheet.create({
     },
     touchables: {
         margin: 0
+    },
+    fabHome: {
+        backgroundColor: '#b3002d', //primary -> ./App.js
+        position: 'absolute',
+        margin: 6,
+        right: 0,
+        bottom: 0
     }
 });

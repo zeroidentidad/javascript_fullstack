@@ -35,9 +35,16 @@ export default class HomeScreen extends Component {
         })
     }
 
+    goToAddEvent = () => {
+        this.props.navigation.navigate('AddEvent');
+    }
+
     render() {
         return (
-            <HomeComponent setNavigationColor={this.setNavigationColor}/>
+            <HomeComponent 
+            setNavigationColor={this.setNavigationColor}
+            goToAddEvent={this.goToAddEvent}
+            />
         )
     }
 }

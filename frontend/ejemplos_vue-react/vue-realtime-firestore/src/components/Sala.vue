@@ -5,9 +5,13 @@
         </div>
         <div class="asientos">
             <div class="row">
-                <div class="col asiento disponible" 
+                <div class="col asiento" 
                 v-for="asiento in asientos" 
-                v-text="asiento.id">
+                v-text="asiento.id"
+                v-bind:id="asiento.id"
+                v-bind:class="{disponible: asiento.disponible, ocupado: !asiento.disponible}"
+                @click="seleccionarAsiento"
+                >
                 </div>
             </div>
         </div>        
@@ -15,15 +19,23 @@
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
     data(){
         return{
             asientos:[
-                { id:'A1', disponible:true },
+                { id:'A1', disponible:false },
                 { id:'A2', disponible:true },
                 { id:'A3', disponible:true },
                 { id:'A4', disponible:true }
             ]
+        }
+    },
+    methods: {
+        seleccionarAsiento: function(e){
+            let asiento = this.asientos.find(a => a.id == e.target.id)
+            asiento.disponible = !asiento.disponible
         }
     }  
 }
@@ -39,6 +51,7 @@ export default {
 }
 .asientos{
     margin-top: 50px;
+    cursor: pointer;
 }
 .asiento{
     color: white;

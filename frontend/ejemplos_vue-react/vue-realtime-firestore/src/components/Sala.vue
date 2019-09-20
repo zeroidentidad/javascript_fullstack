@@ -57,10 +57,19 @@ export default {
             this.asientos = data
         },
         guardar: function(){
+            this.validarAsientos()
             this.actualizarAsientos()
         },
         asientoDisponible: function(asiento){
             return !asiento.adquirido
+        },
+        asientosSeleccionados: function(){
+            return this.asientos.filter(a => !a.disponible && !a.adquirido)
+        },
+        validarAsientos: function(){
+            this.asientosSeleccionados().forEach((asiento)=>{
+                asiento.adquirido = true
+            })
         }
     }  
 }

@@ -22,20 +22,30 @@
 import firebase from 'firebase';
 
 export default {
+    created(){
+        //this.actualizarAsientos()
+        firebase.database().ref('salas').child('1').once('value', snapshot => this.cargarDatos(snapshot.val()))
+    },
     data(){
         return{
-            asientos:[
-                { id:'A1', disponible:false },
-                { id:'A2', disponible:true },
-                { id:'A3', disponible:true },
-                { id:'A4', disponible:true }
-            ]
+            asientos:[]
         }
     },
     methods: {
         seleccionarAsiento: function(e){
             let asiento = this.asientos.find(a => a.id == e.target.id)
             asiento.disponible = !asiento.disponible
+        },
+        actualizarAsientos: function(){
+            // init : firebase.database().ref('/salas/1').set(this.asientos)
+            firebase.database().ref('salas').child('1').set(this.asientos, function(error){
+                if(error){
+                    console.log(error)
+                }
+            })
+        },
+        cargarDatos: function(data){
+            this.asientos = data
         }
     }  
 }

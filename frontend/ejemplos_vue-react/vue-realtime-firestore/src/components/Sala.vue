@@ -9,22 +9,28 @@
                 v-for="asiento in asientos" 
                 v-text="asiento.id"
                 v-bind:id="asiento.id"
-                v-bind:class="{disponible: asiento.disponible, ocupado: !asiento.disponible}"
+                v-bind:class="{disponible: asiento.disponible, ocupado: !asiento.disponible, pointer:asientoDisponible(asiento) }"
                 @click="seleccionarAsiento"
                 >
                 </div>
             </div>
-        </div>        
+        </div>
+        <div class="botones">
+            <b-button variant="primary" @click="guardar">Guardar</b-button>
+        </div>         
     </div>
 </template>
 
 <script>
 import firebase from 'firebase';
 
+const ruta = 'salas';
+const rutaId = '1';
+
 export default {
     created(){
         //this.actualizarAsientos()
-        firebase.database().ref('salas').child('1').once('value', snapshot => this.cargarDatos(snapshot.val()))
+        firebase.database().ref(ruta).child(rutaId).once('value', snapshot => this.cargarDatos(snapshot.val()))
     },
     data(){
         return{
@@ -34,11 +40,14 @@ export default {
     methods: {
         seleccionarAsiento: function(e){
             let asiento = this.asientos.find(a => a.id == e.target.id)
+            if(asiento.adquirido){
+                return
+            }
             asiento.disponible = !asiento.disponible
         },
         actualizarAsientos: function(){
             // init : firebase.database().ref('/salas/1').set(this.asientos)
-            firebase.database().ref('salas').child('1').set(this.asientos, function(error){
+            firebase.database().ref(ruta).child(rutaId).set(this.asientos, function(error){
                 if(error){
                     console.log(error)
                 }
@@ -46,6 +55,12 @@ export default {
         },
         cargarDatos: function(data){
             this.asientos = data
+        },
+        guardar: function(){
+            this.actualizarAsientos()
+        },
+        asientoDisponible: function(asiento){
+            return !asiento.adquirido
         }
     }  
 }
@@ -61,7 +76,6 @@ export default {
 }
 .asientos{
     margin-top: 50px;
-    cursor: pointer;
 }
 .asiento{
     color: white;
@@ -73,5 +87,11 @@ export default {
 }
 .ocupado{
     background-color: #73264f
+}
+.botones{
+    margin-top: 50px;
+}
+.pointer{
+    cursor: pointer;    
 }
 </style>

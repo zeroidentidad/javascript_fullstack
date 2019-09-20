@@ -16,8 +16,12 @@
             </div>
         </div>
         <div class="botones">
-            <b-button variant="primary" @click="guardar">Guardar</b-button>
+            <b-button :disabled="contador==0" variant="primary" @click="guardar">Guardar</b-button>
+            <b-button :disabled="contador==0" style="margin-left:10px" variant="warning" @click="cancelar">Cancelar</b-button>
             <b-button style="margin-left:10px" variant="secondary" @click="restaurar">Restaurar</b-button>
+        </div>
+        <div style="margin-top:30px">
+            <b>Asientos seleccionados {{contador}}</b>
         </div>         
     </div>
 </template>
@@ -31,21 +35,28 @@ const rutaId = '1';
 export default {
     created(){
         //this.actualizarAsientos()
+        this.id = firebase.database().ref('/users').push().key
         firebase.database().ref(ruta).child(rutaId).on('value', snapshot => this.cargarDatos(snapshot.val()))
     },
     data(){
         return{
+            id:'',
+            contador:0,
             asientos:[]
         }
     },
     methods: {
         seleccionarAsiento: function(e){
             let asiento = this.asientos.find(a => a.id == e.target.id)
-            if(asiento.adquirido){
+            if(asiento.adquirido || (asiento.user_id!=null && asiento.user_id!=this.id)){
+                alert('No puede seleccionar el asiento.');
                 return
             }
             asiento.disponible = !asiento.disponible
+            asiento.user_id = this.id
             this.actualizarAsientos()
+
+            this.contador = this.asientosSeleccionados().length
         },
         actualizarAsientos: function(){
             // init : firebase.database().ref('/salas/1').set(this.asientos)
@@ -63,7 +74,7 @@ export default {
             this.actualizarAsientos()
         },
         asientoDisponible: function(asiento){
-            return !asiento.adquirido
+            return !asiento.adquirido && (asiento.user_id==null || asiento.user_id==this.id)
         },
         asientosSeleccionados: function(){
             return this.asientos.filter(a => !a.disponible && !a.adquirido)
@@ -77,8 +88,17 @@ export default {
             this.asientos.forEach((asiento)=>{
                 asiento.adquirido = false
                 asiento.disponible = true
+                asiento.user_id = null
             })
             this.actualizarAsientos()
+        },
+        cancelar: function(){
+            this.asientosSeleccionados().forEach((asiento)=>{
+                asiento.user_id = null
+                asiento.disponible = true
+            })
+            this.actualizarAsientos()
+            this.contador=0
         }
     }  
 }

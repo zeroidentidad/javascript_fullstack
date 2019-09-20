@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="container">
         <div class="pantalla">
-            <p class="font-weight-bold textoInicial">Pantalla</p>
+            <p class="font-weight-bold textoInicial">Sala</p>
         </div>
         <div class="asientos">
             <div class="row">
@@ -17,6 +17,7 @@
         </div>
         <div class="botones">
             <b-button variant="primary" @click="guardar">Guardar</b-button>
+            <b-button style="margin-left:10px" variant="secondary" @click="restaurar">Restaurar</b-button>
         </div>         
     </div>
 </template>
@@ -30,7 +31,7 @@ const rutaId = '1';
 export default {
     created(){
         //this.actualizarAsientos()
-        firebase.database().ref(ruta).child(rutaId).once('value', snapshot => this.cargarDatos(snapshot.val()))
+        firebase.database().ref(ruta).child(rutaId).on('value', snapshot => this.cargarDatos(snapshot.val()))
     },
     data(){
         return{
@@ -44,6 +45,7 @@ export default {
                 return
             }
             asiento.disponible = !asiento.disponible
+            this.actualizarAsientos()
         },
         actualizarAsientos: function(){
             // init : firebase.database().ref('/salas/1').set(this.asientos)
@@ -70,6 +72,13 @@ export default {
             this.asientosSeleccionados().forEach((asiento)=>{
                 asiento.adquirido = true
             })
+        },
+        restaurar: function(){
+            this.asientos.forEach((asiento)=>{
+                asiento.adquirido = false
+                asiento.disponible = true
+            })
+            this.actualizarAsientos()
         }
     }  
 }

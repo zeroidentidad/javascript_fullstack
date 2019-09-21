@@ -2,8 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import firebase from 'firebase'
+import Notifications from 'vue-notification'
+import { BImg } from 'bootstrap-vue'
 
+Vue.component('b-img', BImg)
 Vue.use(BootstrapVue)
+Vue.use(Notifications)
 Vue.config.productionTip = false
 
 var firebaseConfig = {

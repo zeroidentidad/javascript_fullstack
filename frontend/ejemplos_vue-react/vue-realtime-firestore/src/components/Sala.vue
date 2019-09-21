@@ -3,6 +3,7 @@
         <div class="pantalla">
             <p class="font-weight-bold textoInicial">Sala</p>
         </div>
+        <b-img src="http://img.icons8.com/dusk/2x/camping-chair.png" fluid alt=""></b-img>
         <div class="asientos">
             <div class="row">
                 <div class="col asiento" 
@@ -49,7 +50,12 @@ export default {
         seleccionarAsiento: function(e){
             let asiento = this.asientos.find(a => a.id == e.target.id)
             if(asiento.adquirido || (asiento.user_id!=null && asiento.user_id!=this.id)){
-                alert('No puede seleccionar el asiento.');
+                this.$notify({
+                    group: 'foo',
+                    type: 'warn',
+                    title: 'Advertencia',
+                    text: 'No puede seleccionar el asiento: '+asiento.id
+                })
                 return
             }
             asiento.disponible = !asiento.disponible
@@ -60,18 +66,47 @@ export default {
         },
         actualizarAsientos: function(){
             // init : firebase.database().ref('/salas/1').set(this.asientos)
-            firebase.database().ref(ruta).child(rutaId).set(this.asientos, function(error){
-                if(error){
-                    console.log(error)
-                }
-            })
+            firebase.database().ref(ruta).child(rutaId).set(this.asientos/*, error => this.validarRespuesta(error)*/)
+        },
+        validarRespuesta: function(error, commited, snapshot){
+            if(error){
+                this.$notify({
+                    group: 'foo',
+                    type: 'error',
+                    title: 'Error',
+                    text: 'Ocurrio un error: '+error
+                })
+            }
+            if(commited){
+                this.$notify({
+                    group: 'foo',
+                    type: 'success',
+                    title: 'Correcto',
+                    text: 'Registro guardado correctamente'
+                })                
+            }
         },
         cargarDatos: function(data){
             this.asientos = data
         },
         guardar: function(){
-            this.validarAsientos()
-            this.actualizarAsientos()
+            //this.validarAsientos()
+            //this.actualizarAsientos()
+            firebase.database().ref(ruta).child(rutaId).transaction(
+                valoresDB => this.validarCompra(valoresDB),
+                (error, commited, snapshot) => this.validarRespuesta(error, commited, snapshot)
+            )
+            this.contador=0
+        },
+        validarCompra: function(valoresDB){
+            this.asientosSeleccionados().forEach((asiento)=>{
+                if(valoresDB.find(a => a.id == asiento.id).adquirido){
+                    return
+                }
+                asiento.adquirido = true
+            })
+
+            return this.asientos
         },
         asientoDisponible: function(asiento){
             return !asiento.adquirido && (asiento.user_id==null || asiento.user_id==this.id)
@@ -91,6 +126,7 @@ export default {
                 asiento.user_id = null
             })
             this.actualizarAsientos()
+            this.contador=0
         },
         cancelar: function(){
             this.asientosSeleccionados().forEach((asiento)=>{

@@ -9,7 +9,7 @@ export default class EventScreen extends Component {
     }
     render() {
         return (
-            <EventUI />
+            <EventUI openContactsScreen={() => this.props.navigation.navigate('Contacts')}/>
         )
     }
 }

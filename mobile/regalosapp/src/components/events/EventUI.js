@@ -1,10 +1,12 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import { View } from 'react-native';
+import { Text, Button } from 'react-native-paper';
 
-const EventUI = () => {
+const EventUI = (props) => {
     return (
         <View>
             <Text>Evento</Text>
+            <Button onPress={()=>props.openContactsScreen()}>Agregar invitados</Button>
         </View>
     )
 }

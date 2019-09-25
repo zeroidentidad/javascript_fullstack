@@ -139,6 +139,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-contacts')
     implementation project(':@react-native-firebase_firestore')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')

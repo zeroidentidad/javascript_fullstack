@@ -12,6 +12,7 @@
     "@react-native-firebase/firestore": "^0.3.0",
     "react": "16.8.3",
     "react-native": "0.59.9",
+    "react-native-datepicker": "^1.7.2",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-paper": "^2.16.0",
     "react-native-vector-icons": "*",

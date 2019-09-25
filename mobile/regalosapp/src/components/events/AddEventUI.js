@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View } from 'react-native';
-import {Title, TextInput, Button, withTheme} from 'react-native-paper';
+import {Title, TextInput, Button, withTheme, Paragraph} from 'react-native-paper';
+import DatePicker from 'react-native-datepicker'
 
 class AddEventUI extends Component {
 
@@ -26,6 +27,14 @@ class AddEventUI extends Component {
                     value={this.state.title}
                     onChangeText={(titulo) => this.setState({title: titulo})}
                 />
+                <View>
+                    <Paragraph>Fecha:</Paragraph>
+                    <DatePicker 
+                    style={{ width: '100%' }}
+                    date={this.state.date}
+                    onDateChange={(date) => this.setState({date: date})}
+                    />
+                </View>
                 <View style={{width: '90%', marginTop: 20, alignSelf:'center'}}>
                     <Button
                         mode='contained'

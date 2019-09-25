@@ -11,7 +11,7 @@ const ContactsUI = (props) => {
             ListEmptyComponent={Empty}
             data={props.contacts}
             renderItem={
-                ({item}) => <ContactCard user={item}/>
+                ({item}) => <ContactCard addContactToEvent={props.addContactToEvent} user={item}/>
             }
             ></FlatList>
         </View>

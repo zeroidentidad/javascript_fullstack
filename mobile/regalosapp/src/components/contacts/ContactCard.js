@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
-import {Card, Title} from 'react-native-paper';
+import {Card, Title, IconButton} from 'react-native-paper';
 import styles from '../../stylesheets/login.stylesheet';
 
 const ContactCard = (props) => {
@@ -11,6 +11,7 @@ const ContactCard = (props) => {
                 <View>
                     <Title>{props.user.name}</Title>
                 </View>
+                <IconButton icon="person-add" onPress={()=>props.addContactToEvent(props.user)}/>
             </Card.Content>
         </Card>
     )

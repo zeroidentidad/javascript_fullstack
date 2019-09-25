@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PermissionsAndroid } from 'react-native';
 import Contacts from 'react-native-contacts';
 import ContactsUI from '../../components/contacts/ContactsUI';
+import firestore from '@react-native-firebase/firestore';
 
 export default class ContactsScreen extends Component {
 
@@ -15,6 +16,12 @@ export default class ContactsScreen extends Component {
 
     componentDidMount(){
         this.requestPermissions();
+        this.eventId = this.props.navigation.getParam('eventId');
+        this.db = firestore();
+    }
+
+    addContactToEvent = async(contact) => {
+        return await this.db.collection('events').doc(this.eventId).collection('contacts').add(contact)
     }
 
     requestPermissions = async() =>{
@@ -54,6 +61,7 @@ export default class ContactsScreen extends Component {
     render() {
         return (
             <ContactsUI
+            addContactToEvent={this.addContactToEvent}
             queryContacts={this.queryContacts}
             contacts={this.state.contacts}
             />

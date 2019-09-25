@@ -7,9 +7,15 @@ export default class EventScreen extends Component {
         this.eventId = this.props.navigation.getParam('eventId');
         console.warn(this.eventId);
     }
+
+    openContactsScreen = () =>{
+        this.props.navigation.navigate('Contacts', {
+            eventId: this.eventId
+        })   
+    }
     render() {
         return (
-            <EventUI openContactsScreen={() => this.props.navigation.navigate('Contacts')}/>
+            <EventUI openContactsScreen={this.openContactsScreen}/>
         )
     }
 }

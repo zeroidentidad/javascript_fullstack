@@ -10,7 +10,7 @@ const EventCard = (props) => {
                 <Paragraph>Fecha: {props.event.date.slice(0, props.event.date.length - 5)}</Paragraph>
             </Card.Content>
             <Card.Actions>
-                <Button>Editar</Button>
+                <Button onPress={()=>{props.openEventScreen(props.event.id)}}>Editar</Button>
             </Card.Actions>
         </Card>
     )

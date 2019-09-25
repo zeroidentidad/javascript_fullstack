@@ -20,7 +20,7 @@ class HomeComponent extends Component {
                 data={this.props.events}
                 style={{width: '100%'}}
                 ListEmptyComponent={Empty}
-                renderItem={({ item }) => (<EventCard key={item.date} event={item}></EventCard>)
+                    renderItem={({ item }) => (<EventCard openEventScreen={this.props.openEventScreen} key={item.date} event={item}></EventCard>)
                 }
                 />
                 <FAB 

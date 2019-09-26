@@ -12,7 +12,7 @@ const Router = () => (
         <Route exact path="/" component={App} />
         <Route path="/platillos" component={Dishes} />
         <Route path="/platillo/:nombre" component={Dish} />
-        <Route path="/countries" component={Countries} />
+        <Route path="/paises" component={Countries} />
         <Route component={NotFound} /> {/*ruta dafult*/}
     </Switch>
     </BrowserRouter> 

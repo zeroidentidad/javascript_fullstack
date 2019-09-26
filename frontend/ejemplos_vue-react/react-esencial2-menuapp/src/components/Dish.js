@@ -7,8 +7,10 @@ export default class Dish extends Component {
         return this.ingredientes.length;  
     }
     render() {
+        const { params } = this.props.match;
         return (
             <div className="dish">
+                <h2>{params.nombre}</h2>
                 <h2>{this.props.nombre}</h2>
                 <h3>Cantidad: {this.props.cantidad}</h3>
                 <h4>Ingredientes: {this.contarIngredientes()}</h4>

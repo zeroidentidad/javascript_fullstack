@@ -12,7 +12,7 @@ export default class NewDish extends Component {
     newDish = React.createRef()
 
     addDish = (e) => {
-        console.log('Agregar platillo');
+        alert('Agregado '+this.newDish.value);
         e.preventDefault();
         //console.log(this.newDish.current.value);
         console.log(this.newDish.value);

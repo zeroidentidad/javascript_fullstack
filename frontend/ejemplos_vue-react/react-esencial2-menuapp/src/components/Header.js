@@ -5,7 +5,7 @@ export default class Header extends Component {
         return (
             <div>
                 {/* Header menu */}
-                <h1>Platillos Tipicos</h1>
+                <h4>Platillos Tipicos</h4>
             </div>
         )
     }

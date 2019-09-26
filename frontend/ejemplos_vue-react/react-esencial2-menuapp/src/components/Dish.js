@@ -1,11 +1,20 @@
 import React, { Component, Fragment } from 'react'
+import Button from '@material-ui/core/Button';
 
 export default class Dish extends Component {
+    ingredientes = ["Tortilla", "Carne", "Cebolla"];
+    contarIngredientes(){
+        return this.ingredientes.length;  
+    }
     render() {
         return (
-            <div>
-                <h1>Platillo</h1>
-                <Ingredient />
+            <div className="dish">
+                <h2>{this.props.nombre}</h2>
+                <h3>Cantidad: {this.props.cantidad}</h3>
+                <h4>Ingredientes: {this.contarIngredientes()}</h4>
+                <ul>{this.ingredientes.map(ingrediente =>(<li>{ingrediente}</li>))}</ul>
+                {/*<Ingredient />*/}
+                <Button variant="contained" color="primary">Elegir</Button>
             </div>
         )
     }
@@ -16,7 +25,8 @@ export class Ingredient extends Component {
         //return React.createElement('h4', {}, "Ingrediente")
         return (
             <Fragment>
-                <h1>Ingredientes</h1>
+                <h4>Ingredientes</h4>
+                <h4>Ingredientes</h4>
             </Fragment>
         )        
     }

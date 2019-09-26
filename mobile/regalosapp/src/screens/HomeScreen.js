@@ -49,9 +49,7 @@ class HomeScreen extends Component {
 
     readEvents = async()=>{
         let ref = await this.db.collection('users').doc(this.props.user.uid).collection('events');//.get();
-        /*let events = ref.docs.forEach(docRef => {
-            this.props.addEvent(docRef.data());
-        });*/
+        /*let events = ref.docs.forEach(docRef => { this.props.addEvent(docRef.data()); });*/
         ref.onSnapshot((querySnapshot)=>{
             querySnapshot.docChanges().forEach((change) => {
                 if(change.type=='added'){

@@ -11,7 +11,9 @@ const ContactCard = (props) => {
                 <View style={{flex:1, marginLeft:8}}>
                     <Title>{props.user.name}</Title>
                 </View>
-                <IconButton icon="person-add" onPress={()=>props.addContactToEvent(props.user)}/>
+                {props.addContactToEvent &&
+                <IconButton icon="person-add" onPress={()=>props.addContactToEvent(props.user)}/>   
+                }
             </Card.Content>
         </Card>
     )

@@ -12,7 +12,7 @@ export default class Dish extends Component {
                 <h2>{this.props.nombre}</h2>
                 <h3>Cantidad: {this.props.cantidad}</h3>
                 <h4>Ingredientes: {this.contarIngredientes()}</h4>
-                <ul>{this.ingredientes.map(ingrediente =>(<li>{ingrediente}</li>))}</ul>
+                <ul>{this.ingredientes.map((ingrediente, index) => (<li key={index}>{ingrediente}</li>))}</ul>
                 {/*<Ingredient />*/}
                 <Button variant="contained" color="primary">Elegir</Button>
             </div>

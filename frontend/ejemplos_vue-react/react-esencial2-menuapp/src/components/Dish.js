@@ -6,22 +6,43 @@ import {
   ListItem,
   ListSubheader,
   ListItemText,
-  ListItemIcon
+  ListItemIcon,
+  TextField,
+  IconButton  
 } from "@material-ui/core";
 import ScatterPlot from "@material-ui/icons/ScatterPlot";
 import Button from '@material-ui/core/Button';
+import Edit from "@material-ui/icons/Edit";
 
 export default class Dish extends Component {
-    ingredientes = ["Tortilla", "Carne", "Cebolla"];
-    contarIngredientes(){
-        return this.ingredientes.length;  
+
+    state = {
+        edit: false,
+        name: this.props.name
     }
+
+    edit = e => {
+        this.setState({ edit: !this.state.edit });
+    };
+
+    handleChange = e => {
+        let newState = { ...this.state };
+        newState.name = e.currentTarget.value;
+
+        this.setState(newState);
+        this.props.onUpdateDish(this.props.index, newState.name);        
+    };
+
+    /*contarIngredientes(){
+        return this.ingredientes.length;  
+    }*/
+    
     render() {
         //const { params } = this.props.match;
         return (
             /*<div className="dish">
-                <h2>{params.nombre}</h2>
-                <h2>{this.props.nombre}</h2>
+                <h2>{params.name}</h2>
+                <h2>{this.props.name}</h2>
                 <h3>Cantidad: {this.props.cantidad}</h3>
                 <h4>Ingredientes: {this.contarIngredientes()}</h4>
                 <ul>{this.ingredientes.map((ingrediente, index) => (<li key={index}>{ingrediente}</li>))}</ul>
@@ -32,7 +53,22 @@ export default class Dish extends Component {
                     <List
                     component="nav"
                     subheader={
-                    <ListSubheader component="div">{this.props.nombre}</ListSubheader>
+                    <ListSubheader component="div">
+                    {this.state.edit ? (
+                    <TextField
+                    label="Platillo..."
+                    type="text"
+                    margin="normal"
+                    variant="outlined"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    />
+                    ) : (this.props.name)
+                    }
+                    <IconButton size="small" onClick={this.edit}>
+                    <Edit />
+                    </IconButton>
+                    </ListSubheader>
                     }
                     >
                     {

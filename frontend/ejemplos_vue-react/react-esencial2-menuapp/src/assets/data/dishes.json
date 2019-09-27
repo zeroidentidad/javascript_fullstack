@@ -16,25 +16,44 @@
       "id": "2",
       "name": "Antichuchos",
       "country": "Perú",
-      "ingredients": ["Carne", "Papa", "Salsa"]
+      "ingredients": [
+        "Carne",
+        "Papa",
+        "Salsa"
+      ]
     },
     {
       "id": "3",
       "name": "Gallo pinto",
       "country": "Costa Rica",
-      "ingredients": ["Frijoles", "Arroz", "Carne"]
+      "ingredients": [
+        "Frijoles",
+        "Arroz",
+        "Carne"
+      ]
     },
     {
       "id": "4",
       "name": "Arepa",
       "country": "Venezuela",
-      "ingredients": ["Masa", "Carne", "Queso"]
+      "ingredients": [
+        "Masa",
+        "Carne",
+        "Queso"
+      ]
     },
     {
       "id": "5",
       "name": "Paella",
       "country": "España",
-      "ingredients": ["Arroz", "Azafrán", "Tomate", "Mariscos", "Ajo", "Aceite"]
+      "ingredients": [
+        "Arroz",
+        "Azafrán",
+        "Tomate",
+        "Mariscos",
+        "Ajo",
+        "Aceite"
+      ]
     }
   ]
 }

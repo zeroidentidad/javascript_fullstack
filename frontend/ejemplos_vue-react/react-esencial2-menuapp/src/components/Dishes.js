@@ -19,17 +19,26 @@ export default class Dishes extends Component {
         this.props.history.push("/");
     }
 
+    updateDish = (index, updatedName) => {
+        this.props.onUpdateDish(index, updatedName);
+    };   
+
     render() {
         return (
             <div>
                 <h1>Platillos</h1>
+                {
+                this.props.data ?
+                <div></div>
+                :
                 <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={this.goBack}
+                variant="contained"
+                color="secondary"
+                onClick={this.goBack}
                 >
                 Regresar
-                </Button> 
+                </Button>                
+                } 
                 {
                 /*data.dishes.map(dish=>(
                     <div>
@@ -64,13 +73,25 @@ export default class Dishes extends Component {
                 </List> */}
                 <GridList>
                 {
-                data.dishes.map((dish, index)=>(
+                this.props.data ?
+                this.props.data.dishes.map((dish, index)=>(
                     <Dish 
                     key={index} 
-                    nombre={dish.name}
+                    name={dish.name}
                     ingredients={dish.ingredients}
+                    index={index}
+                    onUpdateDish={this.updateDish}
                     />
                 ))
+                :
+                data.dishes.map((dish, index)=>(
+                    <Dish
+                    key={index}
+                    name={dish.name}
+                    ingredients={dish.ingredients}
+                    index={index}
+                    />
+                ))                
                 } 
                 </GridList>                          
             </div>

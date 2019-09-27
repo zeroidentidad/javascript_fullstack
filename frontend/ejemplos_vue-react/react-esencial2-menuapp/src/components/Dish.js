@@ -36,7 +36,11 @@ export default class Dish extends Component {
     /*contarIngredientes(){
         return this.ingredientes.length;  
     }*/
-    
+
+    componentDidUpdate(){
+        console.log("Componente actualizado")
+    }
+
     render() {
         //const { params } = this.props.match;
         return (

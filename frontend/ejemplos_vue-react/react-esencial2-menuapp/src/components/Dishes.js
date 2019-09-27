@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {
     Button,
-    List,
+    /*List,
     ListItem,
     ListSubheader,
     ListItemText,
-    ListItemIcon,
+    ListItemIcon,*/
     GridList    
 }from '@material-ui/core';
 import Restaurant from '@material-ui/icons/Restaurant';

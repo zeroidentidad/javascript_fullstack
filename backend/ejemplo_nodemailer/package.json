@@ -1,0 +1,18 @@
+{
+  "name": "ejemplo_nodemailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "de Fazt, yo Zero revise lo que subio :v",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemailer": "^6.3.0"
+  }
+}

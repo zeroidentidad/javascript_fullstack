@@ -8,6 +8,13 @@ const EventUI = (props) => {
         <View>
             <Title> Evento: {props.event.title}</Title>
             <Title> Fecha: {new Date(props.event.date).toLocaleDateString()}</Title>
+            <View>
+                <Button 
+                mode="contained" 
+                disabled={props.contacts.length<3}
+                onPress={props.shuffleUsers}
+                >Asignar compañero</Button>
+            </View>
             <Title> Invitados</Title>
             <FlatList 
             data={props.contacts}

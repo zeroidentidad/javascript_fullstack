@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import EventUI from '../../components/events/EventUI';
 import firestore from '@react-native-firebase/firestore';
+import arrayShuffle from 'array-shuffle';
 
 export default class EventScreen extends Component {
 
@@ -30,10 +31,34 @@ export default class EventScreen extends Component {
         eventRef.collection('contacts').onSnapshot((querySnapshot)=>{
             querySnapshot.docChanges().forEach((change) => {
                 if (change.type == 'added') {
-                    this.addContact({ id: change.doc.id, ...change.doc.data() });
+                    this.addContact({ uid: change.doc.id, ...change.doc.data() });
                 }
             });
         })
+    }
+
+    shuffleUsers = async () => {
+        let contactsRandom = arrayShuffle(this.state.contacts);
+
+        for(let i=0; i<contactsRandom.length; i++){
+            let currentUser = contactsRandom[i];
+            let nextUser;
+
+            if (i === (contactsRandom.length-1)){
+                nextUser = contactsRandom[0];
+            }else{
+                nextUser = contactsRandom[i+1];
+            }
+
+            await firestore().collection('events').doc(this.eventId).collection('contacts').doc(currentUser.uid).update({
+                friend: {
+                    name: nextUser.name,
+                    avatar: nextUser.avatar
+                }
+            })
+        }
+        
+        return true;
     }
 
     addContact = (contact) =>{
@@ -51,6 +76,7 @@ export default class EventScreen extends Component {
             openContactsScreen={this.openContactsScreen}
             event={this.state.event}
             contacts={this.state.contacts}
+            shuffleUsers={this.shuffleUsers}
             />
         )
     }

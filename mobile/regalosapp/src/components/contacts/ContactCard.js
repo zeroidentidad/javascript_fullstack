@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
-import {Card, Title, IconButton} from 'react-native-paper';
+import {withTheme, Card, Title, IconButton} from 'react-native-paper';
 import styles from '../../stylesheets/base.stylesheet';
 
 const ContactCard = (props) => {
@@ -19,4 +19,4 @@ const ContactCard = (props) => {
     )
 }
 
-export default ContactCard
+export default withTheme(ContactCard)

@@ -21,5 +21,13 @@ export default StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center"
-    }
+    },
+    avatar: {
+        width: 70,
+        height: 70
+    },
+    gift: {
+        width: 30,
+        height: 30
+    }    
 });

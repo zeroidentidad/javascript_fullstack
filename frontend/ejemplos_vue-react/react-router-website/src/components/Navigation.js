@@ -8,9 +8,8 @@ const Navigation = (props) => (
     <div className="overlay-content">
       <Link to="/" onClick={() => props.closeNav()}>Inicio</Link>
       <Link to="/vitamin" onClick={() => props.closeNav()}>Jugo de vitamina</Link>
-      <a href="">Ropa</a>
-      <a href="">Suplementos</a>
-      <a href="">Contacto</a>
+      <a href="...">Suplementos</a>
+      <a href="...">Contacto</a>
     </div>
   </div>
 );

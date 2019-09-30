@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
+import { Text, View, StyleSheet, Button, ScrollView } from 'react-native'
 import PropTypes from 'prop-types';
 import NumeroRandom from './NumeroRandom'
 import shuffle from 'lodash.shuffle';
@@ -76,6 +76,7 @@ export default class Game extends Component {
     render() {
         const gameStatus = this.gameStatus;
         return (
+            <ScrollView style={styles.scrollview}>
             <View style={styles.container}>
                 <Text style={[styles.target, styles[`STATUS_${gameStatus}`]]}>{this.target}</Text>
                 <View style={styles.radomContainer}>
@@ -96,31 +97,36 @@ export default class Game extends Component {
                     <Text style={styles.infoTime}>{this.state.tiempoRestante} s</Text>
                 </View>
             </View>
+            </ScrollView>
         )
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  scrollview: {
     flex: 1,
     backgroundColor: '#99ccff',
     borderColor: '#000',
     borderWidth: 4,
+  },    
+  container: {
+    flex: 1,
+    alignSelf: 'center'
   },
   target: {
-      fontSize: 45,
+      fontSize: 40,
       borderWidth: 2,
       backgroundColor: '#aaa',
       borderColor: 'black',
       textAlign: 'center',
       color: 'darkblue',
-      margin: 50,
+      margin: 30,
   },
   radomContainer: {
       flex: 1,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      justifyContent: 'space-around',
+      justifyContent: 'space-around'
   },
   STATUS_JUGANDO: {
       backgroundColor: '#bbb'
@@ -153,6 +159,5 @@ const styles = StyleSheet.create({
       flex: 1,
       paddingLeft: 20,
       paddingRight: 20,
-
   }
 });

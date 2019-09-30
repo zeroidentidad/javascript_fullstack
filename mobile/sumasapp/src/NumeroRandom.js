@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#999',
       width: 120,
       marginHorizontal: 15,
-      marginVertical: 25,
-      fontSize: 35,
+      marginVertical: 20,
+      fontSize: 32,
       textAlign: 'center',
   },
   disabled: {

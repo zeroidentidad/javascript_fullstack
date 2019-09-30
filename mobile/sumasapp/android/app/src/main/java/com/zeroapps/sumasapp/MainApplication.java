@@ -1,4 +1,4 @@
-package com.sumasapp;
+package com.zeroapps.sumasapp;
 
 import android.app.Application;
 

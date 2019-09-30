@@ -1,3 +1,3 @@
-rootProject.name = 'sumasapp'
+rootProject.name = 'SumasApp'
 
 include ':app'

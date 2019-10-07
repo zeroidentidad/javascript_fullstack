@@ -9,9 +9,11 @@
         <Nav />        
       </div>
       <div class="row">
-        <h1>Website</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum nulla incidunt nemo facere possimus saepe dolorem fugiat culpa nisi optio omnis, voluptate ipsa debitis itaque! Culpa alias facilis reiciendis.</p>
+        <Contenido />
       </div>
+      <div>
+      <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum nulla incidunt nemo facere possimus saepe dolorem fugiat culpa nisi optio omnis, voluptate ipsa debitis itaque! Culpa alias facilis reiciendis.</p>
+      </div>        
     </div>
 
   </div>
@@ -21,13 +23,15 @@
 import HelloWorld from './components/HelloWorld.vue'
 import MiComponente from './components/MiComponente.vue'
 import Nav from './components/Nav.vue'
+import Contenido from './components/Contenido.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
     MiComponente,
-    Nav
+    Nav,
+    Contenido
   }
 }
 </script>

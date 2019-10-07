@@ -15,7 +15,10 @@
         <div v-for="objeto in objetos" v-bind:key="objeto.nombre">
             <p>{{ `${objeto.nombre} ${objeto.nombreIngles}` }}</p>
             <p>-------------------------------</p>
-        </div>        
+        </div> 
+        <div v-for="x in 10" v-bind:key="x">
+            <p>------{{ x }}------</p>          
+        </div>                
     </div>
 </template>
 
@@ -42,4 +45,12 @@ export default {
 </script>
 
 <style>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
 </style>

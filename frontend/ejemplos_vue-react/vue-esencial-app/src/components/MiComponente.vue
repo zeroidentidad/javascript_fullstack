@@ -30,7 +30,10 @@
         <div v-else>
             Error
         </div>               
-        <hr>                        
+        <hr>
+        <div v-show="mostrarBoton && valorBoton!='xxx'"><!--funciona como display:block|none -->
+            Usuario autenticado <button>Boton secreto</button>
+        </div>                                
     </div>
 </template>
 

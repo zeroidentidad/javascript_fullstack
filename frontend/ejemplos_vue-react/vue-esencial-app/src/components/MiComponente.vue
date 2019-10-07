@@ -18,7 +18,19 @@
         </div> 
         <div v-for="x in 10" v-bind:key="x">
             <p>------{{ x }}------</p>          
-        </div>                
+        </div>
+        <hr>
+        <p>{{mostrarBoton}}</p>
+        <div v-if="mostrarBoton && valorBoton=='xxx'">
+            Usuario autenticado <button>Boton secreto</button>
+        </div>
+        <div v-else-if="mostrarBoton && valorBoton=='ohoh'">
+            Usuario autenticado <button>Boton secreto oh</button>
+        </div>
+        <div v-else>
+            Error
+        </div>               
+        <hr>                        
     </div>
 </template>
 
@@ -38,7 +50,9 @@ export default {
                 {nombre: "verde", nombreIngles: "green"},
                 {nombre: "amarillo", nombreIngles: "yellow"},
                 {nombre: "azul", nombreIngles: "blue"},
-            ]
+            ],
+            mostrarBoton: true,
+            valorBoton: "ohoh"
         }
     }
 }

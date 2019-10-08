@@ -11,6 +11,7 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
+        <NavItem v-bind:navData="item" v-for="item in itemsNav" v-bind:key="item.titulo"/>
       </ul>    
 </template>
 
@@ -25,7 +26,12 @@ export default {
   },
   data() {
       return {
-          colorRand: '#'+Math.floor(Math.random()*6777215).toString(16)
+          colorRand: '#'+Math.floor(Math.random()*6777215).toString(16),
+          itemsNav: [
+            {titulo: 'Facebook', url: 'https://fb.com'},
+            {titulo: 'WordPress', url: 'https://wp.com'},
+            {titulo: 'Twiter', url: 'https://twitter.com'},
+          ]
       }
   }
 }

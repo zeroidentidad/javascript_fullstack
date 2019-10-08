@@ -1,6 +1,6 @@
 <template>
         <li class="nav-item">
-          <a class="nav-link" v-bind:class="{active: mostrarActivo}" href="#">Active</a>
+          <a class="nav-link" v-bind:class="{active: mostrarActivo}" href="#">{{titulo}}</a>
         </li>  
 </template>
 
@@ -12,6 +12,9 @@ export default {
       return {
           mostrarActivo: true
       }
+    },
+    props: {
+        titulo: String
     }
 }
 </script>

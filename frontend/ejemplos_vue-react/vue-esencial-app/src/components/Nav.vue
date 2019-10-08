@@ -1,7 +1,7 @@
 <template>
       <ul class="nav">
-        <NavItem />
-        <NavItem />
+        <NavItem titulo="Active 1"/>
+        <NavItem titulo="Active 2"/>
         <li class="nav-item" v-bind:style="{backgroundColor: colorRand, border: 'solid 3px red'}">
           <a class="nav-link" href="#">Link</a>
         </li>

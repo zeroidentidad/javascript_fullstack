@@ -1,6 +1,6 @@
 <template>
         <li class="nav-item">
-          <a class="nav-link" v-bind:class="{active: mostrarActivo}" href="#">{{titulo}}</a>
+          <a class="nav-link" v-bind:class="{active: mostrarActivo}" v-bind:href="navData.url">{{navData.titulo}}</a>
         </li>  
 </template>
 
@@ -14,7 +14,8 @@ export default {
       }
     },
     props: {
-        titulo: String
+        titulo: String,
+        navData: Object
     }
 }
 </script>

@@ -6,6 +6,7 @@
       <Opcion1 />
       <Opcion2 />
       <Opcion3 />
+      <Opcion4 />
     </div>      
     </div>
 </template>
@@ -14,6 +15,7 @@
 import Opcion1 from "./Opcion1";
 import Opcion2 from "./Opcion2";
 import Opcion3 from "./Opcion3";
+import Opcion4 from "./Opcion4";
 
 //opcional
 export default {
@@ -21,7 +23,8 @@ export default {
   components: {
     Opcion1,
     Opcion2,
-    Opcion3
+    Opcion3,
+    Opcion4
   }
 }
 </script>

@@ -1,9 +1,16 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import HouseItem from '../components/HouseItem';
+import houses from '../data/houses';
+
+const MOCK_DATA = houses;
 
 export default HomeListScreen = () => {
     return (
-    <HouseItem name=" casa del Sr. Jesus Ferrer" address=" Centro Cunduacan, Tabasco" images='http://hmp.me/ol5'/>
+        <FlatList
+            data={MOCK_DATA}
+            renderItem={({ item }) => <HouseItem {...item} />}
+            keyExtractor={(item, index) => index.toString()}
+        />
     );
 }

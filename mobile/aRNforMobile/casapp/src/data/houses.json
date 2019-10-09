@@ -1,0 +1,47 @@
+[
+    {
+        "name": "casa Sra. Esther",
+        "address": "12th Street, Neverland",
+        "images": "http://hmp.me/ol5"
+    },
+    {
+        "name": "casa Sra. Cristina",
+        "address": "625, Sec-5,  Ingsoc",
+        "images": "http://hmp.me/ol6"
+    },
+    {
+        "name": "casa Sr. Omar",
+        "address": "11, Heights, Oceania",
+        "images": "http://hmp.me/ol7"
+    },
+    {
+        "name": "casa Sra. Bertha",
+        "address": "12th Street, Neverland",
+        "images": "http://hmp.me/ol5"
+    },
+    {
+        "name": "casa Sr. Arturo",
+        "address": "625, Sec-5,  Ingsoc",
+        "images": "http://hmp.me/ol6"
+    },
+    {
+        "name": "casa Sra. Estela",
+        "address": "11, Heights, Oceania",
+        "images": "http://hmp.me/ol7"
+    },
+    {
+        "name": "casa Sra. Reyna",
+        "address": "12th Street, Neverland",
+        "images": "http://hmp.me/ol5"
+    },
+    {
+        "name": "casa Sr. Rubén",
+        "address": "625, Sec-5,  Ingsoc",
+        "images": "http://hmp.me/ol6"
+    },
+    {
+        "name": "casa Sr. Saúl",
+        "address": "11, Heights, Oceania",
+        "images": "http://hmp.me/ol7"
+    }
+]

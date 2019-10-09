@@ -5,6 +5,7 @@
     <div class="row">
       <Opcion1 />
       <Opcion2 />
+      <Opcion3 />
     </div>      
     </div>
 </template>
@@ -12,13 +13,15 @@
 <script>
 import Opcion1 from "./Opcion1";
 import Opcion2 from "./Opcion2";
+import Opcion3 from "./Opcion3";
 
 //opcional
 export default {
   name: 'Contenido',
   components: {
     Opcion1,
-    Opcion2
+    Opcion2,
+    Opcion3
   }
 }
 </script>

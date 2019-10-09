@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import FadeInView from './FadeInView';
 
 export default HomeItem = (props) => {
-    return (<View style={styles.row} >
+    return (
+    <FadeInView style={styles.row} >
         <Image
             source={{ uri: props.images }}
             style={styles.thumbnail} />
@@ -10,7 +12,7 @@ export default HomeItem = (props) => {
             <Text style={styles.name}>{props.name}</Text>
             <Text style={styles.address}>{props.address}</Text>
         </View>
-    </View>
+    </FadeInView>
     );
 }
 

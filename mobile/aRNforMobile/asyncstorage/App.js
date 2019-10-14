@@ -1,30 +1,54 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from 'react';
+import { StyleSheet, Text, View, TextInput, Button, AsyncStorage } from
+'react-native';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+export default class App extends React.Component {
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+  constructor(props) {
+    super(props);
+    this.state = { storedText: '', inputBoxText: '' }
+  }
 
-type Props = {};
-export default class App extends Component<Props> {
+  async componentDidMount() {
+    this.setState({ storedText: await this.retrieveData() });
+  }
+
+  onPressSave = async () => {
+    try {
+      await AsyncStorage.setItem('@AsyncStorageExample:someKey', this.state.inputBoxText);
+      this.setState({ storedText: this.state.inputBoxText })
+    } catch (error) {
+      console.log("Error in saving data");
+    }
+  }
+
+  retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@AsyncStorageExample:someKey');
+      return value;
+    } catch (error) {
+      console.log("Error in Fetching Data")
+    }
+  }
   render() {
+
+    console.disableYellowBox = true;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+        <TextInput
+        style = { styles.textField }
+        placeholder = "Escribe algo!"
+        onChangeText = {(text) => this.setState({ inputBoxText: text })}
+        />
+        <Button
+        onPress = { this.onPressSave }
+        title = "Guadar"
+        color = "blue"
+        accessibilityLabel = "Click para guardar"
+        />
+        <Text style={styles.header}>Local Storage:</Text>
+        <Text style={styles.text}>{this.state.storedText}</Text>
+    </View>
     );
   }
 }
@@ -32,18 +56,26 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#fff',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'center',
   },
-  welcome: {
+  header: {
+    fontFamily: 'Georgia',
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    fontWeight: 'bold',
+    paddingTop: 40,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  text: {
+    fontFamily: 'Georgia',
+    fontSize: 18,
+    fontStyle: 'italic',
+    paddingTop: 10,
   },
+  textField: {
+    height: 40,
+    width: 300,
+    borderColor: '#C0C0C0',
+    borderBottomWidth: 1,
+  }
 });

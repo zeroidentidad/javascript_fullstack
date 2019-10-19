@@ -26,7 +26,6 @@ const Asistentes = ({asistentes}) => {
                         <th>Profesion</th>
                         <th>Matricula</th>
                         <th>Nick Redes</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,13 +35,6 @@ const Asistentes = ({asistentes}) => {
                             <td>{asistente.profesion}</td>
                             <td>{asistente.matricula}</td>
                             <td>{asistente.nickname}</td>
-                            <td>
-                                <Link to={`/asistentes/mostrar/${asistente.id}`}
-                                className="btn btn-success  btn-block"
-                                >
-                                    <i className="fas fa-angle-double-right"></i> Más info...
-                                </Link>
-                            </td>
                         </tr>
                     ))}
                 </tbody>

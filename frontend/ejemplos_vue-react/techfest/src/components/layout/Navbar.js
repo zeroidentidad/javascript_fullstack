@@ -1,12 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
             <nav className="nav navbar-light">
                 <span className="navbar-brand mb-0 h1">
-                    TechFest
+                    <img src={logo} alt="Logo" height="48" width="96"/>
                 </span>
             </nav>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,10 +22,15 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/'} className="nav-link">
+                        <Link to={'/asistentes/nuevo'} className="nav-link">
                             Ponentes
                         </Link>
-                    </li>                    
+                    </li>
+                    <li className="nav-item">
+                        <Link to={'/'} className="nav-link">
+                            Asistentes Publica
+                        </Link>
+                    </li>                                      
                 </ul>
             </div>
         </nav>

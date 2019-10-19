@@ -60,7 +60,7 @@ class EditarAsistente extends Component {
                         <div className="col-md-8 mt-5">
                             <form onSubmit={this.editarAsistente} >
                                 <div className="form-group">
-                                    <label>Nombre:</label>
+                                    <label><b>Nombre:</b></label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -73,7 +73,7 @@ class EditarAsistente extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Apellido:</label>
+                                    <label><b>Apellido:</b></label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -86,7 +86,7 @@ class EditarAsistente extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Profesion:</label>
+                                    <label><b>Profesion:</b></label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -99,7 +99,7 @@ class EditarAsistente extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Matricula:</label>
+                                    <label><b>Matricula:</b></label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -112,7 +112,7 @@ class EditarAsistente extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Nickname:</label>
+                                    <label><b>Nickname:</b></label>
                                     <input
                                         type="text"
                                         className="form-control"

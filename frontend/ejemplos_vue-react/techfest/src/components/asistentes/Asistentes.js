@@ -4,10 +4,20 @@ import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {Link} from 'react-router-dom';
 import Spinner from '../layout/Spinner';
+import PropTypes from 'prop-types';
 
-const Asistentes = ({asistentes}) => {
+const Asistentes = ({ asistentes, firestore}) => {
 
     if (!asistentes) return <Spinner/>;
+
+    // Eliminar Asistentes
+    const eliminarAsistente = id => {
+        // eliminar
+        firestore.delete({
+            collection: 'asistentes',
+            doc: id
+        });//.then(() => history.push('/asistentes'));
+    }    
 
     return (
         <div className="row">
@@ -42,6 +52,14 @@ const Asistentes = ({asistentes}) => {
                                 >
                                     <i className="fas fa-angle-double-right"></i> Más info...
                                 </Link>
+
+                                <button
+                                    type="button"
+                                    className="btn btn-danger btn-block"
+                                    onClick={() => eliminarAsistente(asistente.id)}
+                                >
+                                    <i className="fas fa-trash-alt"></i> Eliminar
+                                </button>  
                             </td>
                         </tr>
                     ))}
@@ -49,6 +67,11 @@ const Asistentes = ({asistentes}) => {
             </table>
         </div>
     )
+}
+
+Asistentes.propTypes = {
+    firestore: PropTypes.object.isRequired,
+    asistentes: PropTypes.array
 }
 
 export default compose(

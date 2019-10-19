@@ -5,14 +5,14 @@ import {firestoreConnect} from 'react-redux-firebase';
 import {Link} from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 
-const Asistentes = ({asistentes}) => {
+const AsistentesPublica = ({asistentes}) => {
 
     if (!asistentes) return <Spinner/>;
 
     return (
         <div className="row">
             <div className="col-md-12 mb-4">
-                <Link to={`/asistentes/nuevo`} className="btn btn-primary">
+                <Link to={`/nuevo`} className="btn btn-primary">
                     <i className="fas fa-plus"></i> Nuevo asistente
                 </Link>
             </div>
@@ -48,4 +48,4 @@ export default compose(
     connect((state, props)=>({
         asistentes: state.firestore.ordered.asistentes
     }))
-)(Asistentes)
+)(AsistentesPublica)

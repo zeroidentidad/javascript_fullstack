@@ -22,7 +22,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/asistentes/nuevo'} className="nav-link">
+                        <Link to={'/ponentes'} className="nav-link">
                             Ponentes
                         </Link>
                     </li>

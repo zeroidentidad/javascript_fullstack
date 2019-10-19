@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
 import PropTypes from 'prop-types';
 
-class NuevoAsistente extends Component {
+class NuevoAsistentePublica extends Component {
 
     state = {
         nombre: '',
@@ -31,15 +31,15 @@ class NuevoAsistente extends Component {
         const { firestore, history } = this.props
 
         //Guardarlo en la base de datos
-        firestore.add({ collection: 'asistentes' }, nuevoAsistente).then(() => history.push('/asistentes'));
+        firestore.add({ collection: 'asistentes' }, nuevoAsistente).then(() => history.push('/'));
     }    
 
     render() {
         return (
         <div className="row">
             <div className="col-md-12 mb-4">
-                <Link to="/asistentes" className="btn btn-secondary">
-                    <i className="fas fa-arrow-circle-left"></i> Regresar al listado
+                <Link to="/" className="btn btn-secondary">
+                    <i className="fas fa-arrow-circle-left"></i> Regresar
                 </Link>
             </div>
                 <div className="col-12">
@@ -127,8 +127,8 @@ class NuevoAsistente extends Component {
     }
 }
 
-NuevoAsistente.propTypes = {
+NuevoAsistentePublica.propTypes = {
     firestore: PropTypes.object.isRequired
 }
 
-export default firestoreConnect()(NuevoAsistente);
+export default firestoreConnect()(NuevoAsistentePublica);

@@ -29,7 +29,7 @@ const Asistentes = ({ asistentes, firestore}) => {
             <div className="col-md-8">
                 <i className="fas fa-users"></i> Asistentes
             </div>
-            <table className="table table-striped mt-4">
+            <table className="table table-striped mt-4 table-bordered">
                 <thead className="text-light bg-primary">
                     <tr>
                         <th>Nombre</th>

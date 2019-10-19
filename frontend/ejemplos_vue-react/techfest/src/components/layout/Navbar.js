@@ -30,7 +30,12 @@ export default function Navbar() {
                         <Link to={'/'} className="nav-link">
                             Asistentes Publica
                         </Link>
-                    </li>                                      
+                    </li>
+                    <li className="nav-item">
+                        <Link to={'/listaponentes'} className="nav-link">
+                            Ponentes Publica
+                        </Link>
+                    </li>                                                           
                 </ul>
             </div>
         </nav>

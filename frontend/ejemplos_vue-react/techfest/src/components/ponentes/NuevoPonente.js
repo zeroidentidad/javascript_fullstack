@@ -10,7 +10,7 @@ class NuevoPonente extends Component {
         apellido: '',
         imagen: '',
         ponencia: '',
-        cupo: '',
+        cupo: 0,
         asignados: ''
     }
 
@@ -114,7 +114,7 @@ class NuevoPonente extends Component {
                                         min="0"
                                         className="form-control"
                                         name="cupo"
-                                        placeholder="Cantidad cupo asistentes"
+                                        placeholder="Total cupo asistentes"
                                         required
                                         value={this.state.cupo}
                                         onChange={this.leerDato}

@@ -51,7 +51,7 @@ const Ponentes = ({ ponentes, firestore }) => {
                             <td><img src={ponente.imagen} alt="Ponente" height="150" width="150" /></td>
                             <td>{ponente.ponencia}</td>
                             <td>{ponente.cupo}</td>
-                            <td>{ponente.cupo - (ponente.cupo + ponente.asignados.length)}</td>
+                            <td>{ponente.asignados.length}</td>
                             <td>
                                 <Link
                                     to={`/ponentes/mostrar/${ponente.id}`}

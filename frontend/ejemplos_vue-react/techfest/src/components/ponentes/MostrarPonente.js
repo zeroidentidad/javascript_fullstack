@@ -8,7 +8,7 @@ import Spinner from '../layout/Spinner';
 
 class MostrarPonente extends Component {
 
-    devolverponente = id => {
+    liberarCupo = id => {
         // extraer firestore
         const { firestore } = this.props;
 
@@ -16,10 +16,10 @@ class MostrarPonente extends Component {
         const ponenteActualizado = { ...this.props.ponente };
 
         // eliminar persona que esta realizando liberacion de cupo
-        const asignados = ponenteActualizado.asignados.filter(elemento => elemento.codigo !== id);
+        const asignados = ponenteActualizado.asignados.filter(elemento => elemento.matricula !== id);
         ponenteActualizado.asignados = asignados;
 
-        // actualizar en firebase
+        // actualizar en firestore
         firestore.update({
             collection: 'ponentes',
             doc: ponenteActualizado.id
@@ -103,7 +103,51 @@ class MostrarPonente extends Component {
 
                     <h3 className="my-2">Asistentes que tienen el ponente asignado</h3>
 
-                    {}
+                    {ponente.asignados.map(asignado => (
+                        <div key={asignado.matricula} className="card my-2">
+                            <h4 className="card-header">
+                                {asignado.nombre} {asignado.apellido}
+                            </h4>
+
+                            <div className="card-body">
+                                <p>
+                                    <span className="font-weight-bold">
+                                        Matricula:
+                                    </span> {''}
+                                    {asignado.matricula}
+                                </p>
+
+                                <p>
+                                    <span className="font-weight-bold">
+                                        Profesión:
+                                    </span> {''}
+                                    {asignado.profesion}
+                                </p>
+
+                                <p>
+                                    <span className="font-weight-bold">
+                                        Nickname:
+                                    </span> {''}
+                                    {asignado.nickname}
+                                </p>
+
+                                <p>
+                                    <span className="font-weight-bold">
+                                        Fecha:
+                                    </span> {''}
+                                    {asignado.fecha_asignacion}
+                                </p>
+                            </div>
+
+                            <div className="card-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-success font-weight-bold"
+                                    onClick={() => this.liberarCupo(asignado.matricula)}
+                                > Liberar cupo</button>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         );

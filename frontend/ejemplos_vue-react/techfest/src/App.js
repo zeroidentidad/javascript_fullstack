@@ -19,6 +19,10 @@ import NuevoPonente from './components/ponentes/NuevoPonente';
 import AsignarPonente from './components/ponentes/AsignarPonente';
 import PonentesPublica from './components/ponentes/PonentesPublica';
 
+import Login from './components/auth/Login';
+
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './helpers/auth';
+
 function App() {
   return (
     <Provider store={store}>
@@ -26,20 +30,21 @@ function App() {
         <NavBar />
         <div className="container">
           <Switch>
-            <Route exact path="/" component={AsistentesPublica}></Route>
-            <Route exact path="/nuevo" component={NuevoAsistentePublica}></Route>            
-            <Route exact path="/asistentes" component={Asistentes}></Route>
-            <Route exact path="/asistentes/nuevo" component={NuevoAsistente}></Route>
-            <Route exact path="/asistentes/mostrar/:id" component={MostrarAsistente}></Route>
-            <Route exact path="/asistentes/editar/:id" component={EditarAsistente}></Route>
+            <Route exact path="/" component={UserIsNotAuthenticated(AsistentesPublica)}></Route>
+            <Route exact path="/nuevo" component={UserIsNotAuthenticated(NuevoAsistentePublica)}></Route>            
+            <Route exact path="/asistentes" component={UserIsAuthenticated(Asistentes)}></Route>
+            <Route exact path="/asistentes/nuevo" component={UserIsAuthenticated(NuevoAsistente)}></Route>
+            <Route exact path="/asistentes/mostrar/:id" component={UserIsAuthenticated(MostrarAsistente)}></Route>
+            <Route exact path="/asistentes/editar/:id" component={UserIsAuthenticated(EditarAsistente)}></Route>
             
-            <Route exact path="/listaponentes" component={PonentesPublica}></Route>
-            <Route exact path="/ponentes" component={Ponentes}></Route>
-            <Route exact path="/ponentes/nuevo" component={NuevoPonente}></Route>
-            <Route exact path="/ponentes/mostrar/:id" component={MostrarPonente}></Route>
-            <Route exact path="/ponentes/editar/:id" component={EditarPonente}></Route>
-            <Route exact path="/ponentes/asignar/:id" component={AsignarPonente}></Route>
+            <Route exact path="/listaponentes" component={UserIsNotAuthenticated(PonentesPublica)}></Route>
+            <Route exact path="/ponentes" component={UserIsAuthenticated(Ponentes)}></Route>
+            <Route exact path="/ponentes/nuevo" component={UserIsAuthenticated(NuevoPonente)}></Route>
+            <Route exact path="/ponentes/mostrar/:id" component={UserIsAuthenticated(MostrarPonente)}></Route>
+            <Route exact path="/ponentes/editar/:id" component={UserIsAuthenticated(EditarPonente)}></Route>
+            <Route exact path="/ponentes/asignar/:id" component={UserIsAuthenticated(AsignarPonente)}></Route>
 
+            <Route exact path="/admin" component={UserIsNotAuthenticated(Login)}></Route>
           </Switch>
         </div>
       </Router>      

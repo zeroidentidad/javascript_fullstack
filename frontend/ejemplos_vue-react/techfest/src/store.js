@@ -2,7 +2,11 @@ import { createStore, combineReducers, compose } from 'redux';
 import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
 import { reduxFirestore, firestoreReducer } from 'redux-firestore';
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
+
+/** Custom Reducers */
+import buscarAsistenciaReducer from './reducers/buscarAsistenciaReducer';
 
 //Conf firestore:
 const firebaseConf = {
@@ -32,7 +36,8 @@ const createStoreWithFirebase = compose(
 //Reducers 
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
-    firestore: firestoreReducer
+    firestore: firestoreReducer,
+    asistencia: buscarAsistenciaReducer
 })
 
 //state inicial

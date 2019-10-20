@@ -1,0 +1,1 @@
+export const BUSCAR_ASISTENTE = 'BUSCAR_ASISTENTE';

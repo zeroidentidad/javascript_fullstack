@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import HomeScreen from './src/screens/HomeScreen';
 import AboutScreen from './src/screens/AboutScreen';
 import HomeListScreen from './src/screens/HomeListScreen';
+import AddNewProperty from './src/screens/AddNewProperty';
 
 const AppNavigator = createStackNavigator({
   Home: {
@@ -14,7 +15,10 @@ const AppNavigator = createStackNavigator({
   },
   HomeListScreen: {
     screen: HomeListScreen
-  }
+  },
+  AddNewProperty: {
+    screen: AddNewProperty
+  }  
 },
   {
     initialRouteName: 'Home',

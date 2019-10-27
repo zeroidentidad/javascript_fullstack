@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image, TouchableHighlight } from 'react-native';
+
 export default class HomeScreen extends React.Component {
 
   static navigationOptions = {
@@ -16,14 +17,19 @@ export default class HomeScreen extends React.Component {
             source={require('../assets/houses.png')}
           />
         </TouchableHighlight>
+        <TouchableHighlight style={styles.button}
+          onPress={() => navigate('AddNewProperty')}
+          underlayColor='#99d9f4'>
+          <Text style={styles.buttonText}>Agregar Nueva</Text>
+        </TouchableHighlight>     
         <View style={styles.bottomBox}>
           <Button
-            title="Ir a About Screen"
+            title="Acerca"
             onPress={() =>
               navigate('About')
             }
           /> 
-        </View>     
+        </View>    
       </View>
     );
   }
@@ -48,5 +54,20 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     width: undefined,
     height: undefined,
+  },
+  button: {
+    flex: 1,
+    backgroundColor: '#48BBEC',
+    borderColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 8,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    margin: 10
+  },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
+    alignSelf: 'center'
   }
 });

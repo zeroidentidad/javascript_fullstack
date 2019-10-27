@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default AboutScreen = () => {
     return (
       <View style={styles.about}>
-        <Text>About Screen</Text>
+        <Text>About</Text>
+        <Text>Aplicacion de ejemplo fetch data (get, post)</Text>
       </View>
     );
 }

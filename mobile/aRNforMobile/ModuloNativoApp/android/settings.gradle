@@ -1,0 +1,3 @@
+rootProject.name = 'ModuloNativoApp'
+
+include ':app'

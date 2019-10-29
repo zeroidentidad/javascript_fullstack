@@ -29,9 +29,7 @@ class App extends Component {
     const citas = [...this.state.citas, datos];
 
     // agregar el nuevo state
-    this.setState({ 
-      citas
-    })
+    this.setState({citas})
   }
 
   // elimina las citas del state
@@ -43,17 +41,14 @@ class App extends Component {
       const citas = citasActuales.filter(cita => cita.id !== id )
 
       // actualizar el state
-      this.setState({
-        citas
-      })
-
+      this.setState({citas})
   }
 
   render() { 
     return ( 
         <div className="container">
             <Header 
-                titulo='Administrador Pacientes Veterinaria'
+                titulo='Pacientes Animales'
             />
 
             <div className="row">

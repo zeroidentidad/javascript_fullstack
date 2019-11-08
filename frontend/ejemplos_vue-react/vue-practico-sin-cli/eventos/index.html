@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="saluda(1, $event)">Click</button>
+        <button @click="saluda(2, $event)">Click</button>
+        <br>
+        <br>
+        <form @submit.prevent="ajua">
+            <button type="submit">Enviar</button>
+        </form>
+        <br>
+        <br>
+        <button @click.once="ajua">Click</button>
+        <button @click.once.self.prevent="ajua">Click</button>
+        <br>
+        <br>
+        <input type="text" @keyup.enter="ajua">
+        <input type="text" @keyup.enter.once="ajua">
+        <br>
+        <br>
+        <div @copy="ajua">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, quisquam? Numquam beatae facere sunt mollitia
+        quaerat quia illo consequatur quisquam cumque tenetur est ipsa corporis ipsam, libero, tempora voluptatem a?
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+        },
+        methods: {
+            saluda: function(num, event){
+                if(event) event.preventDefault()
+                alert("click :v "+num);
+            },
+            ajua: function () {
+                alert("watahea");
+            }           
+        }
+    });        
+    </script>
+</body>
+</html>

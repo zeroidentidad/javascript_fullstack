@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-text="message"></h1>
+        <p v-if="flag">True</p>
+        <p v-else-if="flag2">True</p>
+        <p v-else>False</p>
+        <p v-show="flag2">True2</p>
+
+        <div v-if="flag">
+            <p>ddsdsd</p>
+            <p>ddsdsd</p>
+            <p>ddsdsd</p>
+        </div>
+
+        <template v-if="flag">
+            <p>343dfdf</p>
+            <p>343dfdf</p>
+            <p>343dfdf</p>
+        </template>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message: "Holas",
+            flag: true,
+            flag2: true
+
+        }
+    });        
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <template v-if=errors.length>
+            <ul>
+                <li v-for="error in errors" v-text="error"></li>
+            </ul>
+        </template>
+        <form @submit.prevent="formSubmit">
+            <input type="text" v-model="input">
+            <select v-model="select">
+                <option value="Default">Seleccionar</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <textarea v-model="textarea"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            input: "",
+            select: "",
+            textarea: "",
+            errors: []
+        },
+        methods: {
+            formSubmit: function(){
+                this.errors = []
+                if (!this.input) {
+                    this.errors.push("Campo input requerido, no dejar vacio")
+                }
+                if (!this.select) {
+                    this.errors.push("Campo select requerido, no dejar vacio")
+                }
+                if (!this.textarea) {
+                    this.errors.push("Campo textarea requerido, no dejar vacio")
+                }                                
+                console.log(this.input)
+                console.log(this.select)
+                console.log(this.textarea)
+            }
+        }
+    });        
+    </script>
+</body>
+</html>

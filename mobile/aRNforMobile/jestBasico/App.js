@@ -27,7 +27,7 @@ import {
 const App: () => React$Node = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -53,7 +53,7 @@ const App: () => React$Node = () => {
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionTitle}>Depuracion</Text>
               <Text style={styles.sectionDescription}>
                 <DebugInstructions />
               </Text>
@@ -104,10 +104,10 @@ const styles = StyleSheet.create({
   footer: {
     color: Colors.dark,
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: 'bold',
     padding: 4,
     paddingRight: 12,
-    textAlign: 'right',
+    textAlign: 'justify',
   },
 });
 

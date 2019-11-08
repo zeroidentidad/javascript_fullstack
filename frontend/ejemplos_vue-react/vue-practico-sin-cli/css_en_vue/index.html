@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <div class="alert" v-bind:class="{'alert-danger':flag}">
+        </div>
+        <div class="alert" v-bind:class="classObj">
+        </div>
+        <div class="alert" v-bind:class="[(flag) ? 'alert-warning' : 'alert-danger', 'container']">
+        </div>
+        <div class="alert" v-bind:class="classX">
+        </div>
+        <div class="alert" v-bind:style="{fontSize: fontSize+'px'}" v-bind:class="[classObj, 'container']">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, laudantium! Aliquid dignissimos, dolorum quasi saepe tempora animi ex earum sint voluptatem numquam quibusdam necessitatibus magnam veritatis neque corporis. Hic, voluptatibus?
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+            classObj: {
+                'alert-success':true
+            },
+            fontSize: 24
+        },
+        computed: {
+            classX: function(){
+                return {
+                    'alert-danger': this.flag
+                }
+            }
+        }
+    });        
+    </script>
+</body>
+</html>

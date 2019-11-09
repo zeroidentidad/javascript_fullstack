@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{mgetRandom()}}</p>
+        <p>{{mgetRandom()}}</p>
+        <hr>
+        <p>{{cgetRandom}}</p>
+        <p>{{cgetRandom}}</p>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            input: "default"
+        },
+        methods: {
+            mgetRandom: function(){
+                return Math.random()
+            }
+        },
+        computed: {
+            cgetRandom: function(){
+                return Math.random()
+            }
+        },
+        watch: {
+            input: function(newVal, oldVal){
+                console.log("New "+newVal);
+                console.log("Old "+oldVal);
+            }
+        }
+    });        
+    </script>
+</body>
+</html>

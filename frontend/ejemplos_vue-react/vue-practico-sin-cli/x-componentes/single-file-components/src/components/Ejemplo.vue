@@ -1,6 +1,12 @@
 <template>
   <div>
-      <h1>{{message}}</h1>
+      <!--<h1>{{message}}</h1>-->
+      <a href="#">
+        <slot></slot>
+        <slot name="header"></slot>
+        <slot name="body"></slot>
+        <slot name="footer"></slot>
+      </a>
   </div>
 </template>
 

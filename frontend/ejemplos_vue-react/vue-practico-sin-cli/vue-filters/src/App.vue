@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Componente></Componente>
+    <Componente v-widthg="'200px'"></Componente>
   </div>
 </template>
 

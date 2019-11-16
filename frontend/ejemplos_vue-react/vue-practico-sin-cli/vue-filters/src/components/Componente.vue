@@ -2,6 +2,8 @@
     <div>
         <input type="text" v-model="name">
         <p>{{ name | uppercase}}</p>
+
+        <input type="text" v-width:color="'450px'">
     </div>
 </template>
 
@@ -24,6 +26,18 @@ export default {
             if(!value) return '';
             return value.toString().toLowerCase();
         }        
+    },
+    directives: { //directia local
+        width: {
+            //bind:
+            inserted: function(el, binding/*, vnode*/){
+                //console.log(binding.arg) -> color
+                el.style.width = binding.value;
+            }
+            //update:
+            //componentUpdated:
+            //unbind:
+        }
     }
 }
 </script>

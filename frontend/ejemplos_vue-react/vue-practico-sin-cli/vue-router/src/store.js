@@ -39,14 +39,15 @@ const obj2 = {
         getMessage: (state) => {
             return state.message
         }
-    },    
+    }  
 }
 
 const store = new Vuex.Store({
     modules: {
         a: obj1,
         b: obj2
-    }
+    },
+    strict: true  
 });
 
 export default store;

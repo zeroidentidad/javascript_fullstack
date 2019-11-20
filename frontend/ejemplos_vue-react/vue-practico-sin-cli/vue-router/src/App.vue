@@ -19,6 +19,9 @@ export default {
   components: {
     //Home
   },
+  created(){
+    this.$store.state.message = "Modif no permitido aqui con modo estricto"
+  },
   methods: {
     add: function () {
       //this.$store.dispatch('increment', 5)

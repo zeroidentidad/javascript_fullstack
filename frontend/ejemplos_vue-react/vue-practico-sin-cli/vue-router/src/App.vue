@@ -4,6 +4,8 @@
     <div> </div>
     <router-link to="/about">About</router-link>
     <router-view></router-view>
+    <button @click="add">++</button>
+    <p>{{ $store.state.count }}</p>
   </div>
 </template>
 
@@ -15,6 +17,11 @@ export default {
   name: 'app',
   components: {
     //Home
+  },
+  methods: {
+    add: function () {
+      this.$store.commit('increment', 5)
+    }
   }
 }
 </script>

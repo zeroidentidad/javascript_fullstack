@@ -6,6 +6,11 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         count: 0
+    },
+    mutations: {
+        increment(state, value) {
+            state.count+=value
+        }
     }
 });
 

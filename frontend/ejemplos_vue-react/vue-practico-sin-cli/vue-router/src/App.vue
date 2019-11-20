@@ -4,8 +4,9 @@
     <div> </div>
     <router-link to="/about">About</router-link>
     <router-view></router-view>
+    <p>{{ $store.getters['b/getMessage'] }}</p>
     <button @click="add">++</button>
-    <p>{{ $store.getters.getCount(2) }}</p>
+    <p>{{ $store.getters['a/getCount'] }}</p>
   </div>
 </template>
 
@@ -20,8 +21,8 @@ export default {
   },
   methods: {
     add: function () {
-      this.$store.dispatch('increment', 5)
-      //this.$store.commit('increment', 5)
+      //this.$store.dispatch('increment', 5)
+      this.$store.commit('a/increment')
     }
   }
 }

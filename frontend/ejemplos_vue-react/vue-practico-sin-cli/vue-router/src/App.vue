@@ -5,7 +5,7 @@
     <router-link to="/about">About</router-link>
     <router-view></router-view>
     <button @click="add">++</button>
-    <p>{{ $store.state.count }}</p>
+    <p>{{ $store.getters.getCount(2) }}</p>
   </div>
 </template>
 

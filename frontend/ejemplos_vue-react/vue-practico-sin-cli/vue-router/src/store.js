@@ -9,12 +9,21 @@ const store = new Vuex.Store({
     },
     mutations: {
         increment(state, value) {
-            state.count+=value
+            state.count += value
         }
     },
     getters: {
         getCount: (state) => (id)=> {
             return state.count*id
+        }
+    },
+    actions: {
+        increment(context, value){
+            setTimeout(() => {
+                context.commit('increment', value)
+            }, 2000);
+            //context.getters.getCount(2)
+            //context.state.count
         }
     }
 });

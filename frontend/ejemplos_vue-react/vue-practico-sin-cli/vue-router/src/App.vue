@@ -20,7 +20,8 @@ export default {
   },
   methods: {
     add: function () {
-      this.$store.commit('increment', 5)
+      this.$store.dispatch('increment', 5)
+      //this.$store.commit('increment', 5)
     }
   }
 }

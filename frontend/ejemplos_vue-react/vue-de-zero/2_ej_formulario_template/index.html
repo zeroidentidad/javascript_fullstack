@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Básico Vue.js</title>
+  <link rel="icon" href="https://vuejs.org/images/logo.png">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active  *version 2.1.8 */ {
+  opacity: 0;
+  }
+  </style>
+</head>
+<body>
+  <main id="app">
+    <h2>Servicios Vue.js</h2>
+    <form id="ContactForm" class="ContactForm" @submit.prevent="sendForm">
+      <legend>Qué quiere enviar?</legend>
+      <div align="center">
+        <input v-model="formType" v-bind:value="true" name="formType" type="radio" id="opinion">
+        <label for="opinion"><b>Opinión</b></label>
+        <input v-model="formType" v-bind:value="false" name="formType" type="radio" id="budget">
+        <label for="budget"><b>Presupuesto</b></label>
+      </div>
+      <legend>Formulario para <span>{{ formTitle }}</span></legend>
+      <input
+        @keyup="validateData"
+        type="text"
+        name="name"
+        title="Nombre"
+        placeholder="Escribe tu nombre"
+        pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+        required>
+        <transition name="fade">
+          <span v-show="message.name" v-text="message.name" class="ContactForm-message u-error"></span>
+        </transition>
+      <input @keyup="validateData" type="email" name="email" title="Email" placeholder="Escribe tu email" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+      required>
+      <transition name="fade">
+        <span v-show="message.email" v-text="message.email" class="ContactForm-message  u-error"></span>
+      </transition>
+      <template v-if="!formType">
+        <input @keyup="validateData" type="tel" name="phone" title="Teléfono" placeholder="Escribe tu teléfono" pattern="^[0-9]+$" required>
+        <transition name="fade">
+          <span v-show="message.phone" v-text="message.phone" class="ContactForm-message  u-error"></span>
+        </transition>
+        <select name="services" required>
+          <option
+            v-for="service in services"
+            v-bind:value="service.id"
+            v-text="service.name"
+          ></option>
+        </select>
+      </template>
+      <template v-else>
+        <input @keyup="validateData" type="text" name="subject" title="Asunto a tratar" placeholder="El asunto a tratar" required>
+        <transition name="fade">
+          <span v-show="message.subject" v-text="message.subject" class="ContactForm-message u-error"></span>
+        </transition>
+      </template>
+      <textarea @keyup="validateData" name="comments" title="Comentarios" placeholder="Escribe tus comentarios" cols="50" rows="5" required></textarea>
+      <transition name="fade">
+        <span v-show="message.comments" v-text="message.comments" class="ContactForm-message u-error"></span>
+      </transition>
+      <input type="submit" value="Enviar">
+      <!-- respuesta del server.php -->
+      <transition name="fade">
+        <span v-show="message.serverResponse" v-html="message.serverResponse" :class="responseClassCSS" :style="responseStyleCSS"></span>
+      </transition>
+    </form>
+    <!--<pre>{{ $data }}</pre>-->
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    const mv = new Vue({
+      el: '#app',
+      data: {
+        formType: true,
+        message: {
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          comments: '',
+          serverResponse: ''
+        },
+        services: [
+          { id: null, name: 'Selecciona un servicio' },
+          { id: 1, name: 'Diseño Web' },
+          { id: 2, name: 'Programación Web' },
+          { id: 3, name: 'Programación Móvil' },
+          { id: 4, name: 'Contenido Digital' }
+        ],
+        formats: {
+          name: '',
+          email: ''
+        },
+        serverResponse: false
+      },
+      computed: {
+        formTitle () {
+          return ( this.formType ) ? 'opinión' : 'presupuesto'
+        },
+        responseClassCSS() {
+          return [
+            'ContactForm-message',
+            (this.serverResponse) ? 'u-success' : 'u-error'
+          ]
+        },
+        responseStyleCSS () {
+          return {
+            fontSize: '1rem',
+            color: '#FFF'
+          }
+        }
+      },
+      methods: {
+        validateData (e) {
+          let input = e.target, expression
+
+          if (input.pattern) {
+            let regex = new RegExp(input.pattern)
+            expression = !regex.exec(input.value)
+          } else {
+            expression = !input.value
+          }
+
+          if (expression) {
+            this.message[input.name] = `Dato incorrecto en: ${input.title}`
+          } else {
+            this.message[input.name] = ''
+          }
+        },
+        sendForm (e) {
+          //alert('Enviando formulario')
+          let form = document.getElementById('ContactForm'), formData = new FormData(form)
+
+          axios.post('./server.php',formData)
+          .then(response => {
+              console.log(response)
+              this.message.serverResponse = response.data
+              this.serverResponse = true
+            })
+            .catch(error => {
+              console.log(error)
+              this.message.serverResponse = error
+              this.serverResponse = false
+            })
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

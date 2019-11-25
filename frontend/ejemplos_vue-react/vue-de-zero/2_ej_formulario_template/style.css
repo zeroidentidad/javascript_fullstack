@@ -1,0 +1,86 @@
+:root {
+  --width-inputs: 80%;
+  --bg-color-main: rgb(24, 33, 43);
+  --color-main: #41B883;;
+  --color-ok: #4CAF50;
+  --color-error: #EF5350;
+  --font-main: sans-serif;
+}
+
+html {
+  font-family: var(--font-main);
+  font-size: 16px;
+}
+
+textarea { resize: none; }
+
+.ContactForm > * {
+  padding: .5rem;
+  margin: 1rem auto;
+  display: block;
+  width: var(--width-inputs);
+}
+
+.ContactForm legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ContactForm input:not([type="submit"]),
+.ContactForm textarea,
+.ContactForm select {
+  border: medium solid var(--color-main);
+  background-color: var(--bg-color-main);
+  color: var(--color-main);
+  font-size: 1rem;
+  font-family: var(--font-main);
+}
+
+.ContactForm select {
+  width: calc(  var(--width-inputs) + 1rem );
+}
+
+.ContactForm input[type="submit"] {
+  width: calc(var(--width-inputs) / 2);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--color-main);
+  color: #000;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  transition: all .3s ease-out;
+}
+
+.ContactForm input[type="submit"]:hover {
+  background-color: var(--bg-color-main);
+  color: var(--color-main);
+}
+
+.ContactForm [required]:valid {
+  border: thin solid var(--color-ok);
+  outline: thin solid var(--color-ok);
+}
+
+.ContactForm [required]:invalid {
+  border: thin solid var(--color-error);
+  outline: thin solid var(--color-error);
+}
+
+.ContactForm [required]:focus {
+  border: thin solid var(--color-main);
+  outline: thin solid var(--color-main);
+}
+
+.ContactForm-message {
+  padding: .5rem;
+  font-size: .85rem;
+  background-color: var(--color-main);
+  color: var(--bg-color-main);
+}
+
+.u-success { background-color: var(--color-ok); }
+
+.u-error { background-color: var(--color-error); }

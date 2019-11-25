@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reactividad con Vue.js</title>
+  <link rel="icon" href="https://vuejs.org/images/logo.png">
+</head>
+<body>
+  <h1>Reactividad con Vue.js</h1>
+  <a href="../">regresar</a>
+  <main id="app">
+    <h2>{{ message }}</h2>
+    <input type="text" v-model="message">
+    <pre>{{ $data }}</pre>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+  //Ver. Vanilla JS
+    /*
+    const input = document.querySelector('input'), h1 = document.querySelector('h1');
+
+    input.addEventListener('keyup', () => h1.innerHTML = input.value)
+    */
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Watahea Vue.js'
+      }
+    })
+  </script>
+</body>
+</html>

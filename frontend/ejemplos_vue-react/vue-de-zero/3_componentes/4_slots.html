@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slots en componentes Vue.js</title>
+  <link rel="icon" href="https://vuejs.org/images/logo.png">
+</head>
+<body>
+  <main id="app">
+    <h1>Slots en componentes Vue.js</h1>
+
+    <card></card>
+
+    <card>
+      <template slot="phrase"><p>Entrena tu mente y cuerpo para que en cualquier día salgas, y corras maratón</p></template>
+      <template>
+        <img src="https://avatarfiles.alphacoders.com/210/210847.jpg">
+      </template>
+      <template slot="position"><p>Maestro</p></template>
+      <template slot="name"><h1>Anonimo</h1></template>
+    </card>
+
+    <card>
+      <template slot="position"><p><i>Humano</i></p></template>
+      <template slot="phrase"><p><b>Riquezas materiales no es el objetivo</b></p></template>
+      <template slot="name"><h1>Jesus</h1></template>
+      <template>
+        <img src="https://avatarfiles.alphacoders.com/210/210847.jpg">
+      </template>
+    </card>
+
+    <cards :members="team">
+      <template scope="data">
+        <img :src="data.avatar">
+      </template>
+      <template slot="name" scope="data">
+        <h3 v-text="data.nombre"></h3>
+      </template>
+    </cards>
+
+    <cards :members="team">
+      <template scope="data">
+        <img :src="data.avatar" style="border-radius: 50%;">
+      </template>
+      <template slot="name" scope="data">
+        <h2 v-text="data.nombre"></h2>
+      </template>
+    </cards>
+    
+    <pre>{{ $data }}</pre>
+  </main>
+
+  <template id="card">
+    <figure>
+      <slot>
+        <img src="https://avatarfiles.alphacoders.com/210/210847.jpg">
+      </slot>
+      <figcaption>
+        <slot name="name">Internet</slot>
+        <slot name="position">Hacer Comunidad</slot>
+        <slot name="phrase">Procurar Honestidad</slot>
+      </figcaption>
+    </figure>
+  </template>
+
+  <template id="cards">
+    <div>
+      <figure v-for="member in members">
+        <slot :avatar="member.avatar"></slot>
+        <figcaption>
+          <slot name="name" :nombre="member.name"></slot>
+        </figcaption>
+      </figure>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <script>
+    const mv = new Vue({
+      el: '#app',
+      data: {
+        team: [
+          { name: 'Clon 1', avatar: 'https://avatarfiles.alphacoders.com/210/210847.jpg' },
+          { name: 'Clon 2', avatar: 'https://avatarfiles.alphacoders.com/210/210847.jpg' },
+          { name: 'Clon 3', avatar: 'https://avatarfiles.alphacoders.com/210/210847.jpg' }
+        ]
+      },
+      components: {
+        'card': {
+          template: '#card'
+        },
+        'cards': {
+          props: ['members'],
+          template: '#cards'
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

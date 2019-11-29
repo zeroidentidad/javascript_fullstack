@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantillas para componentes en Vue.js</title>
+  <link rel="icon" href="https://vuejs.org/images/logo.png">
+</head>
+<body>
+  <main id="app">
+    <h1>Plantillas para componentes en Vue.js</h1>
+
+    <shows></shows>
+    <starwars-characters></starwars-characters>
+    <posts></posts>
+
+    <users inline-template>
+      <div>
+        <h2>Plantilla en un inline-template</h2>
+        <h3>Users de JSONplaceholder</h3>
+        <ul>
+          <li v-for="user in users">{{ user.email }}</li>
+        </ul>
+      </div>
+    </users>
+    
+    <pre>{{ $data }}</pre>
+  </main>
+
+  <template id="starwars">
+    <div>
+      <h2>Plantilla en una etiqueta template de html</h2>
+      <h3>Personajes StarWars</h3>
+      <ul>
+        <li v-for="character in characters">{{ character.name }}</li>
+      </ul>
+    </div>
+  </template>
+
+  <script type="text/template" id="posts">
+    <div>
+      <h2>Plantilla en un script template</h2>
+      <h3>Posts de JSONplaceholder</h3>
+      <ul>
+        <li v-for="post in posts">{{ post.title }}</li>
+      </ul>
+    </div>
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    Vue.component('shows', {
+      template: `
+        <div>
+          <h2>Plantilla en el atributo template del componente</h2>
+          <h3>Shows TV Maze</h3>
+          <ul>
+            <li v-for="show in shows">{{ show.name }}</li>
+          </ul>
+        </div>
+      `,
+      mounted () {
+        axios.get('http://api.tvmaze.com/shows')
+          .then(res => {
+            console.log(res)
+            this.shows = res.data
+          })
+      },
+      data () {
+        return {
+          shows: []
+        }
+      }
+    })
+
+    Vue.component('posts', {
+      template: '#posts',
+      mounted() {
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+          .then(res => {
+            console.log(res)
+            this.posts = res.data
+          })
+      },
+      data() {
+        return {
+          posts: []
+        }
+      }
+    })
+
+    const StarWarsCharacters = {
+      template: '#starwars',
+      mounted() {
+        axios.get('https://swapi.co/api/people/')
+          .then(res => {
+            console.log(res)
+            this.characters = res.data.results
+          })
+      },
+      data() {
+        return {
+          characters: []
+        }
+      }
+    }
+
+    const Users = {
+      mounted() {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+          .then(res => {
+            console.log(res)
+            this.users = res.data
+          })
+      },
+      data() {
+        return {
+          users: []
+        }
+      }
+    }
+
+    const mv = new Vue({
+      el: '#app',
+      components: {
+        'starwars-characters': StarWarsCharacters,
+        'users': Users
+      }
+    })
+  </script>
+</body>
+</html>

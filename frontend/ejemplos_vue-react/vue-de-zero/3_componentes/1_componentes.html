@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componentes Vue.js</title>
+  <link rel="icon" href="https://vuejs.org/images/logo.png">
+</head>
+<body>
+  <main id="app">
+    <h1>Componente en Vue</h1>
+    <shows></shows>
+    <starwars-characters></starwars-characters>
+    <pre>{{ $data }}</pre>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    Vue.component('shows', {
+      template: `
+        <div>
+          <h2>Componente Global</h2>
+          <h3>Shows TV Maze</h3>
+          <ul>
+            <li v-for="show in shows">{{ show.name }}</li>
+          </ul>
+        </div>
+      `,
+      mounted () {
+        axios.get('http://api.tvmaze.com/shows')
+          .then(res => {
+            console.log(res)
+            this.shows = res.data
+          })
+      },
+      data () {
+        return {
+          shows: []
+        }
+      }
+    })
+    
+    const StarWarsCharacters = {
+      template: `
+        <div>
+          <h2>Componente Local</h2>
+          <h3>Personajes StarWars</h3>
+          <ul>
+            <li v-for="character in characters">{{ character.name }}</li>
+          </ul>
+        </div>
+      `,
+      mounted() {
+        axios.get('https://swapi.co/api/people/')
+          .then(res => {
+            console.log(res)
+            this.characters = res.data.results
+          })
+      },
+      data() {
+        return {
+          characters: []
+        }
+      }
+    }
+
+    const mv = new Vue({
+      el: '#app',
+      components: {
+        'starwars-characters': StarWarsCharacters
+      }
+    })    
+  </script>
+</body>
+</html>

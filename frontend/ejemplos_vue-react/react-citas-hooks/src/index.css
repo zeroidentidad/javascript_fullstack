@@ -5,13 +5,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+  background-image: linear-gradient(-225deg, rgb(109, 178, 69) 0%, rgb(24, 212, 149) 52%, rgb(0, 204, 255) 100%);
   min-height: 100%;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
 }
 h1, h2  {
   color: white;
-  padding: 3rem 0;
+  padding: 1rem 0;
   text-align: center;
 
   text-transform: uppercase;
@@ -21,7 +21,7 @@ h1, h2  {
 }
 .lista-citas .media {
   border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .lista-citas .media:last-of-type{
@@ -53,7 +53,7 @@ input[type="time"] {
 }
 
 .cita {
-  padding: 2rem;
+  padding: 1rem;
   background: white;
   border-bottom: 1px solid #e1e1e1;
   color: black;
@@ -77,7 +77,7 @@ input[type="time"] {
 }
 .button.eliminar,
 .button.eliminar:hover {
-  background-color: #c10059;
+  background-color: #c11700;
   color: white;
   margin-top: 2rem;
 }

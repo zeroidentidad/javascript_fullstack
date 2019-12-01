@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunicación entre componentes Vue.js</title>
+  <link rel="icon" href="https://vuejs.org/images/logo.png">
+</head>
+<body>
+  <h1>Comunicación entre componentes Vue.js</h1>
+
+  <main id="app">
+    <todo-list :todos="todos"></todo-list>
+    <todo-add></todo-add>
+  </main>
+  <template id="todo-list">
+    <ul>
+      <li v-for="todo in todos" v-text="todo.text"></li>
+    </ul>
+  </template>
+  <template id="todo-add">
+    <form v-on:submit.prevent="addTodo">
+      <input type="text" placeholder="Agrega una tarea" v-model="text">
+    </form>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    const eventBus = new Vue()
+
+    Vue.component('todo-list', {
+      props: ['todos'],
+      template: '#todo-list',
+      created () {
+        eventBus.$on('todo-add', todo => {
+          this.todos.push(todo)
+        })
+      }
+    })
+
+    Vue.component('todo-add', {
+      template: '#todo-add',
+      data() {
+        return {
+          text: ''
+        }
+      },
+      methods: {
+        addTodo() {
+          if (this.text != '') {
+            let todo = {
+              text: this.text
+            }
+            eventBus.$emit('todo-add', todo)
+            this.text = ''
+          }
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        todos: [
+          { text: 'Tarea 1' },
+          { text: 'Tarea 2' },
+        ]
+      }
+    })
+  </script>
+</body>
+</html>

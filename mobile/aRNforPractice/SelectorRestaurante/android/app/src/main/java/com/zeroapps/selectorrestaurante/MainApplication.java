@@ -1,4 +1,4 @@
-package com.selectorrestaurante;
+package com.zeroapps.selectorrestaurante;
 
 import android.app.Application;
 

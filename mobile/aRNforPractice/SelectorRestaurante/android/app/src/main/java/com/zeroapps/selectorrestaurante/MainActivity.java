@@ -1,4 +1,4 @@
-package com.selectorrestaurante;
+package com.zeroapps.selectorrestaurante;
 
 import com.facebook.react.ReactActivity;
 

@@ -6,7 +6,7 @@ import { DecisionScreen } from "./screens/DecisionScreen";
 import { RestaurantsScreen } from "./screens/RestaurantsScreen";
 
 
-console.log("------------------------------------------------------------");
+console.log("----------------------------------------------");
 console.log(`SelectorRestaurante starting on ${Platform.OS}`);
 
 
@@ -14,7 +14,7 @@ console.log(`SelectorRestaurante starting on ${Platform.OS}`);
 // Android y iOS.
 const platformOS = Platform.OS.toLowerCase();
 
-//console.disableYellowBox = true;
+console.disableYellowBox = true;
 /**
  * Construción TabNavigator, el contenedor principal para la UI.
  */

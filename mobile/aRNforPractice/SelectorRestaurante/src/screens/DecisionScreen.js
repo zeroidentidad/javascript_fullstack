@@ -316,7 +316,7 @@ class WhosGoingScreen extends React.Component {
 
     <View style={styles.listScreenContainer}>
 
-      <Text style={styles.whosGoingHeadline}>Who's Going?</Text>
+      <Text style={styles.whosGoingHeadline}>Quiénes van?</Text>
 
       { /* ########## Lista de quienes van ########## */ }
       <FlatList

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Router</title>
+</head>
+
+<body>
+
+  <main id="app">
+    <h1>Vue Router</h1>
+    <h2>Rutas Programadas</h2>
+    <router-link to="/">Home</router-link>
+    <router-link to="/acerca">Acerca</router-link>
+    <router-link to="/contacto">Contacto</router-link>
+    <router-link to="/servicios">Servicios</router-link>
+    <router-link to="/productos">Productos</router-link>
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <script>
+    const Home = { template: '<h2>Home</h2>' }
+
+    const About = {
+      template: `
+      <div>
+        <h2>Acerca</h2>
+        <button @click="$router.go(-1)">atras</button>
+      </div>
+      `
+    }
+
+    const Contact = {
+      template: '<h2>Contacto</h2>',
+      created() {
+        setTimeout(() => {
+          this.$router.push('/')
+        }, 3000);
+      }
+    }
+
+    const Error404 = { template: '<h2>Error 404</h2>' }
+
+    const Services = { template: '<h2>Servicios</h2>' }
+
+    const Products = { template: '<h2>Productos</h2>' }
+
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/acerca', component: About },
+      { path: '/contacto', component: Contact },
+      { path: '/servicios', component: Services },
+      { path: '/productos', component: Products },
+      { path: '*', component: Error404 }
+    ]
+
+    const router = new VueRouter({ routes })
+
+    new Vue({
+      router,
+      el: '#app'
+    })
+  </script>
+
+</body>
+
+</html>

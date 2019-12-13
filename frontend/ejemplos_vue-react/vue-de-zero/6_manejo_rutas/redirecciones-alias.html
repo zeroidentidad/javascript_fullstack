@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Router</title>
+</head>
+
+<body>
+
+  <main id="app">
+    <h1>Vue Router</h1>
+    <h2>Redirecciones y Alias</h2>
+
+    <router-link to="/">Home</router-link>
+    <router-link to="/home">Home</router-link>
+    <router-link to="/inicio">Inicio</router-link>
+    <router-link to="/acerca">Acerca</router-link>
+    <router-link to="/about">About por ruta</router-link>
+    <router-link :to="{name: 'acerca' }">About por name</router-link>
+    <router-link to="/contacto">Contacto</router-link>
+    <router-link to="/contact">Contact</router-link>
+    <router-link to="/call-me">Call me</router-link>
+
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <script>
+    const Home = { template: '<h2>Home</h2>' }
+
+    const About = { template: '<h2>Acerca</h2>' }
+
+    const Contact = { template: '<h2>Contacto</h2>' }
+
+    const Error404 = { template: '<h2>Error 404</h2>' }
+
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/home', redirect: '/', component: Home },
+      { path: '/inicio', redirect: '/', component: Home },
+      { path: '/acerca', name: 'acerca', component: About },
+      { path: '/about', redirect: { name: 'acerca' }, component: About },
+      { path: '/contacto', component: Contact },
+      { path: '/contact', redirect: '/contacto', alias: '/call-me', component: Contact },
+      { path: '*', component: Error404 }
+    ]
+
+    const router = new VueRouter({ routes })
+
+    new Vue({
+      router,
+      el: '#app'
+    });
+  </script>
+  
+</body>
+
+</html>

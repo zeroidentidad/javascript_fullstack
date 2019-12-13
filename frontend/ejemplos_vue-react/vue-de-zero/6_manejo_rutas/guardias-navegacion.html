@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Router</title>
+</head>
+
+<body>
+
+  <main id="app">
+    <h1>Vue Router</h1>
+    <h2>Guardias de Navegación</h2>
+
+    <router-link to="/">Home</router-link>
+    <router-link to="/acerca">Acerca</router-link>
+    <router-link to="/contacto">Contacto</router-link>
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <script>
+    const Home = {
+      template: '<h2>Home</h2>',
+      beforeRouteLeave(to, from, next) {
+        alert(`antes de dejar la ruta ${from.path} yendo a la ruta ${to.path}`)
+        next()
+      }
+    }
+
+    const About = { template: '<h2>Acerca</h2>' }
+
+    const Contact = { template: '<h2>Contacto</h2>' }
+
+    const Error404 = { template: '<h2>Error 404</h2>' }
+
+    function rutaResguardada(to, from, next) {
+      if (confirm(`Antes de entrar a la ruta ${to.path}, ¿accedemos?`)) {
+        next()
+      } else if (confirm(`Redirigimos a /acerca?`)) {
+        next('/acerca')
+      } else {
+        next(false)
+      }
+    }
+
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/acerca', component: About },
+      { path: '/contacto', component: Contact, beforeEnter: rutaResguardada },
+      { path: '*', component: Error404 }
+    ]
+
+    const router = new VueRouter({ routes })
+
+    new Vue({
+      router,
+      el: '#app'
+    })
+  </script>
+
+</body>
+
+</html>

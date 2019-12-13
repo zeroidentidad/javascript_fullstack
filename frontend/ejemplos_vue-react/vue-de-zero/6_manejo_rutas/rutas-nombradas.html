@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Router</title>
+</head>
+
+<body>
+
+  <main id="app">
+    <h1>Vue Router</h1>
+    <h2>Rutas nombradas</h2>
+
+    <ul>
+      <li>
+        <router-link :to="{name: 'home'}">Home</router-link>
+      </li>
+      <li>
+        <router-link :to="{name: 'about'}">Acerca</router-link>
+      </li>
+      <li>
+        <router-link :to="{name: 'contact'}">Contacto</router-link>
+      </li>
+      <li>
+        <router-link :to="{name: 'users'}">Usuarios</router-link>
+      </li>
+      <li>
+        <router-link :to="{name: 'user', params: {id: 'zero' }}">Usuario Zero</router-link>
+        <ul>
+          <li>
+            <router-link :to="{name: 'profile', params: {id: 'zero' }}">Perfil</router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'posts', params: {id: 'zero' }}">Publicaciones</router-link>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  
+  <script>
+    const Home = { template: '<h2>Home</h2>' }
+
+    const About = { template: '<h2>Acerca</h2>' }
+
+    const Contact = { template: '<h2>Contacto</h2>' }
+
+    const Error404 = { template: '<h2>Error 404</h2>' }
+
+    const Users = {
+      template: `
+      <div>
+        <h2>Usuarios</h2>
+        <h3>{{ $route.params.id }}</h3>
+        <router-view></router-view>
+      </div>
+      `
+    }
+
+    const UsersProfile = { template: '<h4>Perfil del usuario</h4>' }
+
+    const UsersPosts = { template: '<h4>Publicaciones del usuario</h4>' }
+
+    const routes = [
+      { path: '/', name: 'home', component: Home },
+      { path: '/acerca', name: 'about', component: About },
+      { path: '/contacto', name: 'contact', component: Contact },
+      { path: '/usuarios', name: 'users', component: Users },
+      {
+        path: '/usuarios/:id', name: 'user', component: Users, children: [
+          { path: 'perfil', name: 'profile', component: UsersProfile },
+          { path: 'publicaciones', name: 'posts', component: UsersPosts },
+        ]
+      },
+      { path: '*', component: Error404 }
+    ]
+
+    const router = new VueRouter({ routes })
+
+    new Vue({
+      router,
+      el: '#app'
+    });
+  </script>
+
+</body>
+
+</html>

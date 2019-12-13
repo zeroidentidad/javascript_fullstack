@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Router</title>
+</head>
+
+<body>
+
+  <main id="app">
+    <h1>Vue Router</h1>
+    <h2>Rutas anidadas</h2>
+
+    <ul>
+      <li>
+        <router-link to="/">Home</router-link>
+      </li>
+      <li>
+        <router-link to="/acerca">Acerca</router-link>
+      </li>
+      <li>
+        <router-link to="/contacto">Contacto</router-link>
+      </li>
+      <li>
+        <router-link to="/usuarios">Usuarios</router-link>
+      </li>
+      <li>
+        <router-link to="/usuarios/zero">Usuario Zero</router-link>
+        <ul>
+          <li>
+            <router-link to="/usuarios/zero/perfil">Perfil</router-link>
+          </li>
+          <li>
+            <router-link to="/usuarios/zero/publicaciones">Publicaciones</router-link>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <script>
+    const Home = { template: '<h2>Home</h2>' }
+
+    const About = { template: '<h2>Acerca</h2>' }
+
+    const Contact = { template: '<h2>Contacto</h2>' }
+
+    const Error404 = { template: '<h2>Error 404</h2>' }
+
+    const Users = {
+      template: `
+      <div>
+        <h2>Usuarios</h2>
+        <h3>{{ $route.params.id }}</h3>
+        <router-view></router-view>
+      </div>
+      `
+    }
+
+    const UsersProfile = { template: '<h4>Perfil del usuario</h4>' }
+
+    const UsersPosts = { template: '<h4>Publicaciones del usuario</h4>' }
+
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/acerca', component: About },
+      { path: '/contacto', component: Contact },
+      { path: '/usuarios', component: Users },
+      {
+        path: '/usuarios/:id', component: Users, children: [
+          { path: 'perfil', component: UsersProfile },
+          { path: 'publicaciones', component: UsersPosts },
+        ]
+      },
+      { path: '*', component: Error404 }
+    ]
+
+    const router = new VueRouter({ routes })
+
+    new Vue({
+      router,
+      el: '#app'
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Router</title>
+</head>
+
+<body>
+
+  <main id="app">
+    <h1>Vue Router</h1>
+    <h2>Paso Propiedades</h2>
+
+    <ul>
+      <li>
+        <router-link to="/">/</router-link>
+      </li>
+      <li>
+        <router-link to="/hola/zero">/hola/zero</router-link>
+      </li>
+      <li>
+        <router-link to="/static">/static</router-link>
+      </li>
+      <li>
+        <router-link to="/dynamic/2-1">/dynamic/2-1</router-link>
+      </li>
+    </ul>
+    <hr>
+    <router-view></router-view>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <script>
+    const Hello = {
+      template: `<h1>Hola {{ name  }} !!!</h1>`,
+      props: {
+        name: {
+          type: String,
+          default: 'Vue.js'
+        }
+      }
+    }
+
+    function suma(route) {
+      return {
+        name: (parseInt(route.params.n1) + parseInt(route.params.n2))
+      }
+    }
+
+    const routes = [
+      //Sin propiedades
+      { path: '/', component: Hello },
+      //Con propiedades
+      { path: '/hola/:name', component: Hello, props: true },
+      //Con valor estático
+      { path: '/static', component: Hello, props: { name: 'mundo' } },
+      //Con valor dinámico
+      { path: '/dynamic/:n1-:n2', component: Hello, props: suma },
+    ]
+
+    const router = new VueRouter({ routes })
+
+    new Vue({
+      router,
+      el: '#app'
+    })
+  </script>
+</body>
+
+</html>

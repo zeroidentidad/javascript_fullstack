@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import Error from './Error'
 
 function Pregunta() {
 
@@ -23,6 +24,7 @@ function Pregunta() {
     return (
         <Fragment>
             <h2>Ingresa total disponible</h2>
+            {error ? <Error mensaje='Presupuesto no válido' /> : null}
             <form onSubmit={agregarPresupuesto}>
                 <input type="number"
                     className="u-full-width"

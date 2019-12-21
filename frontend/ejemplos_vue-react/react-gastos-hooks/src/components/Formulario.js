@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import Error from './Error';
+import shortid from 'shortid';
 
 function Formulario(props) {
+
+    //props de App
+    const {guardarGasto, guardarCrearGasto} = props;       
 
     // states
     const [nombreGasto, guardarNombreGasto] = useState('');
@@ -18,14 +22,30 @@ function Formulario(props) {
             return;
         }
 
+        // construir objeto de gasto
+        const gasto = {
+            nombreGasto,
+            cantidadGasto,
+            id: shortid.generate()
+        }       
+
+        // eliminar alerta
+        guardarError(false)
+
         // pasar el gasto al componente principal
+        guardarGasto(gasto);
+        guardarCrearGasto(true);
+
+        // Resetear el form
+        guardarNombreGasto('');
+        guardarCantidadGasto('');        
 
     }    
 
     return (
         <form onSubmit={agregarGasto}>
             <h2>Agrega los gastos aquí</h2>
-
+            {error ? <Error mensaje='Ambos campos son obligatorios o presupuesto no válido' /> : null}
             <div className="campo">
                 <label>Concepto gasto</label>
                 <input

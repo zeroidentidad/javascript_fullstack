@@ -3,7 +3,7 @@ import Error from './Error'
 
 function Pregunta(props) {
 
-    const { guardarPresupuesto, guardarPreguntaPresupuesto } = props;    
+    const { guardarPresupuesto, guardarPreguntaPresupuesto, guardarRestante } = props;    
 
     // definir el state
     const [cantidad, guardarCantidad] = useState(0);
@@ -23,19 +23,20 @@ function Pregunta(props) {
         guardarError(false);
         guardarPresupuesto(cantidad);
         guardarPreguntaPresupuesto(false);
+        guardarRestante(cantidad);
     }    
 
     return (
         <Fragment>
-            <h2>Ingresa total disponible</h2>
+            <h2>Ingresa total a disponer</h2>
             {error ? <Error mensaje='Presupuesto no válido' /> : null}
             <form onSubmit={agregarPresupuesto}>
                 <input type="number"
                     className="u-full-width"
-                    placeholder="Agrega tu Presupuesto"
+                    placeholder="Agrega presupuesto"
                     onChange={e => guardarCantidad(parseInt(e.target.value, 10))}
                 />
-                <input type="submit" className="button-primary u-full-width" value="Definir Presupuesto" />
+                <input type="submit" className="button-primary" value="Definir presupuesto" />
             </form>            
         </Fragment>
     );

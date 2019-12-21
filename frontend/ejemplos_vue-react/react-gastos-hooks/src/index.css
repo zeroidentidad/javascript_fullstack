@@ -3,8 +3,8 @@
 }
 body {
   background: #000428;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #004e92, #000428);  
-  background: linear-gradient(to right, #004e92, #000428); 
+  background: -webkit-linear-gradient(to right, #0d9e9e, #000428);  
+  background: linear-gradient(to right, #0d9e9e, #000428); 
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -40,7 +40,7 @@ h1 {
 h2 {
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
-  color:#004e92;
+  color:#01284b;
   margin-bottom:30px;
   font-size:3rem!important;
   text-align: center;
@@ -97,7 +97,7 @@ h2 {
   margin:0;
 }
 .gastos-realizados li p .gasto {
-  background-color: #004085;
+  background-color: #022a55;
   padding: 1rem;
   color:white;
 }

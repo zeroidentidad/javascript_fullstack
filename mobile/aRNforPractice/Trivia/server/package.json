@@ -1,0 +1,16 @@
+{
+  "name": "rntrivia",
+  "version": "1.0.0",
+  "description": "Server info for a trivia app written with React Native",
+  "main": "server.js",
+  "author": "Jesus Ferrer",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "socket.io": "^2.0.4"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}

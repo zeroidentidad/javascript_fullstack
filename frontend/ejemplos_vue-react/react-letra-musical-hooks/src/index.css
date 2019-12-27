@@ -33,8 +33,8 @@ legend::before {
   background-color:#EB6864;
   height: 40px;
   z-index:-1;
-  left: -30px;
-  right: -30px;
+  left: -20px;
+  right: -20px;
   transform: rotate(-1deg);
   transition: transform .3s ease;
 }

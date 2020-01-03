@@ -2,7 +2,7 @@ const lodash = require("lodash");
 
 
 // Establecer true para probar rápidamente el escenario de victoria. Nota: ¡esto solo funcionará para una cuadrícula de 3x3!
-const testWin = true;
+const testWin = false;
 
 module.exports = function() {
 

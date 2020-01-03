@@ -32,6 +32,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.disableYellowBox = true;
     // Procesar condicionalmente el menú de control (cambia a controlMenuVisible en
     // state desencadena re-render, de como funciona).
     let controlMenu = null;

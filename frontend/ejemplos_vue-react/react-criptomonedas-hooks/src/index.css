@@ -1,5 +1,5 @@
 body {
-    background-color: #091c2e;
+    background-color: #164068;
 }
 img {
     max-width: 100%;
@@ -21,7 +21,7 @@ h1::after {
     display: block;
 }
 .container img {
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 label {
@@ -55,15 +55,22 @@ input[type="submit"]{
 .resultado h2 {
     font-weight: bold;
     color: white;
+    text-align: center;
 }
 
 
 .resultado p {
     font-size: 18px!important;
+    text-align: center;
 }
 .resultado p span {
     font-weight: bold;
 }
 p.precio{
     font-size: 30px!important;
+}
+
+.padding-x{
+    /*transform: translate(35%, 5%);*/
+    text-align: center;
 }

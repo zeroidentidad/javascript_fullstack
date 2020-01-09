@@ -1,10 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app container">
+      <div className="jumbotron">
+        <p className="lead text-center">Buscador de Imágenes</p>
+      </div>
+      <div className="row justify-content-center">
+
+      </div>
     </div>
   );
 }

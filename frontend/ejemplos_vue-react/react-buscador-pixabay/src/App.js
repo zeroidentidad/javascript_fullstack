@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Buscador from './components/Buscador';
 import ListadoImagenes from './components/ListadoImagenes';
+import imagen from './assets/noimage.png'
 
 function App() {
 
@@ -52,8 +53,11 @@ function App() {
   }
 
   return (
-    <div className="app container">
+    <div className="container">
       <div className="jumbotron">
+        <div className="text-center">
+          <img src={imagen} height="110" width="180" alt="imagen" />
+        </div>
         <p className="lead text-center"><b>Buscador de Imágenes</b></p>
 
         <Buscador guardarBusqueda={guardarBusqueda} />

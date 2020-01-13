@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import ProductoLista from './ProductoLista'
 
-function Productos({ productos }) {
+function Productos({ productos, guardarRecargarProductos }) {
     return (
         <Fragment>
             <h1 className="text-center">Platillos</h1>
@@ -10,6 +10,7 @@ function Productos({ productos }) {
                     <ProductoLista
                         key={producto.id}
                         producto={producto}
+                        guardarRecargarProductos={guardarRecargarProductos}
                     />
                 ))}
             </ul>

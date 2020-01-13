@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import axios from 'axios'
 import Productos from './components/Productos'
-import Producto from './components/Producto'
 import AgregarProducto from './components/AgregarProducto'
 import EditarProducto from './components/EditarProducto'
 import Header from './components/Header'
@@ -44,9 +43,10 @@ function App() {
           render={() => (
             <Productos
               productos={productos}
+              guardarRecargarProductos={guardarRecargarProductos}
             />
           )} />
-        <Route exact path="/productos/:id" component={Producto} />
+        {/*<Route exact path="/productos/:id" component={Producto} /> */}
         <Route exact path="/productos/editar/:id"
             render={props => {
               // tomar el ID del producto

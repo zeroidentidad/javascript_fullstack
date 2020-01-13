@@ -23,6 +23,18 @@
       "precioPlatillo": "10",
       "categoria": "cortes",
       "id": 7
+    },
+    {
+      "nombrePlatillo": "Helado",
+      "precioPlatillo": "15",
+      "categoria": "postre",
+      "id": 8
+    },
+    {
+      "nombrePlatillo": "Coca",
+      "precioPlatillo": "10",
+      "categoria": "bebida",
+      "id": 9
     }
   ]
 }

@@ -12,8 +12,10 @@ import Header from './components/Header'
 function App() {
 
   const [productos, guardarProductos] = useState([]);
+  const [recargarProductos, guardarRecargarProductos] = useState(true);
 
   useEffect(() => {
+    if (recargarProductos) {
       const consultarApi = async () => {
         // consultar la api de json-server local
         const resultado = await axios.get('http://localhost:4000/restaurant');
@@ -22,14 +24,22 @@ function App() {
       }
       consultarApi();
 
-  }, []);  
+      // Cambiar a false la recarga de los productos
+      guardarRecargarProductos(false);      
+    }
+  }, [recargarProductos]);  
 
   return (
     <Router>
       <Header />
       <main className="container mt-4">
       <Switch>
-        <Route exact path="/nuevo-producto" component={AgregarProducto} />
+        <Route exact path="/nuevo-producto" 
+            render={() => (
+              <AgregarProducto
+                guardarRecargarProductos={guardarRecargarProductos}
+              />
+            )}/>
           <Route exact path="/productos"
           render={() => (
             <Productos

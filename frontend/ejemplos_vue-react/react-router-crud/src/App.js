@@ -28,7 +28,12 @@ function App() {
       <main className="container mt-4">
       <Switch>
         <Route exact path="/nuevo-producto" component={AgregarProducto} />
-        <Route exact path="/productos" component={Productos} />
+          <Route exact path="/productos"
+          render={() => (
+            <Productos
+              productos={productos}
+            />
+          )} />
         <Route exact path="/productos/:id" component={Producto} />
         <Route exact path="/productos/editar/:id" component={EditarProducto} />
       </Switch>
@@ -38,3 +43,16 @@ function App() {
 }
 
 export default App;
+
+/*
+Pasar nada:
+          <Route exact path="/productos" component={Productos} />
+
+Pasar algo:
+          <Route exact path="/productos"
+          render={() => (
+            <Productos
+              productos={productos}
+            />
+          )} />
+*/

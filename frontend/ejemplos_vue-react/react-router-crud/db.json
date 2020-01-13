@@ -2,21 +2,21 @@
   "restaurant": [
     {
       "nombrePlatillo": "Taco de perro",
-      "precioPlatillo": "10",
+      "precioPlatillo": "5",
       "categoria": "cortes",
-      "id": 7
+      "id": 1
     },
     {
+      "precioPlatillo": "20",
       "nombrePlatillo": "Helado",
-      "precioPlatillo": "15",
       "categoria": "postre",
-      "id": 8
+      "id": 2
     },
     {
-      "precioPlatillo": "15",
-      "nombrePlatillo": "Coca",
-      "categoria": "bebida",
-      "id": 9
+      "nombrePlatillo": "Taco de gato",
+      "precioPlatillo": "5",
+      "categoria": "cortes",
+      "id": 4
     }
   ]
 }

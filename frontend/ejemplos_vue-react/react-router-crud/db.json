@@ -17,6 +17,12 @@
       "precioPlatillo": "100",
       "categoria": "ensalada",
       "id": 6
+    },
+    {
+      "nombrePlatillo": "Taco de perro",
+      "precioPlatillo": "10",
+      "categoria": "cortes",
+      "id": 7
     }
   ]
 }

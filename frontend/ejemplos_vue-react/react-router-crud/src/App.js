@@ -7,6 +7,8 @@ import AgregarProducto from './components/AgregarProducto'
 import EditarProducto from './components/EditarProducto'
 import Header from './components/Header'
 
+// init dbjson: json-server db.json -p 4000
+
 function App() {
 
   const [productos, guardarProductos] = useState([]);

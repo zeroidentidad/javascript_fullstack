@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import Error from './Error'
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import { withRouter } from 'react-router-dom'
 
-function AgregarProducto() {
+function AgregarProducto({ history }) {
 
     // state
     const [nombrePlatillo, guardarNombre] = useState('');    
@@ -24,12 +27,36 @@ function AgregarProducto() {
         guardarError(false);
 
         // Crear el nuevo producto
+        try {
+            const resultado = await axios.post('http://localhost:4000/restaurant', {
+                nombrePlatillo,
+                precioPlatillo,
+                categoria
+            });
 
+            if (resultado.status === 201) {
+                Swal.fire(
+                    'Creada',
+                    'Agregada correctamente',
+                    'success'
+                )
+            }
+        } catch (error) {
+            console.log(error);
+            Swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: 'Hubo un error, vuelve a intentarlo'
+            })
+        }
+
+        // Redirigir al usuario a productos
+        history.push('/productos');
     }
 
     return (
         <div className="col-md-8 mx-auto">
-            <h1 className="text-center">Agregar Comida</h1>
+            <h1 className="text-center">Agregar platillo</h1>
 
             {(error) ? <Error mensaje='Todos los campos son obligatorios' /> : null}
 
@@ -108,4 +135,4 @@ function AgregarProducto() {
     )
 }
 
-export default AgregarProducto
+export default withRouter(AgregarProducto)

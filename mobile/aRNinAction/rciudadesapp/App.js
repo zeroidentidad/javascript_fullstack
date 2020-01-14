@@ -3,9 +3,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  AsyncStorage
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import Tabs from './src'
 
@@ -30,21 +30,22 @@ export default class App extends Component {
     cities: []
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     try {
-      let cities = await AsyncStorage.getItem(key)
-      cities = JSON.parse(cities)
+      let cities = AsyncStorage.getItem(key).then(value => {
+      cities = JSON.parse(value)
       this.setState({ cities })
+      });
     } catch (e) {
       console.log('error from AsyncStorage: ', e)
     }
   }
 
-  addCity = async(city) => {
+  addCity = (city) => {
     const cities = this.state.cities
     cities.push(city)
     this.setState({ cities })
-    await AsyncStorage.setItem(key, JSON.stringify(cities))
+    AsyncStorage.setItem(key, JSON.stringify(cities))
       .then(() => console.log('storage updated!'))
       .catch(e => console.log('e: ', e))
   }

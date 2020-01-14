@@ -1,114 +1,84 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  SafeAreaView,
+  Platform,
   StyleSheet,
-  ScrollView,
-  View,
   Text,
-  StatusBar,
+  View,
+  AsyncStorage
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import Tabs from './src'
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+const key = 'state'
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+const initialState = [{
+  city: 'Tabasco',
+  country: 'Mexico',
+  id: 0,
+  locations: []
+},
+{
+  city: 'Buenos Aires',
+  country: 'Argentina',
+  id: 1,
+  locations: []
+}]
 
-export default App;
+export default class App extends Component {
+  
+  state = {
+    cities: []
+  }
+
+  async componentDidMount() {
+    try {
+      let cities = await AsyncStorage.getItem(key)
+      cities = JSON.parse(cities)
+      this.setState({ cities })
+    } catch (e) {
+      console.log('error from AsyncStorage: ', e)
+    }
+  }
+
+  addCity = (city) => {
+    const cities = this.state.cities
+    cities.push(city)
+    this.setState({ cities })
+    AsyncStorage.setItem(key, JSON.stringify(cities))
+      .then(() => console.log('storage updated!'))
+      .catch(e => console.log('e: ', e))
+  }
+
+  addLocation = (location, city) => {
+    const index = this.state.cities.findIndex(item => {
+      return item.id === city.id
+    })
+    const chosenCity = this.state.cities[index]
+    chosenCity.locations.push(location)
+    const cities = [
+      ...this.state.cities.slice(0, index),
+      chosenCity,
+      ...this.state.cities.slice(index + 1)
+    ]
+    this.setState({
+      cities
+    }, () => {
+      AsyncStorage.setItem(key, JSON.stringify(cities))
+        .then(() => console.log('storage updated!'))
+        .catch(e => console.log('e: ', e))
+    })
+  }
+
+  render() {
+    return (
+      <Tabs
+        screenProps={{
+          cities: this.state.cities,
+          addCity: this.addCity,
+          addLocation: this.addLocation
+        }}
+      />
+    )
+  }
+
+}

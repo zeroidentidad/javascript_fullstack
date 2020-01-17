@@ -18,3 +18,8 @@
      color: white;
      line-height: 2rem;
  }
+
+ .text-center{
+    text-align: center;
+    align-items: center;
+ }

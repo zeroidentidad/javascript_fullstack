@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Nosotros.css';
 
 class Nosotros extends Component {
@@ -11,9 +12,15 @@ class Nosotros extends Component {
                     </div>
                     <div className="contenido">
                          <h2>Sobre Nosotros</h2>
-                         <p>Aenean auctor, augue id porta viverra, dui odio vehicula sem, eget imperdiet est tellus quis massa. Pellentesque tempor ac mauris id elementum. Donec luctus mauris at arcu semper, et luctus quam sagittis. Curabitur arcu lectus, porta et vulputate eget, ullamcorper non est. Praesent enim lectus, dictum ut scelerisque in, fringilla quis velit. Phasellus mattis ultricies sem, vitae egestas metus fermentum eget. Suspendisse pretium viverra magna, id tristique ipsum ornare ut.</p>
+                         <p>La <b>DevStore</b>, un espacio de tematicas en TI, merchandising de comunidades tecnologicas e iniciativa startup con sede en localidad XYZ, EstadoX. 
+                         Tenemos la misión de crear la tienda de productos fisicos y digitales de referencia para estudiantes, fans tecnológicos, emprendedores, geeks, desarrolladores de hardware o software.
+
+                         Estando en ubicacion accesible nos aseguramos que las personas encuentren productos tecnológicos de la tienda y de creadores locales que resuelvan problemas o cubran alguna necesidad, para que ellos puedan centrarse en lo que mejor hacen: crear hardware o software increíble.
+                         </p>
                          <div className="text-center" >
+                              <Link to={`/productos`}>
                               <img src="/img/hero.jpg" alt="imagen nosotros" width="380" height="255"/>
+                              </Link>
                          </div>
                     </div>                    
                </div>

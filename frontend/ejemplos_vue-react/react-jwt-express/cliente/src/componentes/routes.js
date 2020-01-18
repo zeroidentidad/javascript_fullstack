@@ -54,7 +54,8 @@ export const makeMainRoutes = () => {
           let idProducto = props.location.pathname.replace('/producto/', '');
           return (
             <SingleProducto
-              producto={this.state.productos[idProducto]}
+              //producto={this.state.productos[idProducto]}
+              producto={props.location.state.producto}
               key={idProducto}
               auth={auth} {...props}
             />

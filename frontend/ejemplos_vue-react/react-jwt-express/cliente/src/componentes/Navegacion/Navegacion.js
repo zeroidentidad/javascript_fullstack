@@ -14,7 +14,7 @@ class Navegacion extends Component {
 
      render() {
 
-          console.log(this.props.auth.getAccessToken());
+          //console.log(this.props.auth.getAccessToken());
 
           const { isAuthenticated } = this.props.auth;
 

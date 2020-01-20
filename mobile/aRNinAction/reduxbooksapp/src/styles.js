@@ -1,3 +1,5 @@
+import { StyleSheet } from 'react-native'
+
 const styles = StyleSheet.create({
     inputContainer: {
         padding: 10,

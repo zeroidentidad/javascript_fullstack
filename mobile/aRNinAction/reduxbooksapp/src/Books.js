@@ -3,7 +3,6 @@ import {
     Text,
     View,
     ScrollView,
-    StyleSheet,
     TextInput,
     TouchableOpacity
 } from 'react-native'
@@ -43,7 +42,7 @@ class Books extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>Books</Text>
+                <Text style={styles.title}>Libros leídos</Text>
                 <ScrollView
                     keyboardShouldPersistTaps='always'
                     style={styles.booksContainer}
@@ -53,7 +52,7 @@ class Books extends React.Component {
                             <View style={styles.book} key={index}>
                                 <Text style={styles.name}>{book.name}</Text>
                                 <Text style={styles.author}>{book.author}</Text>
-                                <Text onPress={() => this.removeBook(book)}>Remove</Text>
+                                <Text onPress={() => this.removeBook(book)}>Eliminar</Text>
                             </View>
                         ))
                     }

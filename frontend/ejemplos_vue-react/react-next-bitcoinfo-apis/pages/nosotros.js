@@ -1,5 +1,10 @@
+import Navegacion from '../components/Navegacion'
+
 const Nosotros = () => (
-    <p>Nosotros X</p>
+    <div>
+        <Navegacion />   
+        <p>Nosotros X</p>
+    </div>    
 )
 
 export default Nosotros;

@@ -1,7 +1,11 @@
 import React from 'react';
+// uso Redux
+import store from './store'
+import {Provider} from 'react-redux'
 
 function App() {
   return (
+    <Provider store={store}>
     <div className="container">
       <header>
         <h1 className="text-center">Inventario personal (web localStorage)</h1>
@@ -15,6 +19,7 @@ function App() {
         </div>
       </div>
     </div>
+    </Provider>
   );
 }
 

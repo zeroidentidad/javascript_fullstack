@@ -1,4 +1,5 @@
 import React from 'react';
+import AgregarArticulo from './components/AgregarArticulo';
 // uso Redux
 import store from './store'
 import {Provider} from 'react-redux'
@@ -12,7 +13,7 @@ function App() {
       </header>
       <div className="row mt-2">
         <div className="col-md-6">
-          Formulario
+            <AgregarArticulo />
         </div>
         <div className="col-md-6">
           Listado

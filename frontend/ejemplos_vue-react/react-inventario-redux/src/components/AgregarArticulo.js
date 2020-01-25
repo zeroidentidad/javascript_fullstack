@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { agregarArticuloAction } from '../redux/actions/articulosActions';
+import uuid from 'uuid/v4';
 
 const AgregarArticulo = () => {
 
@@ -8,6 +11,10 @@ const AgregarArticulo = () => {
     const [fecha, guardarFecha] = useState('')
     const [modelo, guardarModelo] = useState('')
     const [descripcion, guardarDescripcion] = useState('')
+
+    // Dispatch para ejecutar las acciones
+    const dispatch = useDispatch();
+    const agregarNuevoArticulo = (articulo) => dispatch(agregarArticuloAction(articulo)); 
 
     // Cuando el formulario es enviado
     const submitNuevoArticulo = e => {
@@ -22,10 +29,21 @@ const AgregarArticulo = () => {
         validarFormulario(false);
 
         // Crear nuevo articulo
-
+        agregarNuevoArticulo({
+            id: uuid(),
+            articulo,
+            area,
+            fecha,
+            modelo,
+            descripcion
+        })
 
         // Reiniciar el formulario
-
+        guardarArticulo('')
+        guardarArea('')
+        guardarFecha('')
+        guardarModelo('')
+        guardarDescripcion('')
     }
 
     return (

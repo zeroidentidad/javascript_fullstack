@@ -11,14 +11,14 @@ body {
 }
 
 header {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 header h1 {
   color: white;
 }
 .lista-articulos .media {
   border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .lista-articulos .media:last-of-type{

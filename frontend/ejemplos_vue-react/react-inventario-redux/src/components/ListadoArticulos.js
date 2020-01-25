@@ -20,13 +20,11 @@ const ListadoArticulos = () => {
 
                 <div className="lista-articulos">
                     {articulos.articulos.map(articulo => (
-                    <div key={articulo.id} className="media mt-1">
+                    <div key={articulo.id} className="media mt-0">
                         <div className="media-body">
-                            <h3 className="mt-0"></h3>
-                            <p className="card-text"><span>ID:</span> {articulo.id.substring(0, 10)}</p>
-                            <p className="card-text"><span>Nombre:</span> {articulo.articulo}</p>
-                            <p className="card-text"><span>Fecha existencia:</span> {articulo.fecha}</p>
-                            <p className="card-text"><span>Area de uso:</span> {articulo.area} <span>Fabricante/modelo:</span> {articulo.modelo}</p>
+                            <h3 className="mt-0">&nbsp;- {articulo.articulo}</h3>
+                            <p className="card-text"><span>ID:</span> {articulo.id.substring(0, 10)} &nbsp;&nbsp;<span>Fecha existencia:</span> {articulo.fecha}</p>
+                            <p className="card-text"><span>Area de uso:</span> {articulo.area} &nbsp;&nbsp;<span>Fabricante/modelo:</span> {articulo.modelo}</p>
                             <p className="card-text"><span>Descripción:</span> <br/> {articulo.descripcion}</p>
                             <button className="btn btn-danger"
                             onClick={() => dispatch(borrarArticuloAction(articulo.id))}

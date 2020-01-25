@@ -9,6 +9,11 @@ export default function (state = initialState, action) {
                 ...state,
                 articulos: [...state.articulos, action.payload]
             }
+        case 'BORRAR_ARTICULO':
+            return {
+                ...state,
+                articulos: state.articulos.filter(articulo => articulo.id !== action.payload)
+            }
         default:
             return state;
     }

@@ -52,13 +52,13 @@ const AgregarArticulo = () => {
     }
 
     return (
-        <div className="card mt-5">
+        <div className="card mt-3">
             <div className="card-body">
-                <h2 className="card-title text-center mb-5">Agregar articulo</h2>
+                <h2 className="card-title text-center mb-2">Agregar articulo</h2>
                 <form onSubmit={submitNuevoArticulo}>
                     <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Nombre</label>
-                        <div className="col-sm-8 col-lg-10">
+                        <label className="col-sm-5 col-lg-3 col-form-label">Nombre:</label>
+                        <div className="col-sm-7 col-lg-9">
                             <input
                                 type="text"
                                 className="form-control"
@@ -69,22 +69,21 @@ const AgregarArticulo = () => {
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Area</label>
-                        <div className="col-sm-8 col-lg-10">
+                        <label className="col-sm-5 col-lg-3 col-form-label">Area:</label>
+                        <div className="col-sm-7 col-lg-9">
                             <select value={area} onChange={e => guardarArea(e.target.value)}>
                                 <option value="">-Seleccionar uso-</option>
-                                <option value="sala">Sala</option>
-                                <option value="banio">Baño</option>
-                                <option value="cosina">Cosina</option>
-                                <option value="recamara">Recamara</option>
-                                <option value="comedor">Comedor</option>                               
+                                <option value="Sala">Sala</option>
+                                <option value="Baño">Baño</option>
+                                <option value="Cosina">Cosina</option>
+                                <option value="Recamara">Recamara</option>
+                                <option value="Comedor">Comedor</option>                               
                             </select>
                         </div>
                     </div>
-
                     <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Fecha existencia</label>
-                        <div className="col-sm-8 col-lg-4  mb-4 mb-lg-0">
+                        <label className="col-sm-5 col-lg-3 col-form-label">Fecha:</label>
+                        <div className="col-sm-7 col-lg-9  mb-4 mb-lg-0">
                             <input
                                 type="date"
                                 className="form-control"
@@ -92,9 +91,10 @@ const AgregarArticulo = () => {
                                 onChange={e => guardarFecha(e.target.value)}
                             />
                         </div>
-
-                        <label className="col-sm-4 col-lg-2 col-form-label">Fab./modelo</label>
-                        <div className="col-sm-8 col-lg-4">
+                    </div>
+                    <div className="form-group row">
+                        <label className="col-sm-5 col-lg-3 col-form-label">Fab./modelo:</label>
+                        <div className="col-sm-7 col-lg-9">
                             <input
                                 type="text"
                                 className="form-control"
@@ -104,10 +104,9 @@ const AgregarArticulo = () => {
                             />
                         </div>
                     </div>
-
                     <div className="form-group row">
-                        <label className="col-sm-4 col-lg-2 col-form-label">Descripción</label>
-                        <div className="col-sm-8 col-lg-10">
+                        <label className="col-sm-5 col-lg-3 col-form-label">Descripción:</label>
+                        <div className="col-sm-7 col-lg-9">
                             <textarea
                                 className="form-control"
                                 value={descripcion}
@@ -121,7 +120,7 @@ const AgregarArticulo = () => {
                         </div>
                     </div>
                 </form>
-                
+
                 {error.error ? 
                 <div className="alert alert-danger text-center p2">
                     Todos los campos son obligatorios

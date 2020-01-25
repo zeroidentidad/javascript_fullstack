@@ -11,8 +11,8 @@ const storageState = obtenerStateStorage();
 const store = createStore(
     reducer,
     //initialState,
-    storageState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    storageState//,
+    //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 store.subscribe(() => {

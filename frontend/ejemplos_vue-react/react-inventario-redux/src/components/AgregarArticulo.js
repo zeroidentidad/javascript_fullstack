@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { agregarArticuloAction } from '../redux/actions/articulosActions';
+import { validarFormularioAction } from '../redux/actions/validarActions';
 import uuid from 'uuid/v4';
 
 const AgregarArticulo = () => {

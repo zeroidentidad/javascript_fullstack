@@ -15,7 +15,11 @@ const AgregarArticulo = () => {
 
     // Dispatch para ejecutar las acciones
     const dispatch = useDispatch();
-    const agregarNuevoArticulo = (articulo) => dispatch(agregarArticuloAction(articulo)); 
+    const agregarNuevoArticulo = (articulo) => dispatch(agregarArticuloAction(articulo));
+    const validarFormulario = (estado) => dispatch(validarFormularioAction(estado)); 
+
+    // useSelector es similar a mapStateToProps en Hooks
+    const error = useSelector((state) => state.error);    
 
     // Cuando el formulario es enviado
     const submitNuevoArticulo = e => {
@@ -117,7 +121,11 @@ const AgregarArticulo = () => {
                         </div>
                     </div>
                 </form>
-
+                
+                {error.error ? 
+                <div className="alert alert-danger text-center p2">
+                    Todos los campos son obligatorios
+                </div> : null}
             </div>
         </div>
     )

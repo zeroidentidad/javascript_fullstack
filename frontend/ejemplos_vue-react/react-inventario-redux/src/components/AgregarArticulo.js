@@ -9,12 +9,30 @@ const AgregarArticulo = () => {
     const [modelo, guardarModelo] = useState('')
     const [descripcion, guardarDescripcion] = useState('')
 
+    // Cuando el formulario es enviado
+    const submitNuevoArticulo = e => {
+        e.preventDefault();
+
+        // Validar el formulario
+        if (articulo.trim() === '' || area.trim() === '' || fecha.trim() === '' || modelo.trim() === '' || descripcion.trim() === '') {
+            validarFormulario(true);
+            return;
+        }
+
+        validarFormulario(false);
+
+        // Crear nuevo articulo
+
+
+        // Reiniciar el formulario
+
+    }
 
     return (
         <div className="card mt-5">
             <div className="card-body">
                 <h2 className="card-title text-center mb-5">Agregar articulo</h2>
-                <form>
+                <form onSubmit={submitNuevoArticulo}>
                     <div className="form-group row">
                         <label className="col-sm-4 col-lg-2 col-form-label">Nombre</label>
                         <div className="col-sm-8 col-lg-10">

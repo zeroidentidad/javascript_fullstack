@@ -7,11 +7,12 @@ import DimensionsExample from './src/DimensionsExample'
 import GeolocationExample from './src/GeolocationExample'
 import KeyboardExample from './src/KeyboardExample'
 import NetInfoExample from './src/NetInfoExample'
+import PanResponderExample from './src/PanResponderExample'
 
 
 const App: () => React$Node = () => {
   return (
-    <NetInfoExample />
+    <PanResponderExample />
   );
 };
 

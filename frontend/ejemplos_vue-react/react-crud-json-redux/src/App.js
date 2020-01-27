@@ -1,12 +1,13 @@
 import React from 'react';
+// Redux
+import { Provider } from 'react-redux'
+import store from './store'
 
 function App() {
   return (
-    <div className="App">
-        <p>
-          CRUD Redux
-        </p>
-    </div>
+    <Provider store={store}>
+        <p>CRUD Redux</p>
+    </Provider>
   );
 }
 

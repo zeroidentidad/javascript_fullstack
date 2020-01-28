@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 // Redux
 import { crearNuevaPublicacionAction } from '../redux/actions/publicacionesActions';
+import { validarFormularioAction, validacionExito, validacionError } from '../redux/actions/validacionActions';
 import { useDispatch } from 'react-redux';
 
 const NuevaPublicacion = () => {
@@ -11,19 +12,24 @@ const NuevaPublicacion = () => {
     
     // Crear nuevo publicacion 
     const dispatch = useDispatch();
-    const agregarPublicacion = (publicacion) => dispatch(crearNuevaPublicacionAction(publicacion));    
+    const agregarPublicacion = (publicacion) => dispatch(crearNuevaPublicacionAction(publicacion));
+    const validarFormulario = () => dispatch(validarFormularioAction());
+    const exitoValidacion = () => dispatch(validacionExito());
+    const errorValidacion = () => dispatch(validacionError());        
 
     // Agregar publicacion
     const submitNuevaPublicacion = e => {
         e.preventDefault();
 
         // Validar el formulario
+        validarFormulario();
         if (titulo.trim() === '' || url.trim() === '') {
-
+            errorValidacion();
             return;
         }        
 
         // Si pasa la validación
+        exitoValidacion();
 
         // crear publicacion
         agregarPublicacion({

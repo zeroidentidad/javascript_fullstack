@@ -1,10 +1,17 @@
 import React, {useState} from 'react'
+// Redux
+import { crearNuevaPublicacionAction } from '../redux/actions/publicacionesActions';
+import { useDispatch } from 'react-redux';
 
 const NuevaPublicacion = () => {
 
     // sate
     const [titulo, guardarTitulo] = useState('');
-    const [url, guardarURL] = useState('');    
+    const [url, guardarURL] = useState('');
+    
+    // Crear nuevo publicacion 
+    const dispatch = useDispatch();
+    const agregarPublicacion = (publicacion) => dispatch(crearNuevaPublicacionAction(publicacion));    
 
     // Agregar publicacion
     const submitNuevaPublicacion = e => {
@@ -19,6 +26,9 @@ const NuevaPublicacion = () => {
         // Si pasa la validación
 
         // crear publicacion
+        agregarPublicacion({
+            titulo, url
+        });        
 
         // redireccionar
 

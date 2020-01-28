@@ -4,6 +4,12 @@ import { Browser as Router, Route, Switch} from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 
+// Componentes
+import Header from './components/Header';
+import Productos from './components/Publicaciones';
+import NuevaPublicacion from './components/NuevaPublicacion';
+import EditarPublicacion from './components/EditarPublicacion';
+
 function App() {
   return (
     <Router>

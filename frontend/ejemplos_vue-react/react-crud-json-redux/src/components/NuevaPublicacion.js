@@ -1,20 +1,44 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const NuevaPublicacion = () => {
-    return (
 
+    // sate
+    const [titulo, guardarTitulo] = useState('');
+    const [url, guardarURL] = useState('');    
+
+    // Agregar publicacion
+    const submitNuevaPublicacion = e => {
+        e.preventDefault();
+
+        // Validar el formulario
+        if (titulo.trim() === '' || url.trim() === '') {
+
+            return;
+        }        
+
+        // Si pasa la validación
+
+        // crear publicacion
+
+        // redireccionar
+
+    }    
+
+    return (
         <div className="row justify-content-center mt-5">
             <div className="col-md-8">
                 <div className="card">
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-weight-bold ">Agregar publicación</h2>
-                        <form>
+                        <form onSubmit={submitNuevaPublicacion}>
                             <div className="form-group">
                                 <label>Titulo contenido</label>
                                 <input
                                     type="text"
                                     className="form-control"
                                     placeholder="Titulo contenido"
+                                    value={titulo}
+                                    onChange={e => guardarTitulo(e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
@@ -23,6 +47,8 @@ const NuevaPublicacion = () => {
                                     type="text"
                                     className="form-control"
                                     placeholder="Video o imagen de API Graph"
+                                    value={url}
+                                    onChange={e => guardarURL(e.target.value)}
                                 />
                             </div>
 

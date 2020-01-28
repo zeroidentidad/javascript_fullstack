@@ -7,7 +7,7 @@ const Header = () => {
             <div className="container">
                 <h1>
                     <Link to={'/'} className="text-light">
-                        CRUD - Redux Hooks, REST JSON API 
+                        CRUD - Redux Hooks, Rest JSON API 
                     </Link>
                 </h1>
 

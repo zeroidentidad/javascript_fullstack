@@ -9,6 +9,7 @@ const NuevaPublicacion = ({ history }) => {
     // sate
     const [titulo, guardarTitulo] = useState('');
     const [url, guardarURL] = useState('');
+    const [tipo, guardarTipo] = useState('');
     
     // Crear nuevo publicacion 
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const NuevaPublicacion = ({ history }) => {
 
         // Validar el formulario
         validarFormulario();
-        if (titulo.trim() === '' || url.trim() === '') {
+        if (titulo.trim() === '' || url.trim() === '' || tipo.trim() === '') {
             errorValidacion();
             return;
         }        
@@ -36,7 +37,7 @@ const NuevaPublicacion = ({ history }) => {
 
         // crear publicacion
         agregarPublicacion({
-            titulo, url
+            titulo, url, tipo
         });        
 
         // redireccionar
@@ -70,7 +71,13 @@ const NuevaPublicacion = ({ history }) => {
                                     onChange={e => guardarURL(e.target.value)}
                                 />
                             </div>
-
+                            <div className="form-group">
+                                <select value={tipo} onChange={e => guardarTipo(e.target.value)}>
+                                <option value="">- Tipo de contenido -</option>
+                                <option value="video">Video</option>
+                                <option value="imagen">Imagen</option>
+                            </select>
+                            </div>
                             <button type="submit" className="btn btn-primary font-weight-bold text-uppercase d-block w-100">Agregar</button>
                         </form>
 

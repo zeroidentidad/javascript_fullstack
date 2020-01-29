@@ -2,13 +2,15 @@
   "publicaciones": [
     {
       "id": 3,
-      "titulo": "Aprendiendo Redux Hooks",
-      "url": "sepso.com"
+      "titulo": "Vídeo x cosa",
+      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "tipo": "video"
     },
     {
-      "titulo": "test",
-      "url": "https://url.com",
-      "id": 4
+      "id": 5,
+      "titulo": "Imagen avatar",
+      "url": "https://avatars3.githubusercontent.com/u/2924638?s=460&v=4",
+      "tipo": "imagen"
     }
   ]
 }

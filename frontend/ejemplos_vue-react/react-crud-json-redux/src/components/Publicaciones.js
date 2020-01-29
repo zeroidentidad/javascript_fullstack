@@ -29,7 +29,7 @@ const Publicaciones = () => {
             : null}
             <h2 className="text-center my-5">Publicaciones</h2>
 
-            <table className="table table-striped">
+            <table className="table table-striped responsive-table">
                 <thead className="bg-primary table-dark">
                     <tr>
                         <th scope="col">Titulo</th>

@@ -36,9 +36,13 @@ const Publicacion = ({ publicacion }) => {
     }
 
     return (
-        <tr>
-            <td>{publicacion.titulo}</td>
-            <td> <span className="font-weight-bold">{publicacion.url}</span> </td>
+        <tr key={publicacion.id}>
+            <td><b>{publicacion.titulo}</b></td>
+            {publicacion.tipo === "imagen" ?
+                <td> <img className="responsive-img" height="450" width="500" src={publicacion.url} alt="Imagen" /> </td>
+            :
+                <td> <video className="responsive-video" height="450" width="500" src={publicacion.url} controls></video> </td>
+            }
             <td className="acciones">
                 <Link
                     to={`/publicaciones/editar/${publicacion.id}`}

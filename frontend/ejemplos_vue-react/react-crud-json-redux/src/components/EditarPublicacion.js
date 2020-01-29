@@ -10,6 +10,7 @@ const EditarPublicacion = ({ history, match }) => {
     // Crear los refs
     const tituloRef = useRef('');
     const urlRef = useRef('');     
+    const tipoRef = useRef('');     
 
     // Dispatch para ejecutar la acción principal
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const EditarPublicacion = ({ history, match }) => {
         // validar el formulario
         validarFormulario();
 
-        if (tituloRef.current.value.trim() === '' || urlRef.current.value.trim() === '') {
+        if (tituloRef.current.value.trim() === '' || urlRef.current.value.trim() === '' || tipoRef.current.value.trim() === '') {
             errorValidacion();
             return;
 
@@ -52,7 +53,8 @@ const EditarPublicacion = ({ history, match }) => {
         editarPublicacion({
             id,
             titulo: tituloRef.current.value,
-            url: urlRef.current.value
+            url: urlRef.current.value,
+            tipo: tipoRef.current.value
         });
 
         // redireccionar
@@ -92,7 +94,13 @@ const EditarPublicacion = ({ history, match }) => {
                                     ref={urlRef}                                    
                                 />
                             </div>
-
+                            <div className="form-group">
+                            <select defaultValue={publicacion.tipo} ref={tipoRef}>
+                                <option value="">- Tipo de contenido -</option>
+                                <option value="video">Video</option>
+                                <option value="imagen">Imagen</option>
+                            </select>
+                            </div>
                             <button type="submit" className="btn btn-primary font-weight-bold text-uppercase d-block w-100">Guardar Cambios</button>
                         </form>
 

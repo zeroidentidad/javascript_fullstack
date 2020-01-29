@@ -1,16 +1,16 @@
 {
   "publicaciones": [
     {
-      "id": 3,
-      "titulo": "Vídeo x cosa",
-      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      "tipo": "video"
-    },
-    {
       "id": 5,
       "titulo": "Imagen avatar",
-      "url": "https://avatars3.githubusercontent.com/u/2924638?s=460&v=4",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRCndPyhcWNx7wItYiUbA0tq2akXGzBv_xnhovC3dXQhO0qGy9o",
       "tipo": "imagen"
+    },
+    {
+      "titulo": "otro video x",
+      "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      "tipo": "video",
+      "id": 6
     }
   ]
 }

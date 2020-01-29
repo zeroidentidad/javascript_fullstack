@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 // Redux
 import { crearNuevaPublicacionAction } from '../redux/actions/publicacionesActions';
 import { validarFormularioAction, validacionExito, validacionError } from '../redux/actions/validacionActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-const NuevaPublicacion = () => {
+const NuevaPublicacion = ({ history }) => {
 
     // sate
     const [titulo, guardarTitulo] = useState('');
@@ -15,7 +15,10 @@ const NuevaPublicacion = () => {
     const agregarPublicacion = (publicacion) => dispatch(crearNuevaPublicacionAction(publicacion));
     const validarFormulario = () => dispatch(validarFormularioAction());
     const exitoValidacion = () => dispatch(validacionExito());
-    const errorValidacion = () => dispatch(validacionError());        
+    const errorValidacion = () => dispatch(validacionError());  
+    
+    // Obtener los datos del state
+    const error = useSelector((state) => state.error.error);    
 
     // Agregar publicacion
     const submitNuevaPublicacion = e => {
@@ -37,7 +40,7 @@ const NuevaPublicacion = () => {
         });        
 
         // redireccionar
-
+        history.push('/');
     }    
 
     return (
@@ -70,6 +73,8 @@ const NuevaPublicacion = () => {
 
                             <button type="submit" className="btn btn-primary font-weight-bold text-uppercase d-block w-100">Agregar</button>
                         </form>
+
+                        {error ? <div className="font-weight-bold alert alert-danger text-center mt-4">Todos los campos son obligatorios</div> : null}
 
                     </div>
                 </div>

@@ -66,7 +66,7 @@ export function obtenerPublicacionesAction() {
                 dispatch(descargaPublicacionesExitosa(respuesta.data));
             })
             .catch(error => {
-                console.log(error);
+                //console.log(error);
                 dispatch(descargaPublicacionesError());
             })
     }
@@ -117,7 +117,7 @@ export const eliminarPublicacionError = () => ({
 })
 
 
-// Obtener el Publicacion a Editar
+// Obtener publicacion a Editar
 export function obtenerPublicacionEditarAction(id) {
     return (dispatch) => {
         dispatch(obtenerPublicacionAction());
@@ -161,7 +161,7 @@ export function editarPublicacionAction(publicacion) {
                 dispatch(editarPublicacionExito(respuesta.data));
 
                 Swal.fire(
-                    'Almacenado',
+                    'Guardado',
                     'La publicacion se actualizó',
                     'success'
                 )

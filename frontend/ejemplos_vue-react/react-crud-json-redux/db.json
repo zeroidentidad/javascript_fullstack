@@ -1,9 +1,14 @@
 {
   "publicaciones": [
     {
+      "id": 3,
       "titulo": "Aprendiendo Redux Hooks",
-      "url": "80",
-      "id": 3
+      "url": "sepso.com"
+    },
+    {
+      "titulo": "test",
+      "url": "https://url.com",
+      "id": 4
     }
   ]
 }

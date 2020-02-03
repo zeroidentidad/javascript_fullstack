@@ -3,6 +3,7 @@ import Home from './Home'
 import Toolbar from './Toolbar'
 import ViewPager from './ViewPager'
 import DatePicker from './DatePicker'
+import TimePicker from './TimePicker'
 
 function getScene(scene) {
     switch (scene) {
@@ -13,7 +14,9 @@ function getScene(scene) {
         case 'ViewPager':
             return ViewPager
         case 'DatePicker':
-            return DatePicker            
+            return DatePicker  
+        case 'TimePicker':
+            return TimePicker                       
         default:
             return Home
     }

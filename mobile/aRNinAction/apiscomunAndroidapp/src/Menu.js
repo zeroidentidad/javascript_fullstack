@@ -23,7 +23,10 @@ const Menu = ({ onPress }) => {
             </View>  
             <View style={button} >
                 <Button onPress={() => onPress('TimePicker')} title='TimePicker Android' />
-            </View>                                 
+            </View> 
+            <View style={button} >
+                <Button onPress={() => onPress('Toast')} title='Toast Android' />
+            </View>                                            
         </View>
     )
 }

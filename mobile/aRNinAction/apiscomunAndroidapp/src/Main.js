@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './Home'
 import Toolbar from './Toolbar'
+import ViewPager from './ViewPager'
 
 function getScene(scene) {
     switch (scene) {
@@ -8,6 +9,8 @@ function getScene(scene) {
             return Home
         case 'Toolbar':
             return Toolbar
+        case 'ViewPager':
+            return ViewPager            
         default:
             return Home
     }

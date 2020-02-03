@@ -15,6 +15,9 @@ const Menu = ({ onPress }) => {
             <View style={button} >
                 <Button onPress={() => onPress('Toolbar')} title='Toolbar Android' />
             </View>
+            <View style={button} >
+                <Button onPress={() => onPress('ViewPager')} title='ViewPager Android' />
+            </View>            
         </View>
     )
 }

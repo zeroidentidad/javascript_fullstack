@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './Home'
 import Toolbar from './Toolbar'
 import ViewPager from './ViewPager'
+import DatePicker from './DatePicker'
 
 function getScene(scene) {
     switch (scene) {
@@ -10,7 +11,9 @@ function getScene(scene) {
         case 'Toolbar':
             return Toolbar
         case 'ViewPager':
-            return ViewPager            
+            return ViewPager
+        case 'DatePicker':
+            return DatePicker            
         default:
             return Home
     }

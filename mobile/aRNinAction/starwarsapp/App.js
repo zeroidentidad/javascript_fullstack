@@ -10,13 +10,14 @@ import Container from './src/Container'
 import Personajes from './src/Personajes'
 import Peliculas from './src/Peliculas'
 import Naves from './src/Naves'
+import Especies from './src/Especies'
 
 const links = [
   { title: 'Peliculas' },  
   { title: 'Personajes' },
   { title: 'Naves' },
-  { title: 'Species' },
-  { title: 'Planets' }
+  { title: 'Especies' },
+  { title: 'Planetas' }
 ]
 
 class StarWars extends Component {
@@ -76,6 +77,9 @@ const App = createStackNavigator({
   },
   Naves: {
     screen: Naves
+  },
+  Especies: {
+    screen: Especies
   },
 
 });

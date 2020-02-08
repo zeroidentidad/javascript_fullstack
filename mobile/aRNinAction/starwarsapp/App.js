@@ -9,12 +9,12 @@ import { createStackNavigator } from 'react-navigation';
 import Container from './src/Container'
 import Personajes from './src/Personajes'
 import Peliculas from './src/Peliculas'
+import Naves from './src/Naves'
 
 const links = [
+  { title: 'Peliculas' },  
   { title: 'Personajes' },
-  { title: 'Peliculas' },
-  { title: 'StarShips' },
-  { title: 'Vehicles' },
+  { title: 'Naves' },
   { title: 'Species' },
   { title: 'Planets' }
 ]
@@ -73,6 +73,9 @@ const App = createStackNavigator({
   },
   Peliculas: {
     screen: Peliculas
+  },
+  Naves: {
+    screen: Naves
   },
 
 });

@@ -17,7 +17,7 @@ import HomeWorld from './Homeworld'
 export default class People extends Component {
 
     static navigationOptions = {
-        headerTitle: 'People',
+        headerTitle: 'Personajes',
         headerStyle: {
             borderBottomWidth: 1,
             borderBottomColor: '#ffe81f',

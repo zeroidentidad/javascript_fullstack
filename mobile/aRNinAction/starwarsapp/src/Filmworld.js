@@ -5,9 +5,10 @@ import {
   Text,
   ActivityIndicator,
   StyleSheet,
+  ScrollView,
 } from 'react-native'
 
-class HomeWorld extends React.Component {
+class Filmworld extends React.Component {
 
   state = {
     data: {},
@@ -35,17 +36,17 @@ class HomeWorld extends React.Component {
           this.state.loading ? (
             <ActivityIndicator color='#ffe81f' />
           ) : (
+            <ScrollView style={{flex:1}}>
             <View style={styles.HomeworldInfoContainer}>
-              <TextContainer label="Nombre" info={data.name} />
-              <TextContainer label="Población" info={data.population} />
-              <TextContainer label="Clima" info={data.climate} />
-              <TextContainer label="Gravedad" info={data.gravity} />
-              <TextContainer label="Terreno" info={data.terrain} />
-              <TextContainer label="Diámetro" info={data.diameter} />
+              <TextContainer label="Titulo" info={data.title} />
+              <TextContainer label="Episodio" info={data.episode_id} />
+              <TextContainer label="Cantidad personajes" info={data.characters.length} />
+              <TextContainer label="Apertura" info={"\n"+data.opening_crawl} />
               <Text style={styles.closeButton} onPress={this.props.closeModal}>
                 Cerrar modal
               </Text>
             </View>
+            </ScrollView>
           )
         }
       </View>
@@ -78,4 +79,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default HomeWorld
+export default Filmworld

@@ -7,11 +7,12 @@ import {
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Container from './src/Container'
-import People from './src/People'
+import Personajes from './src/Personajes'
+import Peliculas from './src/Peliculas'
 
 const links = [
-  { title: 'People' },
-  { title: 'Films' },
+  { title: 'Personajes' },
+  { title: 'Peliculas' },
   { title: 'StarShips' },
   { title: 'Vehicles' },
   { title: 'Species' },
@@ -23,10 +24,13 @@ class StarWars extends Component {
   static navigationOptions = {
     headerTitle: <Text
       style={{
-        fontSize: 34, color: 'rgb(255,232,31)'
+        fontSize: 34, color: 'rgb(255,232,31)',
+        textAlign: 'center',
+        alignSelf:'center',
+        textAlignVertical: 'center'
       }}
-    >Star Wars</Text>,
-    headerStyle: { backgroundColor: "black", height: 110 }
+    >{"\t\t"} Star Wars 👾</Text>,
+    headerStyle: { backgroundColor: "black", height: 90 }
   }
 
   navigate = (link) => {
@@ -64,9 +68,13 @@ const App = createStackNavigator({
   Home: {
     screen: StarWars,
   },
-  People: {
-    screen: People
-  }
+  Personajes: {
+    screen: Personajes
+  },
+  Peliculas: {
+    screen: Peliculas
+  },
+
 });
 
 

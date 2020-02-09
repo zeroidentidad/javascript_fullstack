@@ -12,7 +12,6 @@ import {
 } from 'react-native'
 
 import Container from './Container'
-import Filmworld from './Filmworld'
 
 export default class Naves extends Component {
 
@@ -81,7 +80,6 @@ export default class Naves extends Component {
                     animationType="slide"
                     transparent={false}
                     visible={this.state.modalVisible}>
-                    <Filmworld closeModal={this.closeModal} url={this.state.url} />
                 </Modal>
             </Container>
         );

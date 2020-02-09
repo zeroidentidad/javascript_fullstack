@@ -11,6 +11,7 @@ import Personajes from './src/Personajes'
 import Peliculas from './src/Peliculas'
 import Naves from './src/Naves'
 import Especies from './src/Especies'
+import Planetas from './src/Planetas'
 
 const links = [
   { title: 'Peliculas' },  
@@ -81,7 +82,9 @@ const App = createStackNavigator({
   Especies: {
     screen: Especies
   },
-
+  Planetas: {
+    screen: Planetas
+  }
 });
 
 

@@ -23,8 +23,7 @@ class NuevoSuscriptor extends Component {
 
         // guardar en db
         firestore.add({ collection: 'suscriptores'}, nuevoSuscriptor
-        .then(()=>(history.push('/suscriptores')))
-        )
+        ).then(()=>(history.push('/suscriptores')))
 
     }
 

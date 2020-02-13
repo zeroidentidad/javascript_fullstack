@@ -4,10 +4,19 @@ import {connect} from 'react-redux'
 import {firestoreConnect} from 'react-redux-firebase'
 import {Link} from 'react-router-dom'
 import Spinner from '../layout/BounceDelay/Spinner'
+import PropTypes from 'prop-types'
 
-const Suscriptores = ({suscriptores}) => {
+const Suscriptores = ({suscriptores, firestore}) => {
 
     if (!suscriptores) return <Spinner />
+
+    // Eliminar Suscriptor
+    const eliminarSuscriptor = (id) => {
+        firestore.delete({
+            collection: 'suscriptores',
+            doc: id
+        })//.then(history.push('/suscriptores'))
+    }
 
     return (
         <div className="row">
@@ -44,6 +53,12 @@ const Suscriptores = ({suscriptores}) => {
                                 >
                                     <i className="fas fa-angle-double-right"></i> Más info...
                                 </Link>
+                                <button 
+                                type="button" 
+                                className="btn btn-danger btn-block"
+                                    onClick={() => eliminarSuscriptor(suscriptor.id)}>
+                                    <i className="fas fa-trash-alt btn-block"></i> Eliminar
+                                </button>
                             </td>
                         </tr>
                     ))}
@@ -51,6 +66,11 @@ const Suscriptores = ({suscriptores}) => {
             </table>
         </div>
     )
+}
+
+Suscriptores.propTypes={
+    firestore: PropTypes.object.isRequired,
+    suscriptores: PropTypes.array
 }
 
 export default compose(

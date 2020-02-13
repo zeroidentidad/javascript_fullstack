@@ -56,7 +56,7 @@ const Suscriptores = ({suscriptores, firestore}) => {
                                 <button 
                                 type="button" 
                                 className="btn btn-danger btn-block"
-                                    onClick={() => eliminarSuscriptor(suscriptor.id)}>
+                                onClick={() => eliminarSuscriptor(suscriptor.id)}>
                                     <i className="fas fa-trash-alt btn-block"></i> Eliminar
                                 </button>
                             </td>

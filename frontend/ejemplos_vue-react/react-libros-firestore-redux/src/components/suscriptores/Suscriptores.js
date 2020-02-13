@@ -3,10 +3,11 @@ import {compose} from 'redux'
 import {connect} from 'react-redux'
 import {firestoreConnect} from 'react-redux-firebase'
 import {Link} from 'react-router-dom'
+import Spinner from '../layout/BounceDelay/Spinner'
 
 const Suscriptores = ({suscriptores}) => {
 
-    if(!suscriptores) return <h1>Cargando...</h1>
+    if (!suscriptores) return <Spinner />
 
     return (
         <div className="row">

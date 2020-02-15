@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
     return (
         <div className="row">
             <div className="col-12 mb-4">
-                <Link to={'/libros/nuevo'} className="btn btn-success">
+                <Link to={'/libros/nuevo'} className="btn btn-primary">
                     <i className="fas fa-plus"></i> Nuevo Libro
                 </Link>
             </div>

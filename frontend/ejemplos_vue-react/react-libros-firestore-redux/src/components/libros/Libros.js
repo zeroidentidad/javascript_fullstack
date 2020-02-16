@@ -6,9 +6,17 @@ import {Link} from 'react-router-dom'
 import Spinner from '../layout/BounceDelay/Spinner'
 import PropTypes from 'prop-types'
 
- const Libros = ({libros}) => {
+const Libros = ({ libros, firestore}) => {
 
     if (!libros) return <Spinner />
+
+    // Eliminar Libro
+    const eliminarLibro = (id) => {
+        firestore.delete({
+            collection: 'libros',
+            doc: id
+        })//.then(history.push('/'))
+    }    
 
     return (
         <div className="row">
@@ -51,7 +59,7 @@ import PropTypes from 'prop-types'
                                 <button 
                                 type="button" 
                                 className="btn btn-danger btn-block"
-                                onClick={() => alert('Eliminado')}>
+                                onClick={() => eliminarLibro(libro.id)}>
                                     <i className="fas fa-trash-alt"></i> Eliminar
                                 </button>
                             </td>

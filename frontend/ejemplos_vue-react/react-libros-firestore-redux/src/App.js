@@ -13,6 +13,7 @@ import Libros from './components/libros/Libros';
 import MostrarLibro from './components/libros/MostrarLibro';
 import NuevoLibro from './components/libros/NuevoLibro';
 import EditarLibro from './components/libros/EditarLibro';
+import PrestamoLibro from './components/libros/PrestamoLibro';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route exact path="/libros/mostrar/:id" component={MostrarLibro} />
           <Route exact path="/libros/nuevo" component={NuevoLibro} />
           <Route exact path="/libros/editar/:id" component={EditarLibro} />
-          <Route exact path="/libros/prestamo/:id" component={EditarLibro} />
+          <Route exact path="/libros/prestamo/:id" component={PrestamoLibro} />
 
           <Route exact path="/suscriptores" component={Suscriptores} />
           <Route exact path="/suscriptores/nuevo" component={NuevoSuscriptor} />

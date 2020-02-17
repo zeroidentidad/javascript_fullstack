@@ -8,10 +8,43 @@ import PropTypes from 'prop-types'
 
 class PrestamoLibro extends Component {
 
+    state = {
+        busqueda: '',
+        resultado: {},
+        noResultados: false
+    }
+
     // datos del form al state
     leerDato = (e) => {
         this.setState({
             [e.target.name]: e.target.value
+        })
+    }
+
+    //busqueda suscriptor
+    buscarSuscriptor = e => {
+        e.preventDefault()
+
+        // obtener valor a buscar
+        const {busqueda} = this.state
+
+        // extraer de firestore
+        const {firestore} = this.props
+
+        // hacer consulta
+        const suscriptores = firestore.collection('suscriptores')
+        const consulta = suscriptores.where('codigo', '==', busqueda).get()
+
+        // leer resultados
+        consulta.then(resultado => {
+            if(resultado.empty) {
+                // no hay resultados
+                this.setState({ noResultados: true })
+            } else {
+                // si hay resultados
+                const datos = resultado.docs[0]
+                this.setState({ resultado: datos.data(), noResultados: false })
+            }
         })
     }
 
@@ -37,7 +70,7 @@ class PrestamoLibro extends Component {
                     </h2>
                     <div className="row justify-content-center mt-4">
                         <div className="col-md-8">
-                            <form >
+                            <form onSubmit={this.buscarSuscriptor}>
                                 <legend className="color-primary text-center">
                                     Buscar suscriptor por código
                                 </legend>

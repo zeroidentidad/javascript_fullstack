@@ -5,6 +5,7 @@ import {firestoreConnect} from 'react-redux-firebase'
 import {Link} from 'react-router-dom'
 import Spinner from '../layout/BounceDelay/Spinner'
 import PropTypes from 'prop-types'
+import FichaSuscriptor from '../suscriptores/FichaSuscriptor'
 
 class PrestamoLibro extends Component {
 
@@ -48,12 +49,47 @@ class PrestamoLibro extends Component {
         })
     }
 
+
+    // almacenar datos del suscriptor para solicitar libro
+    solicitarPrestamo = () => {
+        const suscriptor = this.state.resultado
+
+        // fecha alta
+        suscriptor.fecha_solicitud = new Date().toLocaleDateString()
+
+        // obtener libro
+        const libroActualizado = this.props.libro
+
+        // agregar suscriptor al libro
+        libroActualizado.prestados.push(suscriptor)
+
+        // firestore e history de props
+        const {firestore, history, libro } = this.props
+
+        // almacenar a BD
+        firestore.update({collection: 'libros', doc: libro.id}, libroActualizado)
+        .then(history.push('/'))
+
+    }
+
     render() {
 
         // extraer libro
         const { libro } = this.props
 
         if (!libro) return <Spinner />
+
+        // extraer datos del suscriptor
+        const { noResultados, resultado } = this.state;
+
+        let fichaSuscriptor, btnSolicitar
+        if (noResultados===false) {
+            fichaSuscriptor = <FichaSuscriptor suscriptor={resultado} />
+            btnSolicitar = <button type="button" className="btn btn-success" onClick={this.solicitarPrestamo}>Solicitar</button>
+        } else {
+            fichaSuscriptor = null
+            btnSolicitar = null
+        }
 
         return (
             <div className="row">
@@ -70,7 +106,7 @@ class PrestamoLibro extends Component {
                     </h2>
                     <div className="row justify-content-center mt-4">
                         <div className="col-md-8">
-                            <form onSubmit={this.buscarSuscriptor}>
+                            <form onSubmit={this.buscarSuscriptor} className="mb-4">
                                 <legend className="color-primary text-center">
                                     Buscar suscriptor por código
                                 </legend>
@@ -84,6 +120,10 @@ class PrestamoLibro extends Component {
                                 </div>
                                 <input type="submit" className="btn btn-success" value="Buscar suscriptor"/>
                             </form>
+
+                            { /* Si existe datos del suscriptor */ }
+                            {fichaSuscriptor}
+                            {btnSolicitar}
                         </div>
                     </div>
                 </div>               

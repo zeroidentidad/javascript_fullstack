@@ -58,11 +58,14 @@ class PrestamoLibro extends Component {
         suscriptor.fecha_solicitud = new Date().toLocaleDateString()
 
         // obtener libro
-        const libroActualizado = this.props.libro
+        //let libroActualizado = {...this.props.libro}
+        let libroActualizado = JSON.parse(JSON.stringify(this.props.libro));
+
+       //console.log(libroActualizado)
 
         // agregar suscriptor al libro
         libroActualizado.prestados.push(suscriptor)
-
+        
         // firestore e history de props
         const {firestore, history, libro } = this.props
 
@@ -80,10 +83,10 @@ class PrestamoLibro extends Component {
         if (!libro) return <Spinner />
 
         // extraer datos del suscriptor
-        const { noResultados, resultado } = this.state;
+        const { resultado } = this.state;
 
         let fichaSuscriptor, btnSolicitar
-        if (noResultados===false) {
+        if (resultado.nombre) {
             fichaSuscriptor = <FichaSuscriptor suscriptor={resultado} />
             btnSolicitar = <button type="button" className="btn btn-success" onClick={this.solicitarPrestamo}>Solicitar</button>
         } else {

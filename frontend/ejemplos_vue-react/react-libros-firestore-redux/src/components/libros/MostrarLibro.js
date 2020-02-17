@@ -55,7 +55,7 @@ class MostrarLibro extends Component {
 
                     {/* Mostrar personas que tienen libros */}
                     <h3 className="my-2">Personas que pidieron libro prestado</h3>
-                    {libro.prestados.map(prestado => (
+                    {(libro.prestados.length>0)&&libro.prestados.map(prestado => (
                         <div key={prestado.codigo} className="card my-2">
                             <h4 className="card-header">
                                 {prestado.nombre} {prestado.apellido}

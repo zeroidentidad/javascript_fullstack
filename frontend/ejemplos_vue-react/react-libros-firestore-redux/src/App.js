@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 // redux
 import store from './store'
 import {Provider} from 'react-redux'
+// helpers
+import {UserIsAuthenticated, UserIsNotAuthenticated} from './helpers/auth'
 // componentes
 import Navbar from './components/layout/Navbar'
 import Suscriptores from './components/suscriptores/Suscriptores'
@@ -23,18 +25,18 @@ function App() {
       <Navbar />
       <div className="container">
         <Switch>
-          <Route exact path="/" component={Libros} />
-          <Route exact path="/libros/mostrar/:id" component={MostrarLibro} />
-          <Route exact path="/libros/nuevo" component={NuevoLibro} />
-          <Route exact path="/libros/editar/:id" component={EditarLibro} />
-          <Route exact path="/libros/prestamo/:id" component={PrestamoLibro} />
+          <Route exact path="/" component={UserIsAuthenticated(Libros)} />
+          <Route exact path="/libros/mostrar/:id" component={UserIsAuthenticated(MostrarLibro)} />
+          <Route exact path="/libros/nuevo" component={UserIsAuthenticated(NuevoLibro)} />
+          <Route exact path="/libros/editar/:id" component={UserIsAuthenticated(EditarLibro)} />
+          <Route exact path="/libros/prestamo/:id" component={UserIsAuthenticated(PrestamoLibro)} />
 
-          <Route exact path="/suscriptores" component={Suscriptores} />
-          <Route exact path="/suscriptores/nuevo" component={NuevoSuscriptor} />
-          <Route exact path="/suscriptores/mostrar/:id" component={MostrarSuscriptor} />
-          <Route exact path="/suscriptores/editar/:id" component={EditarSuscriptor} />
+          <Route exact path="/suscriptores" component={UserIsAuthenticated(Suscriptores)} />
+          <Route exact path="/suscriptores/nuevo" component={UserIsAuthenticated(NuevoSuscriptor)} />
+          <Route exact path="/suscriptores/mostrar/:id" component={UserIsAuthenticated(MostrarSuscriptor)} />
+          <Route exact path="/suscriptores/editar/:id" component={UserIsAuthenticated(EditarSuscriptor)} />
 
-          <Route exact path="/login" component={Login} />          
+          <Route exact path="/login" component={UserIsNotAuthenticated(Login)} />          
         </Switch>
       </div>
     </Router>

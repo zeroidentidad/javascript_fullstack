@@ -7,7 +7,25 @@ import Spinner from '../layout/BounceDelay/Spinner'
 import PropTypes from 'prop-types'
 
 class MostrarLibro extends Component {
-    state = {}
+
+    devolverLibro = id => {
+        // extraer firestore
+        const {firestore} = this.props
+        
+        // copia del libro
+        const libroActualizado = {...this.props.libro} 
+
+        // eliminar la persona que esta realizando la devolucion
+        const prestados = libroActualizado.prestados.filter(elemento=>elemento.codigo!==id)
+        libroActualizado.prestados = prestados  
+
+        // actualizar en firebase
+        firestore.update({
+            collection: 'libros',
+            doc: libroActualizado.id
+        }, libroActualizado)
+    }
+
     render() {
         // extraer libro
         const {libro}=this.props

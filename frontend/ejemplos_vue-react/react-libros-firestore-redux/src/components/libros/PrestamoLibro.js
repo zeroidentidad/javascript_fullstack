@@ -61,8 +61,6 @@ class PrestamoLibro extends Component {
         //let libroActualizado = {...this.props.libro}
         let libroActualizado = JSON.parse(JSON.stringify(this.props.libro));
 
-       //console.log(libroActualizado)
-
         // agregar suscriptor al libro
         libroActualizado.prestados.push(suscriptor)
         

@@ -14,6 +14,7 @@ import MostrarLibro from './components/libros/MostrarLibro';
 import NuevoLibro from './components/libros/NuevoLibro';
 import EditarLibro from './components/libros/EditarLibro';
 import PrestamoLibro from './components/libros/PrestamoLibro';
+import Login from './components/auth/Login';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
           <Route exact path="/suscriptores/nuevo" component={NuevoSuscriptor} />
           <Route exact path="/suscriptores/mostrar/:id" component={MostrarSuscriptor} />
           <Route exact path="/suscriptores/editar/:id" component={EditarSuscriptor} />
+
+          <Route exact path="/login" component={Login} />          
         </Switch>
       </div>
     </Router>

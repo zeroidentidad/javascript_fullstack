@@ -7,11 +7,14 @@ import Spinner from '../layout/BounceDelay/Spinner'
 import PropTypes from 'prop-types'
 import FichaSuscriptor from '../suscriptores/FichaSuscriptor'
 
+// redux actions
+import {buscarUsuario} from '../../redux/actions/buscarUsuarioActions'
+
 class PrestamoLibro extends Component {
 
     state = {
         busqueda: '',
-        resultado: {},
+        //resultado: {},
         noResultados: false
     }
 
@@ -29,8 +32,8 @@ class PrestamoLibro extends Component {
         // obtener valor a buscar
         const {busqueda} = this.state
 
-        // extraer de firestore
-        const {firestore} = this.props
+        // extraer de firestore y actions
+        const {firestore, buscarUsuario} = this.props
 
         // hacer consulta
         const suscriptores = firestore.collection('suscriptores')
@@ -39,12 +42,16 @@ class PrestamoLibro extends Component {
         // leer resultados
         consulta.then(resultado => {
             if(resultado.empty) {
+                // almacenar en redux
+                buscarUsuario({})                
                 // no hay resultados
-                this.setState({ noResultados: true })
+                this.setState({ /*resultado: {},*/ noResultados: true })
             } else {
-                // si hay resultados
                 const datos = resultado.docs[0]
-                this.setState({ resultado: datos.data(), noResultados: false })
+                // colocar en state de redux
+                buscarUsuario(datos.data())
+                // si hay resultados
+                this.setState({ /*resultado: datos.data(),*/ noResultados: false })
             }
         })
     }
@@ -81,11 +88,11 @@ class PrestamoLibro extends Component {
         if (!libro) return <Spinner />
 
         // extraer datos del suscriptor
-        const { resultado } = this.state;
+        const { usuario } = this.props;
 
         let fichaSuscriptor, btnSolicitar
-        if (resultado.nombre) {
-            fichaSuscriptor = <FichaSuscriptor suscriptor={resultado} />
+        if (usuario.nombre) {
+            fichaSuscriptor = <FichaSuscriptor suscriptor={usuario} />
             btnSolicitar = <button type="button" className="btn btn-success" onClick={this.solicitarPrestamo}>Solicitar</button>
         } else {
             fichaSuscriptor = null
@@ -145,7 +152,8 @@ export default compose(
             doc: props.match.params.id
         }
     ]),
-    connect(({ firestore: { ordered } }, props) => ({
-        libro: ordered.libro && ordered.libro[0]
-    }))
+    connect(({ firestore: { ordered }, usuario }, props) => ({
+        libro: ordered.libro && ordered.libro[0],
+        usuario: usuario
+    }), {buscarUsuario})
 )(PrestamoLibro)

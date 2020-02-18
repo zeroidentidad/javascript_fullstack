@@ -22,7 +22,17 @@ class Navbar extends Component {
         }
     }
 
+    cerrarSesion = () => {
+        const {firebase} = this.props
+        firebase.logout()
+    }
+
     render(){
+        
+        const {usuarioAutenticado} = this.state
+
+        // extraer datos de autenticacion
+        const {auth} = this.props
 
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
@@ -35,6 +45,7 @@ class Navbar extends Component {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarColor03">
+                    {usuarioAutenticado ? (
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <Link to={'/'} className="nav-link">Libros</Link>
@@ -43,6 +54,21 @@ class Navbar extends Component {
                             <Link to={'/suscriptores'} className="nav-link">Suscriptores</Link>
                         </li>
                     </ul>
+                    ) : null }
+
+                    {usuarioAutenticado ? (
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <a href="#!" className="nav-link">{auth.email}</a>
+                            </li>
+                            <li className="nav-item">
+                                <button 
+                                type="button" 
+                                className="btn btn-danger" 
+                                onClick={this.cerrarSesion}>Cerrar sesión</button>
+                            </li>                            
+                        </ul>
+                    ) : null }
                 </div>
             </nav>
         )

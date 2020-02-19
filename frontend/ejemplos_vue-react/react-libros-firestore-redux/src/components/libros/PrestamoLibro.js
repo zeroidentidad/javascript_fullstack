@@ -112,6 +112,14 @@ class PrestamoLibro extends Component {
             btnSolicitar = null
         }
 
+        let mensajeResultado = ''
+        const {noResultados} = this.state
+        if(noResultados){
+            mensajeResultado = <div className="alert alert-danger text-center font-weight-bold">No hay resultados</div>
+        }else{
+            mensajeResultado= null
+        }
+
         return (
             <div className="row">
                 <div className="col-12 mb-4">
@@ -145,6 +153,8 @@ class PrestamoLibro extends Component {
                             { /* Si existe datos del suscriptor */ }
                             {fichaSuscriptor}
                             {btnSolicitar}
+                            {/* Si no hay resultados */}
+                            {mensajeResultado}
                         </div>
                     </div>
                 </div>               

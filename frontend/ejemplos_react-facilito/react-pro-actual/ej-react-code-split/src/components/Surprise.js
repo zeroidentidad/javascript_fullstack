@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-export const Surprise = () => {
+const Surprise = () => {
 
     useEffect(() => {
         import('../functions/hello').then(func => func.default())
@@ -12,3 +12,5 @@ export const Surprise = () => {
         </div>
     )
 }
+
+export default Surprise

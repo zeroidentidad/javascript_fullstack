@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Surprise } from './components/Surprise';
+import React, { useState, useEffect, Suspense } from 'react';
+//import { Surprise } from './components/Surprise';
 //import hello from './functions/hello'
+
+const Surprise = React.lazy(()=>import('./components/Surprise'))
 
 function App() {
   const [showSurprise, setShowSurprise] = useState(false)
@@ -12,7 +14,7 @@ function App() {
   return (
     <div>
       <button onClick={() => setShowSurprise(!showSurprise)}>Mostrar sorpresa</button>
-      {showSurprise&&<Surprise/>}
+      {showSurprise && <Suspense fallback={<p>Cargando prro...</p>}><Surprise /></Suspense>}
     </div>
   );
 }

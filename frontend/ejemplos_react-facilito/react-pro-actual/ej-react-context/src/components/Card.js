@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import {ThemeContext} from '../App'
 
- const Button = () => {
+ const Card = () => {
      
     const context = useContext(ThemeContext)
 
     return (
-        <button style={context/*.dark*/}>
-            Click me!
-        </button>
+        <div style={context/*.dark*/}>
+            <p>Hola mundo</p>
+        </div>
     )
 }
 
-export default Button
+export default Card

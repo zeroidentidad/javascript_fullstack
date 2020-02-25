@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const Form = () => {
+const Form = ({showed}) => {
 
   let [titulo, setTitulo] = useState('')
   let [cuerpo, setCuerpo] = useState('')
+
+  const tituloRef = useRef()
+
+  useEffect(() => {
+    if(showed){
+      tituloRef.current.focus()
+    }
+  }, [showed])
 
   const sendForm = (e) => {
     e.preventDefault()
@@ -32,7 +40,8 @@ const Form = () => {
     <form onSubmit={(e)=>sendForm(e)}>
       <div>
         <label htmlFor="titulo">Titulo </label>
-        <input type="text" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)}/>
+        <input type="text" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)}
+        ref={tituloRef} />
       </div>  
 
       <div>
@@ -45,10 +54,20 @@ const Form = () => {
   )
 }
 
+const Accordion = () => {
+  const [show, setShow] = useState(false) 
+  return(
+    <div>
+      <button onClick={()=>setShow(!show)}>Motrar formulario</button>
+      {show && <Form showed={show}/>}
+    </div>
+  )
+}
+
 function App() {
   return (
     <div>
-      <Form />
+      <Accordion />
     </div>
   );
 }

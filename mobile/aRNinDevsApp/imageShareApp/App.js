@@ -17,3 +17,5 @@ const App: () => React$Node = () => {
 };
 
 export default App;
+
+// package.json last stable legacy deps versions

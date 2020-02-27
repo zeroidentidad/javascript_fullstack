@@ -10,8 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "native-base": "^2.13.8",
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-camera": "^3.18.0",
+    "react-navigation": "1",
+    "react-redux": "5",
+    "redux": "3",
+    "redux-thunk": "2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

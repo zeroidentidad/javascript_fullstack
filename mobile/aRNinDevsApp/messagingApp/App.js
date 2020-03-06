@@ -1,15 +1,17 @@
 import React from 'react';
-import {
-  View,
-  Text
-} from 'react-native';
+import Main from './src/Main';
+import { Provider } from 'mobx-react/native';
+import { chats, users } from './src/stores';
 
 const App: () => React$Node = () => {
-  return (
-  <View>
-    <Text>Kepedo</Text>
-  </View>
+  console.disableYellowBox = true;
+  return (   
+  <Provider users={users} chats={chats}>
+    <Main />
+  </Provider> 
   );
 };
 
 export default App;
+
+// https://github.com/evollu/react-native-fcm/issues/1111

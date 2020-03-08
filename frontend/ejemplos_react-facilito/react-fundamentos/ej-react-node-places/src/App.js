@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from './components/Title';
+import Pin from './images/top_background.png'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <div>
           <Title />
           <button>Crear cuenta</button>
+          <img src={Pin} alt="Pin" height="200"/>
           <div>
             <ul>
               <li><h3>Calificar lugares</h3></li>

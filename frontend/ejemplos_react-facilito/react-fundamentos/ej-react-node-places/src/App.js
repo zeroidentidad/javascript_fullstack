@@ -1,16 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Title from './components/Title';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Title title="Places" />
-      </header>
-    </div>
+    <section>
+      <div>
+        <div>
+          <Title />
+          <button>Crear cuenta</button>
+          <div>
+            <ul>
+              <li><h3>Calificar lugares</h3></li>
+              <li><h3>Experiencia offline o conexion lenta</h3></li>
+              <li><h3>Coleccion favotiros</h3></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

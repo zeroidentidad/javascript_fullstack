@@ -9,12 +9,12 @@ class App extends Component{
 
     this.state = {
       numero: 0
-    }
-
-    setInterval(() => {
-      this.setState({ numero: this.state.numero + 1 })
-    }, 1000);     
+    }   
   } 
+
+  updateNumero(){
+    this.setState({ numero: this.state.numero + 1 })
+  }
 
   render(){
     return (
@@ -23,7 +23,7 @@ class App extends Component{
           <div>
             <Title />
             <h3>{this.state.numero}</h3>
-            <button>Crear cuenta</button>
+            <button onClick={() => this.updateNumero()}>Crear cuenta</button>
             <img src={Pin} alt="Pin" height="200" />
             <div>
               <ul>

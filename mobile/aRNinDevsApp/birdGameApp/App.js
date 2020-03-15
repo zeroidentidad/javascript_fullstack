@@ -1,25 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import Main from './src/Main'
 
 const App: () => React$Node = () => {
   return (
-    <View style={styles.container}>
-    <Text style={styles.text}>Kepedo</Text>
-  </View>
+    <Main />
   )
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  text: {
-    fontSize: 16,
-    fontWeight: '600',
-    padding: 4,
-    textAlign: 'center',
-  },
-});
 
 export default App;

@@ -10,15 +10,15 @@ export default class PlaceCard extends Component {
             show: true
         }
 
-        setInterval(() => {
+        /*setInterval(() => {
             this.setState({show: !this.state.show})
-        }, 1000);
+        }, 1000);*/
     }
 
     render() {
         const {place, index} = this.props
         return (
-            <CSSTransition in={this.state.show} timeout={1000} classNames="fade-scale" >
+            <CSSTransition in={this.props.in} timeout={1000} classNames="fade-scale" >
             <div className="col-xs-12 col-sm-4" key={index}>
                 <Card>
                     <CardMedia>

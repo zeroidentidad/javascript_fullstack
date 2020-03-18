@@ -5,6 +5,7 @@ import { indigo } from '@material-ui/core/colors';
 import { Button } from '@material-ui/core';
 import Benefits from '../components/Benefits'
 import PlaceCard from '../components/places/PlaceCard'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import data from '../requests/places'
 
@@ -14,8 +15,12 @@ export default class Home extends Component {
         super(props)
 
         this.state = {
-            places: data.places
+            places: []
         }
+
+        setTimeout(() => {
+            this.setState({places: data.places})
+        }, 3000);
 
         this.hidePlace = this.hidePlace.bind(this)
     }
@@ -47,9 +52,9 @@ export default class Home extends Component {
             <Benefits />
             <div style={{ backgroundColor: indigo['A400'], padding: '50px', color: 'white' }}>
                 <h3 style={{ fontSize: '24px' }}>Sitios pupulares</h3>
-                <di className="row">
+                <TransitionGroup className="row">
                     {this.places()}
-                </di>
+                </TransitionGroup>
             </div>
             </section>            
         )

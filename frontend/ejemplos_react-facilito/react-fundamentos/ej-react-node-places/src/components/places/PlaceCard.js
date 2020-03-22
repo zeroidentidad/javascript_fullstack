@@ -16,10 +16,10 @@ export default class PlaceCard extends Component {
     }
 
     render() {
-        const {place, index} = this.props
+        const {place, key} = this.props
         return (
-            <CSSTransition in={this.props.in} timeout={1000} classNames="fade-scale" >
-            <div className="col-xs-12 col-sm-4" key={index}>
+            <CSSTransition in={this.props.in} timeout={1000} classNames="fade-scale" key={key}>
+            <div className="col-xs-12 col-sm-4">
                 <Card>
                     <CardMedia>
                         <img alt="place" src={place.imageUrl} height="350" />

@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import './App.css'
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Home from './pages/Home'
+
+const theme = createMuiTheme({})
 
 class App extends Component{
 
   render(){
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
           <Home />         
       </ThemeProvider>
     );

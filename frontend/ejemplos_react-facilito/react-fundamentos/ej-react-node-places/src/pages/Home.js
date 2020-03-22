@@ -28,7 +28,7 @@ export default class Home extends Component {
     places() {
         return this.state.places.map((place, index) => {
             return (
-                <PlaceCard place={place} index={index} onRemove={this.hidePlace} />
+                <PlaceCard place={place} key={index} onRemove={this.hidePlace} />
             )
         })
     }

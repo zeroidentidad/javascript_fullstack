@@ -6,7 +6,6 @@ author: String!
 }
 
 type Query {
-hello: String!
 notes: [Note!]!
 note(id: ID!): Note!
 }

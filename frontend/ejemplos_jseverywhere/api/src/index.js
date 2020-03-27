@@ -3,7 +3,16 @@ const app = express();
 
 const { ApolloServer, gql } = require('apollo-server-express');
 
+require('dotenv').config();
+const db = require('./db');
+
+// en .env file
+const DB_HOST = process.env.DB_HOST;
+
 const port = process.env.PORT || 4000;
+
+// conectar a db
+db.connect(DB_HOST);
 
 // Construir schema, usando el lenguaje de esquema GraphQL
 const schemas = require('./schemas')

@@ -1,4 +1,6 @@
-const schemas = `
+const { gql } = require('apollo-server-express');
+
+const schemas = gql`
 type Note {
 id: ID!
 content: String!

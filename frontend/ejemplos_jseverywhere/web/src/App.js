@@ -1,2 +1,15 @@
-// index.js
-// This is the main entry point of our application
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// import paginas rutas
+import Pages from '/pages';
+
+const App = () => {
+    return (
+        <div>
+            <Pages/>
+        </div>
+    );
+};            
+
+ReactDOM.render(<App />, document.getElementById('root'));

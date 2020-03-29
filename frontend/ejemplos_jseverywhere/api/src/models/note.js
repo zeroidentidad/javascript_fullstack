@@ -9,9 +9,22 @@ const noteSchema = new mongoose.Schema(
             required: true
         },
         author: {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
             required: true
-        }
+        },
+        // agregar la propiedad favoriteCount
+        favoriteCount: {
+            type: Number,
+            default: 0
+        },
+        // agregar la propiedad favoritedBy
+        favoritedBy: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]            
     },
     {
         // Asignar createdAt y updatedAt fields con Date type

@@ -8,7 +8,7 @@ const Favorites = () => {
 
     return (
         <div>
-            <h1>Notasocial</h1>
+            <h1>Favoritos</h1>
             <p>Aqui mis favoritos prro</p>
         </div>
     );

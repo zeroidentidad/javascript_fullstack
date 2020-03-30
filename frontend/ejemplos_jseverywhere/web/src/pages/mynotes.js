@@ -8,7 +8,7 @@ const MyNotes = () => {
 
     return (
         <div>
-            <h1>Notasocial</h1>
+            <h1>Mis notas</h1>
             <p>Aqui mis notas prro</p>
         </div>
     );

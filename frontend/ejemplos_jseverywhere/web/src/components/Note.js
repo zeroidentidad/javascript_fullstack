@@ -17,8 +17,8 @@ margin: 0 auto;
 // style note metadata
 const MetaData = styled.div`
 @media (min-width: 500px) {
-display: flex;
-align-items: top;
+    display: flex;
+    align-items: top;
 }
 `;
 

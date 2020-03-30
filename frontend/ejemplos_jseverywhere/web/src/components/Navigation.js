@@ -7,14 +7,14 @@ padding: 1em;
 background: #f5f4f0;
 
 @media (max-width: 700px) {
-padding-top: 64px;
+    padding-top: 64px;
 }
 
 @media (min-width: 700px) {
-position: fixed;
-width: 220px;
-height: calc(100% - 64px);
-overflow-y: scroll;
+    position: fixed;
+    width: 220px;
+    height: calc(100% - 64px);
+    overflow-y: scroll;
 }
 `;
 
@@ -25,14 +25,14 @@ list-style: none;
 line-height: 2;
 
 a {
-text-decoration: none;
-font-weight: bold;
-font-size: 1.1em;
-color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
 }
 
 a:visited {
-color: #333;
+    color: #333;
 }
 
 a: hover,

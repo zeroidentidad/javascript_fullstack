@@ -69,7 +69,7 @@ const Home = () => {
                 }
                 >
                 Mostrar más
-            </Button>
+                </Button>
         )}
     </React.Fragment>        
     );

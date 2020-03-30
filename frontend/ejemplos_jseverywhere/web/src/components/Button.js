@@ -10,15 +10,15 @@ color: #fff;
 background-color: #0077cc;
 cursor: pointer;
 :hover {
-opacity: 0.8;
+    opacity: 0.8;
 }
 
 :hover {
-opacity: 0.8;
+    opacity: 0.8;
 }
 
 :active {
-background-color: #005fa3;
+    background-color: #005fa3;
 }
 `;
 

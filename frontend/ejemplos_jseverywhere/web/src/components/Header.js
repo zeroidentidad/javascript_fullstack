@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from '../img/logo.svg';
 
+// nuevas dependencias
+import { useQuery, gql } from '@apollo/client';
+import { Link, withRouter } from 'react-router-dom';
+// import ButtonAsLink component
+import ButtonAsLink from './ButtonAsLink';
+
 const HeaderBar = styled.header`
 width: 100%;
 padding: 0.5em 1em;
@@ -20,13 +26,52 @@ padding: 0;
 display: inline;
 `;
 
-const Header = () => {
+const UserState = styled.div`
+margin-left: auto;
+`;
+
+// local query
+const IS_LOGGED_IN = gql`
+{
+isLoggedIn @client
+}
+`;
+
+const Header = (props) => {
+
+    // query hook user logged en state
+    const { data } = useQuery(IS_LOGGED_IN);    
+
     return (
         <HeaderBar>
             <img src={logo} alt="Notasocial Logo" height="40" />
             <LogoText>Notasocial</LogoText>
+            <UserState>
+                {data.isLoggedIn ? (
+                    <ButtonAsLink
+                        onClick={() => {
+                            // remover token
+                            localStorage.removeItem('token');
+                            // limpiar cache
+                            client.resetStore();
+                            // update local state
+                            client.writeData({ data: { isLoggedIn: false } });
+                            // redirect a home page
+                            props.history.push('/');
+                        }}                    
+                    >
+                        Salir
+                    </ButtonAsLink>
+                ) : (
+                        <p>
+                            <Link to={'/signin'}>Ingresar</Link> ó{' '}
+                            <Link to={'/signup'}>Registrarse</Link>
+                        </p>
+                    )}
+            </UserState>            
         </HeaderBar>
     );
 };
 
-export default Header;
+// envolver componente en withRouter higher-order component
+export default withRouter(Header);

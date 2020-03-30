@@ -9,8 +9,10 @@
 
 ## 5 - Detalles seguridad
 
-## 6 - Deploy Mongo Atlas + Heroku
+## 6 - API Deploy Mongo Atlas + Heroku ó Kintohub
 
 ## 7 - Start build React web client
 
 ## 8 - Consultas componentes con GraphQL client
+
+## 9 - Proceso autenticacion client 

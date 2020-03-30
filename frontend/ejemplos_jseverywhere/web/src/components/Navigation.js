@@ -52,6 +52,12 @@ const Navigation = () => {
                     </Link>
                 </li>
                 <li>
+                    <Link to="/new">
+                        Nueva nota
+                        <span aria-hidden="true" role="img">{' '}📣</span> 
+                    </Link>
+                </li>                
+                <li>
                     <Link to="/mynotes">
                         Mis notas
                         <span aria-hidden="true" role="img">{' '}🗒️</span> 

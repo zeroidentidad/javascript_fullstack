@@ -12,6 +12,8 @@ import Home from './home';
 import MyNotes from './mynotes';
 import Favorites from './favorites';
 import NotePage from './note';
+import NewNote from './new';
+import EditNote from './edit';
 
 import { useQuery, gql } from '@apollo/client';
 
@@ -29,6 +31,8 @@ const Pages = () => {
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/mynotes" component={MyNotes} />
             <PrivateRoute path="/favorites" component={Favorites} />
+            <PrivateRoute path="/new" component={NewNote} />
+            <PrivateRoute path="/edit/:id" component={EditNote} />
             <Route path="/note/:id" component={NotePage} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />

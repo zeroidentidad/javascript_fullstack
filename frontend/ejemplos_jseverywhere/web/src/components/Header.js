@@ -40,7 +40,7 @@ isLoggedIn @client
 const Header = (props) => {
 
     // query hook user logged en state
-    const { data } = useQuery(IS_LOGGED_IN);    
+    const { data, client } = useQuery(IS_LOGGED_IN);    
 
     return (
         <HeaderBar>
@@ -60,7 +60,7 @@ const Header = (props) => {
                             props.history.push('/');
                         }}                    
                     >
-                        Salir
+                        <b>Salir</b>
                     </ButtonAsLink>
                 ) : (
                         <p>

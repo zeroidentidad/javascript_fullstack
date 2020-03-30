@@ -12,3 +12,5 @@
 ## 6 - Deploy Mongo Atlas + Heroku
 
 ## 7 - Start build React web client
+
+## 8 - Consultas componentes con GraphQL client

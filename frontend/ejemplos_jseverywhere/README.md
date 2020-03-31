@@ -16,3 +16,5 @@
 ## 8 - Consultas componentes con GraphQL client
 
 ## 9 - Proceso autenticacion client 
+
+## 10 - Web Deploy Parcel build + repo en Netlify

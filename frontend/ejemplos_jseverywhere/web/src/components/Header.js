@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import logo from '../img/logo.svg';
 
 // nuevas dependencias
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 // import ButtonAsLink component
 import ButtonAsLink from './ButtonAsLink';
+import { IS_LOGGED_IN } from '../gql/query';
 
 const HeaderBar = styled.header`
 width: 100%;
@@ -30,14 +31,7 @@ const UserState = styled.div`
 margin-left: auto;
 `;
 
-// local query
-const IS_LOGGED_IN = gql`
-{
-isLoggedIn @client
-}
-`;
-
-const Header = (props) => {
+const Header = props => {
 
     // query hook user logged en state
     const { data, client } = useQuery(IS_LOGGED_IN);    

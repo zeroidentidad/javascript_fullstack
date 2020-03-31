@@ -58,8 +58,8 @@ const Note = ({ note }) => {
                     />
                 </MetaInfo>
                 <MetaInfo>
-                    <em>de</em> {note.author.username} <br />
-                    {format(note.createdAt, 'DD MMMM YYYY', { locale: es })}
+                    <em>por:</em> {note.author.username} <br />
+                    <em>el:</em> {format(note.createdAt, 'DD MMMM YYYY', { locale: es })}
                 </MetaInfo>
                 {data.isLoggedIn ? (
                     <UserActions>

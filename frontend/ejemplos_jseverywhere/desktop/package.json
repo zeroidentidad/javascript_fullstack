@@ -1,12 +1,19 @@
 {
-  "name": "notedly-desktop",
+  "name": "notasocial-desktop",
   "version": "0.1.0",
   "description": "Electron client example JavaScript Everywhere",
   "main": "src/index.js",
+  "build": {
+    "appId": "com.netlify.notasocial",
+    "productName": "Notasocial",
+    "directories": {
+      "buildResources": "resources"
+    }
+  },
   "scripts": {
     "start": "electron src/index.js",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder -mwl"
   },
   "repository": {
     "type": "git",

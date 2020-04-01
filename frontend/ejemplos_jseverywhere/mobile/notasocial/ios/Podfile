@@ -21,8 +21,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'notasocial' do
-  # Pods for notasocial
+target 'Notasocial' do
+  # Pods for Notasocial
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -54,7 +54,7 @@ target 'notasocial' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'notasocialTests' do
+  target 'NotasocialTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -71,10 +71,10 @@ target 'notasocial' do
   end
 end
 
-target 'notasocial-tvOS' do
-  # Pods for notasocial-tvOS
+target 'Notasocial-tvOS' do
+  # Pods for Notasocial-tvOS
 
-  target 'notasocial-tvOSTests' do
+  target 'Notasocial-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

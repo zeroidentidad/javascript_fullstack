@@ -10,11 +10,13 @@ import Favorites from './favorites';
 import MyNotes from './mynotes';
 import NoteScreen from './note';
 import AuthLoading from './authloading';
+import SignUp from './signup';
 import SignIn from './signin';
 import Settings from './settings';
 
 const AuthStack = createStackNavigator({
-    SignIn: SignIn
+    SignIn: SignIn,
+    SignUp: SignUp
 });
 
 const FeedStack = createStackNavigator({

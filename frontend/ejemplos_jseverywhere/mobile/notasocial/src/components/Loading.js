@@ -11,7 +11,7 @@ align-items: center;
 const Loading = () => {
     return (
         <LoadingWrap>
-            <ActivityIndicator size="large" />
+            <ActivityIndicator size="large" animating={true} color='#bc2b78' />
         </LoadingWrap>
     );
 };

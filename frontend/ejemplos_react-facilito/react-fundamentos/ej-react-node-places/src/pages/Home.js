@@ -6,6 +6,7 @@ import { Button } from '@material-ui/core';
 import Benefits from '../components/Benefits'
 import PlaceCard from '../components/places/PlaceCard'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
+import Container from '../components/Container'
 
 import data from '../requests/places'
 
@@ -43,13 +44,15 @@ export default class Home extends Component {
         return(
             <section>
             <div className="Header-background">
+            <Container>
                 <div className="Header-main">
                     <Title />
                     <Button variant="contained" color="secondary" onClick={() => alert('kepedo')} >Crear cuenta</Button>
                     <img className="Header-ilustration" src={Pin} alt="Pin" height="200" />
                 </div>
+                <Benefits />
+            </Container>                
             </div>
-            <Benefits />
             <div style={{ backgroundColor: indigo['A400'], padding: '50px', color: 'white' }}>
                 <h3 style={{ fontSize: '24px' }}>Sitios pupulares</h3>
                 <TransitionGroup className="row">

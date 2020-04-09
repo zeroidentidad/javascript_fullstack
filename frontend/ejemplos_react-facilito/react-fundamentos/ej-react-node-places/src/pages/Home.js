@@ -7,6 +7,7 @@ import Benefits from '../components/Benefits'
 import PlaceCard from '../components/places/PlaceCard'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import Container from '../components/Container'
+import {Link} from 'react-router-dom'
 
 import data from '../requests/places'
 
@@ -47,7 +48,9 @@ export default class Home extends Component {
             <Container>
                 <div className="Header-main">
                     <Title />
-                    <Button variant="contained" color="secondary" onClick={() => alert('kepedo')} >Crear cuenta</Button>
+                    <Link to="/signup">
+                    <Button variant="contained" color="secondary" >Crear cuenta</Button>
+                    </Link>
                     <img className="Header-ilustration" src={Pin} alt="Pin" height="200" />
                 </div>
                 <Benefits />

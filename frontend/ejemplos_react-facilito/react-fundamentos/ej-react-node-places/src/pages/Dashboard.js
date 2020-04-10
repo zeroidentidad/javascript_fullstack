@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import {Link} from 'react-router-dom';
 import Container from '../components/Container';
 import PlaceHorizontal from '../components/places/PlaceHorizontal';
-import data from '../requests/places';
+import {getPlaces} from '../requests/places';
 
 
 export default class Dashboard extends Component {
@@ -17,9 +17,14 @@ export default class Dashboard extends Component {
             places: []
         }
 
-        setTimeout(() => {
-            this.setState({ places: data.places })
-        }, 3000);
+        this.loadPlaces()
+    }
+
+    loadPlaces(){
+        getPlaces().then(json=>{
+            //console.log(json)
+            this.setState({places: json.docs})
+        })
     }
 
     places(){

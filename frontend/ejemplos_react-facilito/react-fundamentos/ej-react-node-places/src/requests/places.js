@@ -1,3 +1,17 @@
+function getPlaces() {
+    return fetch("http://localhost:4000/places")
+    .then(data=>{
+        return data.json()
+    })
+    .catch(error => {
+        console.log(error)
+    })
+}
+
+export {getPlaces}
+
+
+// Mockup data places
 export default {
     places: [
         {

@@ -1,4 +1,4 @@
-const Application = require('./models/Application');
+//const Application = require('./models/Application');
 
 var express = require('express');
 var path = require('path');
@@ -35,7 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(findAppBySecret);
 app.use(findAppByApplicationId);
-app.use(authApp.unless({method: 'OPTIONS'}));
+// temporal disabled
+// app.use(authApp.unless({method: 'OPTIONS'}));
 
 app.use(allowCORs.unless({path: '/public'}));
 

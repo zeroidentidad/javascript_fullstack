@@ -5,8 +5,42 @@ import friends from '../images/friends.jpg'
 import Title from '../components/Title'
 import Container from '../components/Container'
 import { Route, Link } from 'react-router-dom';
+import {login, signUp} from '../requests/auth'
 
 export default class Login extends Component {
+
+    constructor(props){
+        super(props)
+        this.requestAuth = this.requestAuth.bind(this)
+        this.createAccount = this.createAccount.bind(this)
+    }
+
+    state = {email: '', password: ''}
+
+    leerDato= e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }    
+
+    requestAuth(){
+        const credentials = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        login(credentials).then(console.log).catch(console.log)
+    }
+
+    createAccount(){
+        const credentials = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        signUp(credentials).then(console.log).catch(console.log)
+    }
+
     render() {
         return (
             <div className="row middle-xs">
@@ -14,14 +48,29 @@ export default class Login extends Component {
                     <Container>
                     <div style={{textAlign: 'left'}}>
                         <Title />
-                        <TextField id="email" label="Email" type="email" className="text-field" fullWidth/>
-                        <TextField id="password" label="Contraseña" type="password" className="text-field" fullWidth/>
+                        <TextField 
+                        name="email"
+                        label="Email" 
+                        type="email" 
+                        className="text-field" 
+                        fullWidth
+                        value={this.state.email}
+                        onChange={this.leerDato}
+                        />
+                        <TextField name="password"
+                        label="Contraseña" 
+                        type="password" 
+                        className="text-field" 
+                        fullWidth
+                        value={this.state.password}
+                        onChange={this.leerDato}
+                        />
                         <div className="Login-actions">
                         <Route exact path="/login" render={()=>{
                             return(
                                 <React.Fragment>
                                 <Link to="/signup" style={{ marginRight: '1rem' }}>Crear cuenta</Link>
-                                <Button variant="contained" color="secondary" onClick={() => alert('kepedo')} >Ingresar</Button>
+                                <Button variant="contained" color="secondary" onClick={this.requestAuth} >Ingresar</Button>
                                 </React.Fragment>
                             )
                         }} />
@@ -29,7 +78,7 @@ export default class Login extends Component {
                             return(
                                 <React.Fragment>
                                 <Link to="/login" style={{ marginRight: '1rem' }}>Ya tengo cuenta</Link>
-                                <Button variant="contained" color="secondary" onClick={() => alert('kepedo')} >Crear cuenta</Button>
+                                <Button variant="contained" color="secondary" onClick={this.createAccount} >Crear cuenta</Button>
                                 </React.Fragment>
                             )
                         }} />                        

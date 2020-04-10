@@ -8,7 +8,21 @@ function getPlaces() {
     })
 }
 
-export {getPlaces}
+function getPlace(slug) {
+    return fetch(`http://localhost:4000/places/${slug}`)
+        .then(data => {
+            return data.json()
+        })
+        .catch(error => {
+            console.log(error)
+        })    
+}
+
+export {getPlaces, getPlace}
+
+
+
+
 
 
 // Mockup data places

@@ -99,6 +99,20 @@
   max-width: 80%;
 }
 
+.Place-container{
+  
+}
+
+.Place-card{
+  text-align: left;
+  padding: 30px;
+}
+
+.Place-cover{
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
 
 .fade-scale-enter {
   opacity: 0;

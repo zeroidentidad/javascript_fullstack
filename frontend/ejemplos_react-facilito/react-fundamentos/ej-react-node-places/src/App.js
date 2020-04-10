@@ -10,11 +10,20 @@ const theme = createMuiTheme({})
 
 class App extends Component{
 
+  constructor(props){
+    super(props)
+    this.goHome = this.goHome.bind(this)
+  }
+
+  goHome(){
+    this.props.history.push("/")
+  }
+
   render(){
     //console.log(this.props.location)
     return (
       <ThemeProvider theme={theme}>
-        <MyAppBar/>
+        <MyAppBar goHome={this.goHome}/>
         <TransitionGroup>
           <CSSTransition classNames="left-out" timeout={400} key={this.props.location.pathname.split('/')[1]}>
             {this.props.children}

@@ -6,7 +6,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard';
 import Place from './pages/Place';
 
-const userSignedIn = true;
+const userSignedIn = false;
 
 export default class Router extends React.Component {
 

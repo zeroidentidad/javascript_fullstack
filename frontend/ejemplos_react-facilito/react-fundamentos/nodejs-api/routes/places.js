@@ -2,7 +2,7 @@ const express = require('express');
 
 let router = express.Router();
 
-const placesController = require('../controllers/PlacesController');
+const placesController = require('../controllers/placesController');
 
 const authenticateOwner = require('../middlewares/authenticateOwner');
 

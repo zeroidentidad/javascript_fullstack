@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { TextField, Button } from '@material-ui/core';
+import { Route, Link } from 'react-router-dom';
+import {connect} from "react-redux";
 import login_background from '../images/login_background.jpg'
 import friends from '../images/friends.jpg'
 import Title from '../components/Title'
 import Container from '../components/Container'
-import { Route, Link } from 'react-router-dom';
 import {login, signUp} from '../requests/auth'
+import * as actions from '../redux/actions/userActions'
 
-export default class Login extends Component {
+class Login extends Component {
 
     constructor(props){
         super(props)
@@ -29,7 +31,9 @@ export default class Login extends Component {
             password: this.state.password
         }
 
-        login(credentials).then(console.log).catch(console.log)
+        login(credentials).then(data => {
+            this.props.dispatch(actions.login(data.jwt))
+        }).catch(console.log)
     }
 
     createAccount(){
@@ -100,3 +104,11 @@ export default class Login extends Component {
         )
     }
 }
+
+const mapStateToProps=(state, props) => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(Login)

@@ -1,31 +1,36 @@
 import React, {Component} from 'react'
-import Title from '../components/Title';
-import Pin from '../images/top_background.png'
 import { indigo } from '@material-ui/core/colors';
 import { Button } from '@material-ui/core';
+import TransitionGroup from 'react-transition-group/TransitionGroup'
+import {Link} from 'react-router-dom'
+import { connect } from "react-redux";
+import Title from '../components/Title';
+import Pin from '../images/top_background.png'
 import Benefits from '../components/Benefits'
 import PlaceCard from '../components/places/PlaceCard'
-import TransitionGroup from 'react-transition-group/TransitionGroup'
 import Container from '../components/Container'
-import {Link} from 'react-router-dom'
 
 import data from '../requests/places'
+import {getPlaces} from '../requests/places';
 
-export default class Home extends Component {
+class Home extends Component {
 
     constructor(props){
         super(props)
 
         this.state = {
-            places: []
+            places: data.places
         }
-
-        setTimeout(() => {
-            this.setState({places: data.places})
-        }, 3000);
 
         this.hidePlace = this.hidePlace.bind(this)
     }
+
+    loadPlaces() {
+        getPlaces().then(json => {
+            const places=json.docs
+
+        })
+    }    
 
     places() {
         return this.state.places.map((place, index) => {
@@ -66,3 +71,11 @@ export default class Home extends Component {
         )
     }
 }
+
+const mapStateToProps = (state, props) => {
+    return {
+        places: state.places
+    }
+}
+
+export default connect(mapStateToProps)(Home)

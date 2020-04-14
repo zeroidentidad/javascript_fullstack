@@ -1,17 +1,16 @@
 import React from 'react';
 import { BrowserRouter as ReactRouter, Route, Switch } from 'react-router-dom';
+import {connect} from "react-redux";
 import App from './App'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard';
 import Place from './pages/Place';
 
-const userSignedIn = false;
-
-export default class Router extends React.Component {
+class Router extends React.Component {
 
     signedinRoutes(){
-        if (userSignedIn){
+        if (this.props.user.jwt){
             return(
                 <Route path="/new"  render={()=><h1>kepedo</h1>}/>
             )
@@ -19,7 +18,7 @@ export default class Router extends React.Component {
     }
 
     home(){
-        if (userSignedIn) return Dashboard
+        if (this.props.user.jwt) return Dashboard
         return Home
     }
 
@@ -39,3 +38,11 @@ export default class Router extends React.Component {
         )
     }
 }
+
+const mapStateToProps=(state, props) => {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps)(Router)

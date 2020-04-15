@@ -5,12 +5,18 @@ import Router from './Router';
 import * as serviceWorker from './serviceWorker';
 import configureStore from "./redux/store/configureStore";
 import {Provider} from 'react-redux'
+import {createBrowserHistory} from 'history'
+import {routerMiddleware} from "react-router-redux";
 
-const store = configureStore()
+const history=createBrowserHistory()
+
+const middleware=routerMiddleware(history)
+
+const store=configureStore(middleware)
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router />
+        <Router history={history}/>
     </Provider>
 , document.getElementById('root'));
 

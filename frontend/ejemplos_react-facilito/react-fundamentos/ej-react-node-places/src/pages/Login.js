@@ -7,6 +7,7 @@ import friends from '../images/friends.jpg'
 import Title from '../components/Title'
 import Container from '../components/Container'
 import {login, signUp} from '../requests/auth'
+import {push} from 'react-router-redux'
 import * as actions from '../redux/actions/userActions'
 
 class Login extends Component {
@@ -33,6 +34,7 @@ class Login extends Component {
 
         login(credentials).then(data => {
             this.props.dispatch(actions.login(data.jwt))
+            this.props.dispatch(push("/"))
         }).catch(console.log)
     }
 

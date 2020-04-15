@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard';
 import Place from './pages/Place';
+import { ConnectedRouter } from "react-router-redux";
 
 class Router extends React.Component {
 
@@ -24,7 +25,7 @@ class Router extends React.Component {
 
     render(){
         return(
-        <ReactRouter>
+        <ConnectedRouter history={this.props.history}>
             <App>
                 <Switch>
                 <Route exact path="/" component={this.home()} />
@@ -34,7 +35,7 @@ class Router extends React.Component {
                 {this.signedinRoutes()}
                 </Switch>
             </App>
-        </ReactRouter>
+        </ConnectedRouter>
         )
     }
 }

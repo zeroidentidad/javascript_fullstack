@@ -20,7 +20,7 @@ class Login extends Component {
 
     state = {email: '', password: ''}
 
-    leerDato= e => {
+    leerDato = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -34,6 +34,7 @@ class Login extends Component {
 
         login(credentials).then(data => {
             this.props.dispatch(actions.login(data.jwt))
+            this.props.dispatch(actions.loadUser(data.user))
             this.props.dispatch(push("/"))
         }).catch(console.log)
     }

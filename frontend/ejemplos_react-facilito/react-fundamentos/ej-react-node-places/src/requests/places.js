@@ -1,5 +1,7 @@
+import secrets from "../config/secrets";
+
 function getPlaces() {
-    return fetch("http://localhost:4000/places")
+    return fetch(`${secrets.url}/places`)
     .then(data=>{
         return data.json()
     })
@@ -9,7 +11,7 @@ function getPlaces() {
 }
 
 function getPlace(slug) {
-    return fetch(`http://localhost:4000/places/${slug}`)
+    return fetch(`${secrets.url}/places/${slug}`)
         .then(data => {
             return data.json()
         })
@@ -19,9 +21,6 @@ function getPlace(slug) {
 }
 
 export {getPlaces, getPlace}
-
-
-
 
 
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import Container from '../components/Container'
-import {Card} from '@material-ui/core'
+import {Card, Button} from '@material-ui/core'
 import {withRouter} from 'react-router-dom'
 import {getPlace} from '../requests/places'
+import Container from '../components/Container'
+import VisitModal from '../components/visits/VisitModal'
 
 class Place extends Component {
 
@@ -17,7 +18,6 @@ class Place extends Component {
 
     loadPlace(slug){
         getPlace(slug).then(json=>{
-            //console.log(json)
             this.setState({place: json})
         })
     }
@@ -26,6 +26,7 @@ class Place extends Component {
         const {place} = this.state
         return (
             <div className="Place-container">
+                <VisitModal place={place}/>
                 <header className="Place-cover" style={{backgroundImage: `url("${place.coverImage}")`}}></header>
                 <Container>
                     <div className="row">
@@ -40,6 +41,9 @@ class Place extends Component {
                                         <address>{place.address}</address>
                                         <p>{place.description}</p>
                                     </div>
+                                </div>
+                                <div style={{marginTop: '1em'}}>
+                                <Button color="secondary">Agregar comentario</Button>
                                 </div>
                             </Card>
                         </div>

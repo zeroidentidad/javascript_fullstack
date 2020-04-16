@@ -3,32 +3,25 @@ import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import {Link} from 'react-router-dom';
+import { connect } from "react-redux";
 import Container from '../components/Container';
 import PlaceHorizontal from '../components/places/PlaceHorizontal';
-import {getPlaces} from '../requests/places';
+import * as actions from '../redux/actions/placesActions'
 
-
-export default class Dashboard extends Component {
+class Dashboard extends Component {
 
     constructor(props) {
         super(props)
-
-        this.state = {
-            places: []
-        }
 
         this.loadPlaces()
     }
 
     loadPlaces(){
-        getPlaces().then(json=>{
-            //console.log(json)
-            this.setState({places: json.docs})
-        })
+        this.props.dispatch(actions.loadAll())
     }
 
     places(){
-        return this.state.places.map((place, index)=>{
+        return this.props.places.map((place, index)=>{
             return <PlaceHorizontal place={place} key={index} />
         })
     }
@@ -57,3 +50,12 @@ export default class Dashboard extends Component {
         )
     }
 }
+
+
+const mapStateToProps = (state, props) => {
+    return {
+        places: state.places
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard)

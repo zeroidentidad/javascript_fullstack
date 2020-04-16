@@ -28,7 +28,7 @@ class Home extends Component {
     loadPlaces() {
         getPlaces().then(json => {
             const places=json.docs
-
+            console.log(places)
         })
     }    
 

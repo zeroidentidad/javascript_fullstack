@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as ReactRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import {connect} from "react-redux";
 import App from './App'
 import Home from './pages/Home'

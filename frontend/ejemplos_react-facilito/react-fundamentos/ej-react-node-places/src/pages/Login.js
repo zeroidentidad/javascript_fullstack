@@ -16,9 +16,10 @@ class Login extends Component {
         super(props)
         this.requestAuth = this.requestAuth.bind(this)
         this.createAccount = this.createAccount.bind(this)
+        this.auth = this.auth.bind(this)
     }
 
-    state = {email: '', password: ''}
+    state = {email: '', password: '', name: ''}
 
     leerDato = e => {
         this.setState({
@@ -32,20 +33,23 @@ class Login extends Component {
             password: this.state.password
         }
 
-        login(credentials).then(data => {
-            this.props.dispatch(actions.login(data.jwt))
-            this.props.dispatch(actions.loadUser(data.user))
-            this.props.dispatch(push("/"))
-        }).catch(console.log)
+        login(credentials).then(this.auth).catch(console.log)
     }
 
     createAccount(){
         const credentials = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            name: this.state.name,
         }
 
-        signUp(credentials).then(console.log).catch(console.log)
+        signUp(credentials).then(this.auth).catch(console.log)
+    }
+
+    auth(data){
+        this.props.dispatch(actions.login(data.jwt))
+        this.props.dispatch(actions.loadUser(data.user))
+        this.props.dispatch(push("/"))        
     }
 
     render() {
@@ -72,6 +76,18 @@ class Login extends Component {
                         value={this.state.password}
                         onChange={this.leerDato}
                         />
+                        <Route exact path="/signup" render={()=>{
+                        return(
+                        <TextField name="name"
+                        label="Nombre" 
+                        type="text" 
+                        className="text-field" 
+                        fullWidth
+                        value={this.state.name}
+                        onChange={this.leerDato}
+                        />
+                        )
+                        }} />  
                         <div className="Login-actions">
                         <Route exact path="/login" render={()=>{
                             return(

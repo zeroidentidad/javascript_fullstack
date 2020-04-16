@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard';
 import Place from './pages/Place';
+import NewPlace from './pages/places/NewPlace';
 import { ConnectedRouter } from "react-router-redux";
 
 class Router extends React.Component {
@@ -13,7 +14,7 @@ class Router extends React.Component {
     signedinRoutes(){
         if (this.props.user.jwt){
             return(
-                <Route path="/new"  render={()=><h1>kepedo</h1>}/>
+                <Route path="/new"  component={NewPlace}/>
             )
         }
     }

@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
-import {Card, Button} from '@material-ui/core'
+import {Card} from '@material-ui/core'
 import {withRouter} from 'react-router-dom'
+import { connect } from "react-redux";
 import {getPlace} from '../requests/places'
 import Container from '../components/Container'
-import VisitModal from '../components/visits/VisitModal'
+import VisitForm from '../components/visits/VisitForm'
+import * as actions from '../redux/actions/visitsActions';
+import VisitsCollection from '../components/visits/VisitsCollection';
 
 class Place extends Component {
 
     constructor(props){
         super(props)
+
         const slug = props.match.params.slug
         this.loadPlace(slug)
+        
         this.state = {
             place: {}
         }
     }
 
     loadPlace(slug){
+        this.props.dispatch(actions.loadAllForPlace(slug));
         getPlace(slug).then(json=>{
             this.setState({place: json})
         })
@@ -26,7 +32,6 @@ class Place extends Component {
         const {place} = this.state
         return (
             <div className="Place-container">
-                <VisitModal place={place}/>
                 <header className="Place-cover" style={{backgroundImage: `url("${place.coverImage}")`}}></header>
                 <Container>
                     <div className="row">
@@ -43,9 +48,12 @@ class Place extends Component {
                                     </div>
                                 </div>
                                 <div style={{marginTop: '1em'}}>
-                                <Button color="secondary">Agregar comentario</Button>
+                                    <VisitForm place={place} />
                                 </div>
                             </Card>
+                        </div>
+                        <div className="col-xs">
+                            <VisitsCollection visits={this.props.visits}/>
                         </div>
                     </div>
                 </Container>
@@ -54,4 +62,10 @@ class Place extends Component {
     }
 }
 
-export default withRouter(Place)
+const mapStateToProps = (state, props) => {
+    return {
+        visits: state.visits
+    }
+}
+
+export default connect(mapStateToProps)(withRouter(Place))

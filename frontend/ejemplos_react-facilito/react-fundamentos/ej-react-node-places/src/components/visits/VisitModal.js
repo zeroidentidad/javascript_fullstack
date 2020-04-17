@@ -9,13 +9,36 @@ export default class VisitModal extends Component {
 
     constructor(props){
         super(props)
+        this.state = {open: false}
+
+        this.closeModal=this.closeModal.bind(this)
+        this.submit = this.submit.bind(this);
     }
+
+    openModal(){
+        this.setState({open: true})
+    }
+
+    closeModal(){
+        this.setState({open: false})
+    }
+    
+    observationRef = React.createRef();
+
+	submit(e){
+		const observation = this.observationRef.value;
+		this.props.onSubmit(observation);
+
+		this.closeModal();
+	}    
 
     render() {
         return (
             <div>
                 <Modal
-                isOpen={true}
+                isOpen={this.state.open}
+                appElement={this.props.el}
+                ariaHideApp={false}
                 contentLabel="Agregar nuevo comentario"
                 >
                 <Container>
@@ -38,11 +61,23 @@ export default class VisitModal extends Component {
                             fullWidth
                             multiline={true}
                             size="medium"
-                            ref="observacionField" 
+                            inputRef={e=>(this.observationRef=e)}
                             />
                             <div style={{marginTop: '1em'}}>
-                            <Button variant="contained" color="secondary" >Enviar</Button>
-                            <Button variant="contained" style={{marginLeft: '2em'}}>Cancelar</Button>
+                            <Button 
+                            variant="contained" 
+                            color="secondary" 
+                            onClick={this.submit}
+                            >
+                            Enviar
+                            </Button>
+                            <Button 
+                            variant="contained" 
+                            style={{marginLeft: '2em'}}
+                            onClick={this.closeModal}
+                            >
+                            Cancelar
+                            </Button>
                             </div>
                             </div>
                         </div>

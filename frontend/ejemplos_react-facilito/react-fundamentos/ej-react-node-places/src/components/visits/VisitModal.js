@@ -4,15 +4,17 @@ import { yellow } from '@material-ui/core/colors';
 import Modal from 'react-modal';
 import Container from '../Container'
 import Title from '../Title'
+import EmojiPicker from "./emoji_picker/EmojiPicker";
 
 export default class VisitModal extends Component {
 
     constructor(props){
         super(props)
-        this.state = {open: false}
+        this.state = {open: false, reaction: ''}
 
         this.closeModal=this.closeModal.bind(this)
         this.submit = this.submit.bind(this);
+        this.emojiSelected = this.emojiSelected.bind(this);
     }
 
     openModal(){
@@ -27,10 +29,14 @@ export default class VisitModal extends Component {
 
 	submit(e){
 		const observation = this.observationRef.value;
-		this.props.onSubmit(observation);
+		this.props.onSubmit(observation, this.state.reaction);
 
 		this.closeModal();
-	}    
+	} 
+
+	emojiSelected(reaction){
+		this.setState({reaction})
+	}       
 
     render() {
         return (
@@ -52,7 +58,9 @@ export default class VisitModal extends Component {
                         </h3>
                         </header>
                         <div className="row">
-                            <div className="col-xs-4 col-sm-2 col-lg-1"></div>
+                            <div className="col-xs-4 col-sm-2 col-lg-1">
+                                <EmojiPicker onSelect={this.emojiSelected} />
+                            </div>
                             <div className="col-xs">
                             <TextField 
                             name="comentario"

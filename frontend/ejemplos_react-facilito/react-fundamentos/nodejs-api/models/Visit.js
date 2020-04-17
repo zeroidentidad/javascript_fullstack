@@ -18,7 +18,9 @@ let visitSchema = new mongoose.Schema({
     type: String,
     enum: REACTIONS
   },
-  observation: String
+  observation: String,
+  gravatar: String,
+  name: String,
 })
 
 

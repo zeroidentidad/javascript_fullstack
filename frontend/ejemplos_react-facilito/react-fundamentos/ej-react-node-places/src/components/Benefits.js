@@ -26,8 +26,8 @@ export default class Benefits extends Component {
                             <img alt="icon" src={no_internet} />
                         </div>
                         <div className="Header-benefit-content">
-                            <h3>Experiencia offline o conexion lenta</h3>
-                            <p>La app puede seguir funcionando si internet o perdida de conexión</p>
+                            <h3>Fluidez en conexion lenta</h3>
+                            <p>La app puede seguir funcionando con perdida de conexión</p>
                         </div>
                     </CardContent>
                 </Card>
@@ -37,7 +37,7 @@ export default class Benefits extends Component {
                             <img alt="icon" src={star} />
                         </div>
                         <div className="Header-benefit-content">
-                            <h3>Calificar lugares</h3>
+                            <h3>Guardar lugares</h3>
                             <p>Hacer lista de sitios favoritos</p>
                         </div>
                     </CardContent>

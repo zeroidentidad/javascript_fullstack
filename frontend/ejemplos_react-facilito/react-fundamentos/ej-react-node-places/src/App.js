@@ -9,11 +9,7 @@ import {withRouter} from 'react-router-dom';
 const theme = createMuiTheme({})
 
 class App extends Component{
-
-  constructor(props){
-    super(props)
-  }
-
+  
   render(){
 
     return (

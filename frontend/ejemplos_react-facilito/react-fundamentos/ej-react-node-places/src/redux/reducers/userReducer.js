@@ -1,4 +1,4 @@
-export default function userReducer(state={name: 'Zero'}, action) {
+export default function userReducer(state={name: 'anonimo'}, action) {
     switch (action.type) {
         case 'LOG_IN':
             return {...state, jwt: action.jwt}

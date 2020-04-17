@@ -5,12 +5,12 @@ export function addVisitSuccess(visit){
 }
 
 // thunk
-export function addVisit(place, observation){
+export function addVisit(place, observation, reaction, gravatar, name){
    return (dispatch, getState) => {
       let user = getState().user;
       if(!user) return null;
 
-      requests.add(user.jwt, place, observation).then(result =>{
+      requests.add(user.jwt, place, observation, reaction, gravatar, name).then(result =>{
          dispatch(addVisitSuccess(result))
       });
 

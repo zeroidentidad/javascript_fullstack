@@ -1,6 +1,6 @@
 const buildParams = require('./helpers').buildParams;
 
-const validParams = ['_place','reaction','observation'];
+const validParams = ['_place','reaction','observation', 'gravatar', 'name'];
 
 const Visit = require('../models/Visit');
 const User = require('../models/User');

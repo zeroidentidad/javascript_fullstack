@@ -6,11 +6,13 @@ function getAllForPlace(slug){
          .catch(console.log);
 }
 
-function add(jwt, place, observation, reaction) {
+function add(jwt, place, observation, reaction, gravatar, name) {
    const data = {
       _place: place._id,
       observation, 
-      reaction
+      reaction,
+      gravatar,
+      name
    }
    return fetch(`${secrets.url}/places/${place.slug}/visits`,{
       method: 'POST',

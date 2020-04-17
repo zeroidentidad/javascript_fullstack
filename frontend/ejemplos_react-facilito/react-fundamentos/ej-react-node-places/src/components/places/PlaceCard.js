@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card, CardContent, CardMedia, CardHeader, CardActions, Button } from '@material-ui/core';
 import CSSTransition from 'react-transition-group/CSSTransition'
+import {Link} from 'react-router-dom'
 
 export default class PlaceCard extends Component {  
 
@@ -9,10 +10,6 @@ export default class PlaceCard extends Component {
         this.state = {
             show: true
         }
-
-        /*setInterval(() => {
-            this.setState({show: !this.state.show})
-        }, 1000);*/
     }
 
     render() {
@@ -22,13 +19,14 @@ export default class PlaceCard extends Component {
             <div className="col-xs-12 col-sm-4">
                 <Card>
                     <CardMedia>
-                        <img alt="place" src={place.imageUrl} height="350" />
+                        <img alt="place" src={place.avatarImage} height="350" />
                     </CardMedia>
                     <CardHeader title={place.title}></CardHeader>
                     <CardContent>{place.description}</CardContent>
                     <CardActions style={{textAlign: 'right'}}>
+                        <Link to="/login">
                         <Button color="secondary">Ver más</Button>
-                        <Button color="secondary" onClick={()=>this.props.onRemove(this.props.place)}>Ocultar</Button>
+                        </Link>
                     </CardActions>
                 </Card>
             </div>

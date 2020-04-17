@@ -5,14 +5,26 @@ import { push } from 'react-router-redux'
 import Title from '../../components/Title'
 import Container from '../../components/Container'
 import * as requests from '../../requests/places.js'
+import Uploader from '../../components/uploader/Uploader';
 
 class NewPlace extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            uploading: false
+        };
+
+        this.createPlace = this.createPlace.bind(this);
+        this.getFile = this.getFile.bind(this);
+    }    
     
     titleField = React.createRef();
     addressField = React.createRef();
     descriptionField = React.createRef();        
 
-    createPlace = e =>{
+    createPlace(e) {
         const data = {
             title: this.titleField.value,
             address: this.addressField.value,
@@ -23,12 +35,25 @@ class NewPlace extends Component {
             return "";
         }
 
+        if(this.state.avatar) data.avatar = this.state.avatar;
+        if(this.state.cover) data.cover = this.state.cover; 
+
+        this.setState({uploading:true});       
+
         requests.createPlace(data, this.props.user.jwt)
         .then(data=>{
+            this.setState({uploading:false});
             this.props.dispatch(push('/'))
         })
         .catch(console.log)
     }
+
+    getFile(type, file){
+        let state = {};
+        state[type] = file;
+        
+        this.setState(state);
+    }    
 
     render() {
         return (
@@ -52,7 +77,21 @@ class NewPlace extends Component {
                     type="text"
                     fullWidth
                     inputRef={e=>(this.addressField=e)}
-                    />                    
+                    />
+                    <div style={{'marginTop':'1em'}} >
+                    <Uploader 
+                    type="avatar"
+                    label="Subir avatar"
+                    getFile={this.getFile} 
+                    />
+                    </div>
+                    <div style={{'marginTop':'1em'}} >                    
+                    <Uploader 
+                    type="cover"
+                    label="Subir cover"
+                    getFile={this.getFile} 
+                    />
+                    </div>                   
                     <TextField 
                     name="description"
                     label="Descripción"
@@ -63,7 +102,14 @@ class NewPlace extends Component {
                     />                    
                     </div>
                     <div style={{textAlign: 'right', marginTop: '1em'}}>
-                    <Button variant="contained" color="secondary" onClick={this.createPlace}>Enviar</Button>
+                    <Button 
+                    variant="contained" 
+                    color="secondary" 
+                    onClick={this.createPlace}
+                    disabled={this.state.uploading}
+                    >
+                    Enviar
+                    </Button>
                     </div>
                     </Card>                
                 </Container>

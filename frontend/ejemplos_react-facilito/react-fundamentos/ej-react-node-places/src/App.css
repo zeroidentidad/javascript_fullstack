@@ -4,6 +4,13 @@
   bottom: 2em;
 }
 
+.Fav-btn{
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+  cursor: pointer;
+}
+
 .Header-background{
   padding: 50px;
   padding-top: 100px;
@@ -100,12 +107,12 @@
 }
 
 .Place-container{
-  
 }
 
 .Place-card{
   text-align: left;
   padding: 30px;
+  position: relative;
 }
 
 .Place-cover{

@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import {Card} from '@material-ui/core'
+import {Card, Fab} from '@material-ui/core'
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import {withRouter} from 'react-router-dom'
 import { connect } from "react-redux";
 import {getPlace} from '../requests/places'
 import Container from '../components/Container'
 import VisitForm from '../components/visits/VisitForm'
 import * as actions from '../redux/actions/visitsActions';
+import * as favactions from '../redux/actions/favoritesActions';
 import VisitsCollection from '../components/visits/VisitsCollection';
 
 class Place extends Component {
@@ -19,6 +21,8 @@ class Place extends Component {
         this.state = {
             place: {}
         }
+
+        this.fav = this.fav.bind(this);
     }
 
     loadPlace(slug){
@@ -26,6 +30,20 @@ class Place extends Component {
         getPlace(slug).then(json=>{
             this.setState({place: json})
         })
+    }
+
+    favBtn(){
+        return(
+        <div className="Fav-btn">
+        <Fab color='primary' onClick={this.fav}>
+            <StarBorderIcon fontSize="large"/>   
+        </Fab>
+        </div>
+        )         
+    }
+
+    fav(){
+        this.props.dispatch(favactions.add(this.state.place._id))
     }
 
     render() {
@@ -37,6 +55,7 @@ class Place extends Component {
                     <div className="row">
                         <div className="col-xs-12 col-md-8">
                             <Card className="Place-card">
+                                {this.favBtn()}
                                 <div className="row">
                                     <div className="col-xs-12 col-sm-3 col-lg-2">
                                         <img alt="avatar" src={place.avatarImage} style={{maxWidth: '100%'}}/>

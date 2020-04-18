@@ -27,6 +27,7 @@ export default class PlaceCard extends Component {
                         <Link to="/login">
                         <Button color="secondary">Ver más</Button>
                         </Link>
+                        <Button color="secondary" onClick={()=>this.props.onRemove(this.props.place)}>Ocultar</Button>
                     </CardActions>
                 </Card>
             </div>

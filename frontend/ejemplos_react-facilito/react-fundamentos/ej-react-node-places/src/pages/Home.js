@@ -9,7 +9,8 @@ import Pin from '../images/top_background.png'
 import Benefits from '../components/Benefits'
 import PlaceCard from '../components/places/PlaceCard'
 import Container from '../components/Container'
-import * as actions from '../redux/actions/placesActions'
+//import * as actions from '../redux/actions/placesActions'
+import {getPlaces} from '../requests/places'
 
 class Home extends Component {
 
@@ -18,23 +19,31 @@ class Home extends Component {
 
         this.hidePlace = this.hidePlace.bind(this)
         this.loadPlaces()
+        
+        this.state = {
+            places: []
+        }        
     }
     
     loadPlaces(){
-        this.props.dispatch(actions.loadAll())
+        //this.props.dispatch(actions.loadAll())
+        getPlaces().then(json=>{
+            const data = json.docs.slice(0, 3)
+            this.setState({places: data})
+        })        
     }   
 
     places() {
-        return this.props.places.map((place, index) => {
+        return this.state.places.map((place, index) => {
             return (
-                <PlaceCard place={place} key={index} onRemove={this.hidePlace} />
+                <PlaceCard place={place} key={place._id} onRemove={this.hidePlace} />
             )
         })
     }
 
     hidePlace(place){
         this.setState({
-            places: this.props.places.filter(el=>el!==place)
+            places: this.state.places.filter(el=>el!==place)
         })
     }
 
@@ -66,7 +75,7 @@ class Home extends Component {
 
 const mapStateToProps = (state, props) => {
     return {
-        places: state.places.slice(0, 3)
+        places: state.places
     }
 }
 

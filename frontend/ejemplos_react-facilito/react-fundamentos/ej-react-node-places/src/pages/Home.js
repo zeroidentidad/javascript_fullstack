@@ -28,7 +28,10 @@ class Home extends Component {
     loadPlaces(){
         //this.props.dispatch(actions.loadAll())
         getPlaces().then(json=>{
-            const data = json.docs.slice(0, 3)
+            let data = []
+            if (json) {
+                data = json.docs.slice(0, 3)
+            }
             this.setState({places: data})
         })        
     }   

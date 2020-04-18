@@ -1,3 +1,4 @@
 export default {
-    url: 'http://localhost:4000'
+    url: 'https://node-api-places.herokuapp.com'
 }
+//http://localhost:4000

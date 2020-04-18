@@ -25,8 +25,8 @@ export default class Visit extends Component {
                            subheader={this.props.visit.observation}
                         ></CardHeader>
                      </div>
-                     <div className="col-xs-3 col-sm-2">
-                     <Emoji code={this.getShortCode()} />
+                     <div className="col-xs-3 col-sm-2" disabled>
+                     <Emoji code={this.getShortCode()} onClick={()=>{}}/>
                      </div>
                   </div>
                </Card>                

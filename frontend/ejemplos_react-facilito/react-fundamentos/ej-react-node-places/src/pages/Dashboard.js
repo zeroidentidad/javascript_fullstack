@@ -38,8 +38,8 @@ class Dashboard extends Component {
                     <div className="row">
                         <div className="col-xs-12 col-md-2" style={{textAlign: 'left'}}>
                             <Button color="primary">Explorar</Button>
-                            <Button color="primary">Favoritos</Button>
-                            <Button color="primary">Visitas</Button>
+                            {/*<Button color="primary">Favoritos</Button>
+                            <Button color="primary">Visitas</Button> */}
                         </div>
                         <div className="col-xs-12 col-md-10">
                             {this.places()}

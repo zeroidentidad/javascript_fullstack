@@ -79,12 +79,18 @@ export const Resume = {
 
     playground: `{
         Playground = () => {   
-            Code Resume: {
-                url: <a target='_blank' href='https://zeroidentidad.github.io/encode'>'https://zeroidentidad.github.io/encode'</a>,
+            Github Page: {
+                url: <a target='_blank' href='https://zeroidentidad.github.io'>'https://zeroidentidad.github.io'</a>,
             }
             },
-            YT Portfolio: {
+            YT Demos: {
                 url: <a target='_blank' href='https://youtube.com/JesusAntonioFerrerSanchez/videos'>'https://youtube.com/JesusAntonioFerrerSanchez/videos'</a>
+            },
+            WP Blog: {
+                url: <a target='_blank' href='https://awebytes.wordpress.com'>'https://awebytes.wordpress.com'</a>
+            },
+            FB Page: {
+                url: <a target='_blank' href='https://www.facebook.com/softcun'>'https://www.facebook.com/softcun'</a>
             }
         }
 }`,

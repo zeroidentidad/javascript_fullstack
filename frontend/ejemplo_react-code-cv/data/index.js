@@ -117,8 +117,8 @@ export const Resume = {
     contact: `{
         Contact = () => {       
             {
-                email: 'jafs2050@gmail.com',
-                mobile: '+529141239545'
+                email: 'myemail@gmail.com',
+                mobile: '+520123456789'
             }
         }
     }`

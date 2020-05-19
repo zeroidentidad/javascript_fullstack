@@ -14,10 +14,30 @@ export const Resume = {
 
     experience: `{
         Experience = () => {
-            Media.net: {
+            Contab: {
                 company: 'Contab y Asociados S. C.',
                 designation: 'Software Developer',
                 period: 'May 2016 to November 2018'
+            },
+            undefined: {
+                company: null,
+                designation: 'Freelance programmer',
+                period: '2012 to February 2016'
+            },
+            ApsCreativas: {
+                company: 'Aplicaciones Creativas S. de R. L.',
+                designation: 'Project collaborator',
+                period: 'April 2015 to July 2015'
+            },
+            Initec: {
+                company: 'Impulsora Nacional de Innovación Tecnológica, S.A. de C.V.',
+                designation: 'Project Member',
+                period: 'February 2015 to July 2015'
+            },
+            CompuNET: {
+                company: 'Compu NET del Sureste',
+                designation: 'WCM Web Developer',
+                period: 'November 2014 to February 2015'
             }
         }
     }`,
@@ -80,8 +100,7 @@ export const Resume = {
     playground: `{
         Playground = () => {   
             Github Page: {
-                url: <a target='_blank' href='https://zeroidentidad.github.io'>'https://zeroidentidad.github.io'</a>,
-            }
+                url: <a target='_blank' href='https://zeroidentidad.github.io'>'https://zeroidentidad.github.io'</a>
             },
             YT Demos: {
                 url: <a target='_blank' href='https://youtube.com/JesusAntonioFerrerSanchez/videos'>'https://youtube.com/JesusAntonioFerrerSanchez/videos'</a>

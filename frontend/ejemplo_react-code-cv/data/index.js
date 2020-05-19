@@ -10,7 +10,7 @@ export const Resume = {
                 Designation: 'Becoming a Full Stack Web Developer' 
             } 
         } 
-}`,
+    }`,
 
     experience: `{
         Experience = () => {
@@ -20,7 +20,7 @@ export const Resume = {
                 period: 'May 2016 to November 2018'
             }
         }
-}`,
+    }`,
 
     skills: `{
         Skills = () => {
@@ -64,7 +64,7 @@ export const Resume = {
                 dbeditor: 'DBeaver'
             }
         }
-}`,
+    }`,
 
     projects: `{
         Projects = () => {
@@ -75,7 +75,7 @@ export const Resume = {
                 url: <a target='_blank' href='https://play.google.com/store/apps/details?id=com.zeroapps.todolist'>'https://play.google.com/store/apps/details?id=com.zeroapps.todolist'</a>
             }
         }
-}`,
+    }`,
 
     playground: `{
         Playground = () => {   
@@ -93,7 +93,7 @@ export const Resume = {
                 url: <a target='_blank' href='https://www.facebook.com/softcun'>'https://www.facebook.com/softcun'</a>
             }
         }
-}`,
+    }`,
 
     contact: `{
         Contact = () => {       
@@ -102,13 +102,13 @@ export const Resume = {
                 mobile: '+529141239545'
             }
         }
-}`
+    }`
 };
 
 
 export const SocialLinks = {
     resume: '/resume.pdf',
-    linkedin: 'https://www.linkedin.com/in/zeroidentidad/',
+    linkedin: 'https://linkedin.com/in/zeroidentidad/',
     twitter: 'https://twitter.com/zeroidentidad',
     github: 'https://github.com/zeroidentidad'
 }

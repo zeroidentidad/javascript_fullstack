@@ -49,7 +49,9 @@ class Liga extends Component {
           }
         </div>
 
-        <Button variant="raised" component={Link} to="/calendario/felinos" color="secondary">Ir al calendario</Button>
+        <div className="btn-calendario">
+        <Button variant="raised" component={Link} to="/calendario/felinos" color="secondary">Ver calendario</Button>
+        </div>
 
         <div className="lista-jugadores">
           {

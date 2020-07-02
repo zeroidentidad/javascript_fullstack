@@ -36,7 +36,7 @@ class Juego extends Component {
                 <div className="info-game">
                     <img className="team-logo" src={Stadium} alt="Estadio" />
                     <p>{this.props.estadio} <br />
-                        {this.props.fecha} <br />
+                        {Math.floor(Math.random() * 30)+'-Octubre-2020'} <br />
                         {this.props.hora}
                     </p>
 

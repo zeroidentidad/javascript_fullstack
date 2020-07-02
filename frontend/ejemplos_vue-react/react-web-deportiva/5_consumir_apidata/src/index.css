@@ -8,7 +8,7 @@ body {
 
 .contenedor {
   padding-top: 20px;
-  padding-left: 20px;
+  padding-left: 0px;
 }
 
 .lista-equipos {
@@ -16,8 +16,14 @@ body {
   justify-content: center;
 }
 
+.btn-calendario {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
 .lista-jugadores {
   margin-top: 40px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }

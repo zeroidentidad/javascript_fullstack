@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+body {
+  font-family: Roboto;
+  margin: unset;
+  background-color: #eee;
+}
+
+.contenedor {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.lista-equipos {
+  display: flex;
+  justify-content: center;
+}
+
+.lista-jugadores {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+}

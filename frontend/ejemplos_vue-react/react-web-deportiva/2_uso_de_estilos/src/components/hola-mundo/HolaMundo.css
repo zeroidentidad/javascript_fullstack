@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Raleway');
+h2 {
+    color: red;
+}
+
+.descripcion {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    color: gray;
+}
+
+.nota {
+    font-family: 'Indie Flower', cursive;
+}

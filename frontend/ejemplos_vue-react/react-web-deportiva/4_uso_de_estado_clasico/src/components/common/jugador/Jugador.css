@@ -1,0 +1,11 @@
+.card {
+    max-width: 100px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.media {
+    width: 100px;
+    height: 100px;
+}

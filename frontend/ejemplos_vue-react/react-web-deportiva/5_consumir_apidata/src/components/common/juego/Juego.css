@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Electrolize');
+.juegos {
+    display: flex;
+}
+
+.card-game {
+    width: 200px;
+    margin: 20px;
+}
+
+.logo-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-score .team-logo {
+    cursor: auto;
+}
+
+.score-game {
+    font-family: 'Bangers', cursive !important;
+    font-size: 40px !important;
+    letter-spacing: 4px;
+    filter: drop-shadow(2px 2px 1px #999);
+}
+
+.info-game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Electrolize' !important;
+}

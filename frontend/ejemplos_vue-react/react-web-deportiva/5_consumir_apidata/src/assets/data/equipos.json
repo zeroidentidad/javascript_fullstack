@@ -1,0 +1,36 @@
+[{
+        "nombre": "Pirratas",
+        "logo": "piratas.png",
+        "estado": true,
+        "jugadores": [
+            "5a8d0f645db17b2765e05a4d",
+            "5a8d0db25db17b2765e05a48",
+            "5a8d0f105db17b2765e05a49"
+        ],
+        "updated": "2020-02-22T12:25:31.419Z",
+        "id": "5a8ce67ad6901d248e41f5a6"
+    },
+    {
+        "nombre": "Jelinos",
+        "logo": "felinos.png",
+        "estado": true,
+        "jugadores": [
+            "5a8d0d8b5db17b2765e05a46",
+            "5a8d0da65db17b2765e05a47",
+            "5a8d0f4f5db17b2765e05a4c"
+        ],
+        "updated": "2020-02-22T12:25:31.419Z",
+        "id": "5a8ce6b1d6901d248e41f5a7"
+    },
+    {
+        "nombre": "Tipurones",
+        "logo": "tiburones.png",
+        "estado": true,
+        "jugadores": [
+            "5a8d0f1f5db17b2765e05a4a",
+            "5a8d0f405db17b2765e05a4b"
+        ],
+        "updated": "2020-02-22T12:25:31.419Z",
+        "id": "5a8eb6bb5c6d5d5f8accde65"
+    }
+]

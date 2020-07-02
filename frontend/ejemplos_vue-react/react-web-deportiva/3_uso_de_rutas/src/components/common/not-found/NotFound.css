@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+.error {
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.e404 {
+    margin-top: 0;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 6px;
+}

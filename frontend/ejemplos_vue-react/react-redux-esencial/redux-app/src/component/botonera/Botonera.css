@@ -1,0 +1,14 @@
+ul{
+    margin: 0;
+    padding: 0;
+}
+li, .Botonera a{
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 10px 6px;
+    border: 1px solid #666;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}

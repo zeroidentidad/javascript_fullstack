@@ -1,0 +1,10 @@
+.Item {
+    border: #bbb 1px solid;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 20px auto;
+    max-width: 150px;
+}
+.Item h3 {
+    color: #999;
+}

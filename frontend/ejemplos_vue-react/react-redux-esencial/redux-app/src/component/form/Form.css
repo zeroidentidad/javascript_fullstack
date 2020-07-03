@@ -1,0 +1,30 @@
+.Form{
+
+}
+
+.Form div{
+    width: 150px;
+    margin: 10px auto;
+}
+.Form label{
+    margin: 20px 0 10px;
+    color: #666;
+    display: block;
+    text-align: left;
+}
+.Form input, .Form textarea{
+    width: 100%;
+    display: block;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.Form input.enviar {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.text-danger{
+    margin: 10px 0;
+    display: block;
+    color: #ff0000;
+}

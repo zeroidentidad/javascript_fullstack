@@ -7,7 +7,8 @@ const Item = ( {data}) => {
 
     return (
         <div className="Item">
-            <h3>{data.asunto}</h3>
+            <h3>{data.name}</h3>
+            <h4>{data.asunto}</h4>
             <p>{data.mensaje}</p>
         </div>
     );

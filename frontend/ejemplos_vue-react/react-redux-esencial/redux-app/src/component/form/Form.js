@@ -10,13 +10,13 @@ const validate = values => {
     const errors = {};
     if(!values.asunto){
         errors.asunto = 'Required';
-    } else if(values.asunto.length < 6) {
-        errors.asunto = 'Minimun be 2 characters or more';
+    } else if(values.asunto.length < 4) {
+        errors.asunto = 'Minimun be 4 characters or more';
     }
     if(!values.mensaje){
         errors.mensaje = 'Required';
-    } else if(values.mensaje.length < 6) {
-        errors.mensaje = 'Minimun be 2 characters or more';
+    } else if(values.mensaje.length < 4) {
+        errors.mensaje = 'Minimun be 4 characters or more';
     }
     return errors;
 }
@@ -33,7 +33,7 @@ const renderField = ({label, input, type, meta: {touched, error, warning}}) => (
 
 let Form = ( {responseOk, loading, sendNew, handleSubmit}) => {
     const beforeSubmit = (values) => {
-        values.user_id = 13;
+        values.user_id = 14;
         sendNew(values);
     }
     return (

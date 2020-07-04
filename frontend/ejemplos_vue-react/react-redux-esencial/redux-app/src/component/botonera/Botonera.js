@@ -25,10 +25,10 @@ const Botonera = ( {title, nav_click, match: {params}}) => {
                 title = 'Home';
                 break;
             case 'list':
-                title = 'List';
+                title = 'Listado';
                 break;
             case 'new':
-                title = 'New';
+                title = 'Nuevo';
                 break;
             default:
                 title = '';
@@ -58,8 +58,8 @@ const Botonera = ( {title, nav_click, match: {params}}) => {
                     <h1>{title}</h1>
                 </div>
                 <Link to='home' onClick={() => buttonClick('Home')}>Home</Link>
-                <Link to='list' onClick={() => buttonClick('List')}>List</Link>
-                <Link to='new' onClick={() => buttonClick('New')}>Form</Link>
+                <Link to='list' onClick={() => buttonClick('Listado')}>Listado</Link>
+                <Link to='new' onClick={() => buttonClick('Nuevo')}>Nuevo</Link>
             </header>
 
             {renderSection()}

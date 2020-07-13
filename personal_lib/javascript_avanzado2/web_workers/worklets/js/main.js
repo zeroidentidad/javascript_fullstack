@@ -1,0 +1,1 @@
+CSS.paintWorklet.addModule('js/worklet.js');

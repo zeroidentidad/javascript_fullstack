@@ -3,7 +3,7 @@ import { Audio } from 'expo-av';
 import { Feather } from 'react-native-vector-icons/Feather';
 import { Text, TouchableOpacity, View } from 'react-native';
 import playlist from './playlist';
-import styles from './styles.stylesheet';
+import styles from './styles.stylesheet.stylesheet';
 
 export default class App extends Component {
   state = {

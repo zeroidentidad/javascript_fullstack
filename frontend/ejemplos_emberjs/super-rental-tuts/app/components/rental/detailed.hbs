@@ -1,0 +1,48 @@
+<Jumbo>
+  <h2>{{@rental.title}}</h2>
+  <p>Buen hallazgo! Este parece un buen lugar para quedarse cerca en {{@rental.city}}.</p>
+  <ShareButton
+    @text="Check out {{@rental.title}} on Super Rentals!"
+    @hashtags="vacation,travel,authentic,blessed,superrentals"
+    @via="emberjs"
+  >
+    Compartir en Twitter
+  </ShareButton>
+</Jumbo>
+
+<article class="rental detailed">
+  <Rental::Image
+    src={{@rental.image}}
+    alt="Foto de {{@rental.title}}"
+  />
+
+  <div class="details">
+    <h3>Acerca de {{@rental.title}}</h3>
+
+    <div class="detail owner">
+      <span>Dueño:</span> {{@rental.owner}}
+    </div>
+    <div class="detail type">
+      <span>Tipo:</span> {{@rental.type}} – {{@rental.category}}
+    </div>
+    <div class="detail location">
+      <span>Ubicación:</span> {{@rental.city}}
+    </div>
+    <div class="detail bedrooms">
+      <span>Numero de habitaciones:</span> {{@rental.bedrooms}}
+    </div>
+    <div class="detail description">
+      <p>{{@rental.description}}</p>
+    </div>
+  </div>
+
+  <Map
+    @lat={{@rental.location.lat}}
+    @lng={{@rental.location.lng}}
+    @zoom="12"
+    @width="894"
+    @height="600"
+    alt="Mapa de {{@rental.title}}"
+    class="large"
+  />
+</article>

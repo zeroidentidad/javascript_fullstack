@@ -6,14 +6,10 @@
 
 <div class="rentals">
     <ul class="results">
+        {{#each @model as |rental|}}
         <li>
-            <Rental />
+            <Rental @rental={{rental}} />
         </li>
-        <li>
-            <Rental />
-        </li>
-        <li>
-            <Rental />
-        </li>
+        {{/each}}
     </ul>
 </div>

@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "type": "rentals",
+      "id": "grand-old-mansion",
+      "attributes": {
+        "title": "Gran mansión antigua",
+        "owner": "Veruca Salt",
+        "city": "San Francisco",
+        "location": {
+          "lat": 18.06557,
+          "lng": -93.17302
+        },
+        "category": "Inmuebles",
+        "bedrooms": 15,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg",
+        "description": "Esta gran mansión antigua se asienta sobre más de 100 acres de colinas y densos bosques de secuoyas."
+      }
+    },
+    {
+      "type": "rentals",
+      "id": "urban-living",
+      "attributes": {
+        "title": "Vida urbana",
+        "owner": "Mike Teavee",
+        "city": "Seattle",
+        "location": {
+          "lat": 47.6062,
+          "lng": -122.3321
+        },
+        "category": "Condominio",
+        "bedrooms": 1,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Seattle_-_Barnes_and_Bell_Buildings.jpg",
+        "description": "Un sueño para los viajeros. Este alquiler se encuentra a poca distancia de 2 paradas de autobús y el metro."
+      }
+    },
+    {
+      "type": "rentals",
+      "id": "downtown-charm",
+      "attributes": {
+        "title": "Encanto del centro",
+        "owner": "Violet Beauregarde",
+        "city": "Portland",
+        "location": {
+          "lat": 45.5175,
+          "lng": -122.6801
+        },
+        "category": "Apartamento",
+        "bedrooms": 3,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg",
+        "description": "La comodidad está a la vuelta de la esquina con este encantador alquiler en el centro. Excelentes restaurantes y una activa vida nocturna se encuentran a pocos metros."
+      }
+    }
+  ]
+}

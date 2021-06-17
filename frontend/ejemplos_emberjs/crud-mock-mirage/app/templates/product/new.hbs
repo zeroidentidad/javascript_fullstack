@@ -1,0 +1,13 @@
+{{page-title "New product"}}
+<div>
+    <Input @value={{this.newName}} />
+    <select {{on "change" this.setItemValue}}>
+        <option value="videojuego">Videojuego</option>
+        <option value="juegos de mesa">Juegos de mesa</option>
+        <option value="juguete">Juguete</option>
+    </select>
+    <button type="button" {{on "click" this.addProduct}}>Guardar</button>
+</div>
+<LinkTo @route="products">
+    <button type="button">Regresar</button>
+</LinkTo>

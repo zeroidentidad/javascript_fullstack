@@ -1,0 +1,8 @@
+{{#each @product as |product|}}
+    <tr>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.type}}</td>
+        <td><button type="button" {{on 'click' (fn this.showProduct product.id)}}>Detalle</button></td>
+    </tr>
+{{/each}}

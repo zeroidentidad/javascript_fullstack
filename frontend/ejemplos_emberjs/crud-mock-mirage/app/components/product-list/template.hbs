@@ -3,6 +3,10 @@
         <td>{{product.id}}</td>
         <td>{{product.name}}</td>
         <td>{{product.type}}</td>
-        <td><button type="button" {{on 'click' (fn this.showProduct product.id)}}>Detalle</button></td>
+        <td>
+            <LinkTo @route="product" @model={{product.id}}>
+            <button type="button">Detalle</button>
+            </LinkTo>
+        </td>
     </tr>
 {{/each}}

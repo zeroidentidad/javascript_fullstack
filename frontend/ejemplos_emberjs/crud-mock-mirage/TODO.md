@@ -3,13 +3,13 @@
 
 - Un catalogo de productos, que puedas agregar, editar y ver una lista de lo que hay.
 
-- Ruta de catálogo: Sale una tabla de productos, que las columnas sean id, nombre y tipo.
+- [x] Ruta de catálogo: Sale una tabla de productos, que las columnas sean id, nombre y tipo.
 
 - Ruta de nuevo producto: Un form con 2 inputs, 1 input de texto abierto para el nombre, 1 select con 3 opciones (juegos de mesa, videojuego o juguete)
 
 - Ruta de editar producto: La misma form de nuevo producto, pero precargada con el producto que estas editando.
 
-- Ruta de detalle de producto: Sólo un HTML que diga de que `<h1>Nombre de juego</h1>, <h2>Tipo</2>`
+- [x] Ruta de detalle de producto: Sólo un HTML que diga de que `<h1>Nombre de juego</h1>, <h2>Tipo</2>`
 
 y ya, súper sencillo, sin CSS sólo el html planito aunque se vea feo no pasa nada, el punto es que armes todo el CRUD y practiques lo que aprendiste.
 

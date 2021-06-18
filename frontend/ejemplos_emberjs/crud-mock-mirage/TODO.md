@@ -1,13 +1,13 @@
 
 ### Hacer:
 
-- Un catalogo de productos, que puedas agregar, editar y ver una lista de lo que hay.
+- [x] Un catalogo de productos, que puedas agregar, editar y ver una lista de lo que hay.
 
 - [x] Ruta de catálogo: Sale una tabla de productos, que las columnas sean id, nombre y tipo.
 
-- Ruta de nuevo producto: Un form con 2 inputs, 1 input de texto abierto para el nombre, 1 select con 3 opciones (juegos de mesa, videojuego o juguete)
+- [x] Ruta de nuevo producto: Un form con 2 inputs, 1 input de texto abierto para el nombre, 1 select con 3 opciones (juegos de mesa, videojuego o juguete)
 
-- Ruta de editar producto: La misma form de nuevo producto, pero precargada con el producto que estas editando.
+- [x] Ruta de editar producto: La misma form de nuevo producto, pero precargada con el producto que estas editando.
 
 - [x] Ruta de detalle de producto: Sólo un HTML que diga de que `<h1>Nombre de juego</h1>, <h2>Tipo</2>`
 

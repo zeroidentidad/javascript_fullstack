@@ -12,4 +12,8 @@ export default function() {
   this.get('/products/:id');
 
   this.post('/products', 'product');
+
+  this.del('/products/:id', 'product');
+
+  this.put('/products/:id', 'product');
 }

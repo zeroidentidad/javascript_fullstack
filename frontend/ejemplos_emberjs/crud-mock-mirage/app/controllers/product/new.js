@@ -17,8 +17,6 @@ export default class ProductNewController extends Controller {
 
     @action
     addProduct() {
-        console.log(this.newName);
-        console.log(this.newType);
         this.store.createRecord('product', {
             name: this.newName,
             type: this.newType

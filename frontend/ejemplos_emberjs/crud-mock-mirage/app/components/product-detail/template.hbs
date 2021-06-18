@@ -1,5 +1,14 @@
 <div>
-    <h1>Deatlle:</h1>
+    <h3>Detalle:</h3>
     <h1>{{@product.name}}</h1>
     <h2>{{@product.type}}</h2>
 </div>
+<LinkTo @route="products">
+    <button type="button">Regresar</button>
+</LinkTo>
+&nbsp;
+<LinkTo @route="product/edit" @model={{@product}}>
+    <button type="button">Editar</button>
+</LinkTo>
+&nbsp;
+<button type="button" {{on "click" (fn this.removeProduct @product)}}>Eliminar</button>

@@ -1,9 +1,12 @@
 <div>
-    <Input @value={{this.newName}}/>
+    <Input
+    @value={{@product.name}}
+    {{on "change" this.setName}}
+    />
     <select {{on "change" this.setItemValue}}>
-        <option value="videojuego">Videojuego</option>
-        <option value="juegos de mesa">Juegos de mesa</option>
-        <option value="juguete">Juguete</option>
+        <option value="videojuego" selected={{if (eq @product.type "videojuego") 'true'}}>Videojuego</option>
+        <option value="juegos de mesa" selected={{if (eq @product.type "juegos de mesa") 'true'}}>Juegos de mesa</option>
+        <option value="juguete" selected={{if (eq @product.type "juguete") 'true'}}>Juguete</option>
     </select>
-    <button type="button" {{on "click" this.addProduct}}>Guardar</button>
+    <button type="button" {{on "click" (fn this.editProduct @product)}}>Guardar</button>
 </div>

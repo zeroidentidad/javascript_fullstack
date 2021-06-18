@@ -1,0 +1,9 @@
+{{page-title "Cats"}}
+
+<ul>
+    {{#each @model as |cat|}}
+    <li>
+        <p><b>Name:</b> {{cat.name}} - <b>Age:</b> {{cat.age}} - <b>Adopted:</b> {{cat.adopted}} - <b>Birthday:</b> {{cat.birthday}} - <b>Home:</b> {{cat.home.street}}</p>
+    </li>
+    {{/each}}
+</ul>

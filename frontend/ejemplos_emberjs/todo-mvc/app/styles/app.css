@@ -1,0 +1,7 @@
+:focus,
+.view label:focus,
+.todo-list li .toggle:focus + label,
+.toggle-all:focus + label {
+  /* !important needed because todomvc styles deliberately disable the outline */
+  outline: #d86f95 solid !important;
+}

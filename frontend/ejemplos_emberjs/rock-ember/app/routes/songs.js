@@ -8,7 +8,7 @@ let Song=EmberObject.extend({
 	rating: 0
 })
 
-export default class ApplicationRoute extends Route {
+export default class SongsRoute extends Route {
 	model() {
 
 		let blackDog=Song.create({

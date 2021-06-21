@@ -1,4 +1,3 @@
-/* app/styles/app.css */
 a {
 	color: inherit;
 	text-decoration: none;
@@ -43,4 +42,66 @@ a {
 
 .list > li {
 	margin-bottom: 10px;
+}
+
+:root {
+	--bright-yellow: #ffda00;
+	--navitem-link-color: var(--bright-yellow);
+}
+
+.rr-navbar {
+	position: relative;
+	min-height: 50px;
+	border: 1px solid transparent;
+}
+
+.rr-navbar > .rr-nav {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.rr-navbar-item {
+	padding: 5px;
+}
+
+.rr-navbar-item > a:hover {
+	border-bottom: 2px solid var(--navitem-link-color);
+}
+
+.rr-navbar-item > a.active {
+	color: inherit;
+	border-bottom: 2px solid var(--navitem-link-color);
+}
+
+.rr-navbar-item + .rr-navbar-item {
+	margin-left: 10px;
+}
+
+.rr-sidebar {
+float: left;
+width: calc( 100% / 3 ); /* .w-third */
+}
+
+.rr-main-panel {
+	float: left;
+	width: calc( 100% / 1.5); /* .w-two-thirds */
+}
+
+.rr-list {
+	list-style-type: none;
+}
+
+.rr-list-item {
+	margin-bottom: 10px;
+}
+
+.rr-band-link > .rr-pointer {
+	margin-left: 5px;
+	display: none;
+}
+
+.rr-band-link.active > .rr-pointer {
+	display: inline-block;
 }

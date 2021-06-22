@@ -1,7 +1,19 @@
 {{page-title "Bands"}}
 
-<ul class="list pl3">
+<div class="rr-sidebar">
+	<ul class="rr-list">
 	{{#each this.model as |band|}}
-	<li>{{band.name}}</li>
-	{{/each}}
-</ul>
+		<li class="rr-list-item">
+			{{#link-to "bands.band.songs" band class="rr-band-link"}}
+			{{band.name}}
+			<span class="rr-pointer">
+				{{fa-icon "angle-right"}}
+			</span>
+			{{/link-to}}
+		</li>
+ 	{{/each}}
+	</ul>
+</div>
+<div class="rr-main-panel">
+{{outlet}}
+</div>

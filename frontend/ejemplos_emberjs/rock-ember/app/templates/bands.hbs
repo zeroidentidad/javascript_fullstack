@@ -2,7 +2,7 @@
 
 <div class="rr-sidebar">
 	<ul class="rr-list">
-	{{#each this.model as |band|}}
+		{{#each this.model as |band|}}
 		<li class="rr-list-item">
 			{{#link-to "bands.band.songs" band class="rr-band-link"}}
 			{{band.name}}
@@ -11,9 +11,30 @@
 			</span>
 			{{/link-to}}
 		</li>
- 	{{/each}}
+		{{/each}}
 	</ul>
+	<div class="rr-new-label">
+		{{#if isAddingBand}}
+		{{input
+		type="text"
+		class="rr-input"
+		value=newBandName
+		placeholder="New band"
+		}}
+		<button type="button" class="rr-action-button" onclick={{action "saveBand" }}>
+			Add
+		</button>
+		<button class="rr-cancel-icon" onclick={{action "cancelAddBand" }}>
+			{{fa-icon "times"}}
+		</button>
+		{{else}}
+		<label onclick={{action "addBand" }}>
+			{{fa-icon "plus"}}
+			<span class="ml1">Add new band</span>
+		</label>
+		{{/if}}
+	</div>
 </div>
 <div class="rr-main-panel">
-{{outlet}}
+	{{outlet}}
 </div>

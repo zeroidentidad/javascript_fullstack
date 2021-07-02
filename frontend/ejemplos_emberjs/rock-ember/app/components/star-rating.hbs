@@ -1,0 +1,13 @@
+{{#if hasBlock}}
+    {{yield stars}}
+{{else}}
+    {{#each stars as |star|}}
+    <button class="rating-star" onclick={{action "setRating" star.rating}}>
+        {{#if star.isFull}}
+            {{fa-icon "star"}}
+        {{else}}
+            {{fa-icon "star-o"}}
+        {{/if}}
+    </button>
+    {{/each}}
+{{/if}}

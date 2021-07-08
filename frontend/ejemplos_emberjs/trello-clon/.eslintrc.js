@@ -10,7 +10,10 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember'],
+  plugins: [
+    ['ember'], 
+    ["@babel/plugin-proposal-private-methods", { "loose": true }]
+  ],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
